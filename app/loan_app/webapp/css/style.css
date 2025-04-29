@@ -1,1 +1,43 @@
 /* Enter your custom styles here */
+
+.mybuttonspacing{
+    margin-right: 20px;
+}
+
+.box{
+    background-color: #00264d !important;
+    color: white;
+    height: 1500rem;
+    
+}
+.box .sapMBarLeft,
+.box .sapMBarRight,
+.box .sapMBarMiddle,
+.box .sapMBtnInner
+ {
+    color: white !important;
+}
+.box .sapMBtnInner
+ {
+    background-color: transparent !important;
+}
+.inputField .sapMInputBaseContentWrapper {
+
+    border: none !important;
+    width: 50% !important;
+    height: 40px !important;
+    background-color: grey !important;
+    color: black !important;
+
+    padding: 10px !important;
+}
+
+.inputField .sapMInputBaseContentWrapper::placeholder {
+    color: black !important;
+    opacity: 1;
+    }
+    
+
+.formContainer{
+    margin-bottom: 25px;
+}
