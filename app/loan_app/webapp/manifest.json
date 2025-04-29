@@ -57,7 +57,6 @@
   },
   "sap.ui5": {
     "flexEnabled": false,
-    "flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.135.0",
       "libs": {
@@ -108,23 +107,23 @@
       "routes": [
         {
           "name": "Routemain",
-          "pattern": ":?query:",
+          "pattern": "",
           "target": [
             "Targetmain"
           ]
         },
         {
-          "name": "Dashboard",
-          "pattern": "Dashboard",
+          "name": "LoanStatusPage",
+          "pattern": "LoanStatusPage",
           "target": [
-            "TargetDashboard"
+            "TargetLoanStatusPage"
           ]
         },
         {
-          "name": "RouteloanApplication",
-          "pattern": "loanApplication",
+          "name": "LoanStatusDetails",
+          "pattern": "LoanStatusDetails",
           "target": [
-            "TargetloanApplication"
+            "TargetLoanStatusDetails"
           ]
         }
       ],
@@ -133,15 +132,14 @@
           "id": "main",
           "name": "main"
         },
-        "TargetDashboard": {
-          "id": "dashboard",
-          "name": "dashboard"
+        "TargetLoanStatusPage": {
+          "id": "LoanStatusPage",
+          "name": "LoanStatusPage"
         },
-        "TargetloanApplication": {
-          "id": "loanApplication",
-          "name": "loanApplication"
+        "TargetLoanStatusDetails": {
+          "id": "LoanStatusDetails",
+          "name": "LoanStatusDetails"
         }
-        
       }
     },
     "rootView": {

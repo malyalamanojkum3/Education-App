@@ -1,4 +1,7 @@
 {
+<<<<<<< HEAD
+=======
     "SAP HANA Database Explorer.ShowXsAdvancedConnections": true,
+>>>>>>> ef39fcf415debaf8e44b2bfc6bc3b7ac7b9830d6
     "SAP HANA Database Explorer.UseObjectsDefinitionForSqlGeneration.RetentionTime": 7
 }

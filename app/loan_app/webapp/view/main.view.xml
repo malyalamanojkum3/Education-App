@@ -1,11 +1,13 @@
 <mvc:View controllerName="loanapp.controller.main"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
-    <mvc:View controllerName="loanapp.controller.main"
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>Eductaional Loan}">
-   </Page>
-</mvc:View>
+    <Page id="LoginPage" title="Login" titleAlignment="Center" class="sapUiContentPadding">
+    <Label text="Enter Your Credentials" textAlign="Center" class="sapUiSmallMargin"/>
+    <Input id="emailInput" placeholder="Enter your email" type="Email"/>
+    <Input id="passwordInput" placeholder="Enter your password" type="Password"/>
+    <Button text="Login" press="onLoginPress" />
+    <Button text="Sign Up" press="onRegisterPress"/>
+    <Button text="Forgot Password" press="onForgotPasswordPress"/>
 
+    </Page>
 </mvc:View>
