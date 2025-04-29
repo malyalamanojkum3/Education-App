@@ -1,9 +1,7 @@
-<mvc:View controllerName="loanapp.controller.main"
+<mvc:View controllerName="loanapp.controller.dashboard"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
-    <mvc:View controllerName="loanapp.controller.main"
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
+    
 <Page
     id="dashboardPage"
     title="Dashboard"
@@ -27,5 +25,4 @@
     </customHeader>
     
  </Page>
-</mvc:View>
 </mvc:View>

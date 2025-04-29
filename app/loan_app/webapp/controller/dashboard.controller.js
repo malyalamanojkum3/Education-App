@@ -9,7 +9,10 @@ sap.ui.define([
         onInit: function () {
            
         },
-
+        onApplyLoan : function () {
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo("RouteloanApplication");
+        },
         onProfile: function()
         {
             var oView = this.getView();
