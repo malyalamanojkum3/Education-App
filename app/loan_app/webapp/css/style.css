@@ -21,23 +21,34 @@
  {
     background-color: transparent !important;
 }
-.inputField .sapMInputBaseContentWrapper {
+.customInput .sapMInputBaseContentWrapper {
 
     border: none !important;
-    width: 50% !important;
     height: 40px !important;
-    background-color: grey !important;
-    color: black !important;
-
+    background-color: lightgray !important;
+    color: black !important; 
     padding: 10px !important;
 }
 
-.inputField .sapMInputBaseContentWrapper::placeholder {
+
+.customInput .sapMInputBase {
+    caret-color: black !important; /* Set the cursor color */
+}
+    
+
+.customInput .sapMInputBaseContentWrapper::placeholder {
     color: black !important;
     opacity: 1;
     }
+
+
+.customMargin {
+    margin-bottom: 25px; /* Adjust the value as needed */
+}
+.mandatoryStar {
+    color: red;
+    margin-left: 5px;
+}
     
 
-.formContainer{
-    margin-bottom: 25px;
-}
+

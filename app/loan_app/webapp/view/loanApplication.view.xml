@@ -13,48 +13,118 @@
    
      
         <content>
-            <f:SimpleForm >
-            <VBox class="formContainer" >
-                <HBox class="formContainer">
-                    <VBox width="50%"> 
-                        <Input id="enterApplicantName" placeholder="Enter Applicant Name"  class="inputField"/>
-                    </VBox>
+
+            <f:SimpleForm class="center">
+            <FlexBox
+                id="LAflexbox"
+                direction="Row"
+                justifyContent="SpaceBetween"
+                fitContainer="true"
+                class="sapUiSmallMargin">
                 
-                    <VBox width="50%">
-                        <Input id="enterApplicantAddress" placeholder="Enter Applicant Address" class="inputField" />
-                    </VBox>
+            <VBox class="formContainer" width="48%" >
+                <VBox class="customMargin">
+                <HBox id="LAhbox0">
+                    <Label id="LAlabel1" text="Enter Applicant Name" class="customLabel"/>
+                    <Text id="LAtext" text="*" class="mandatoryStar" />
                 </HBox>
-                <HBox class="formContainer">
-                    <VBox width="50%">
-                        <Input id="enterApplicantMobileNo" placeholder="Enter Applicant Mobile No" class="inputField" />
-                    </VBox>
-                
-                    <VBox width="50%">
-                        <Input id="enterEmailId" placeholder="Enter Applicant Email Id" class="inputField" />
-                    </VBox>
-                </HBox>
-                <HBox class="formContainer">
-                    <VBox width="50%">
-                        <Input id="enterAadhaarNo" placeholder="Enter Aadhaar No" class="inputField" />
-                    </VBox>
-                    <VBox width="50%">
-                         <Input id="enterPanNo" placeholder="Enter PAN No" class="inputField" />
-                    </VBox>
-                </HBox>
-                <HBox class="formContainer">
-                    <VBox width="50%">
-                        <Input id="enterSalary" placeholder="Enter Salary" class="inputField" />
-                    </VBox>
-                    <VBox width="50%">
-                        <Input id="selectloantype" placeholder="Select Loan Type" class="inputField" />
-                    </VBox>
-                </HBox>
-                <HBox class="formContainer">
-                    <VBox width="50%">
-                        <Input id="enterloanamount" placeholder="Enter Loan Amount" class="inputField"/>
-                    </VBox>
-                </HBox>
+                    <Input id="enterApplicantName" placeholder="Enter Applicant Name" width="100%" class="customInput" />
                 </VBox>
+
+                <VBox class="customMargin">
+                <HBox id="LAhbox1">
+                    <Label id="LAlabel2" text="Enter Applicant Address" class="customLabel" />
+                    <Text id="LAtext1" text="*" class="mandatoryStar" />
+                </HBox>
+                    <Input id="enterApplicantAddress" placeholder="Enter Applicant Address" width="100%" class="customInput" />
+                </VBox>
+
+
+                <VBox class="customMargin">
+                <HBox id="LAhbox2">
+                    <Label id="LAlabel3" text="Enter Applicant Mobile No" class="customLabel"/>
+                    <Text id="LAtext2" text="*" class="mandatoryStar" />
+                </HBox>
+                    <Input id="enterApplicantMobileNo" placeholder="Enter Applicant Mobile No" width="100%" class="customInput"/>
+                </VBox>
+
+                <VBox class="customMargin">
+                <HBox id="LAhbox3">
+                    <Label id="LAlabel4" text="Enter Applicant Email Id" class="customLabel"/>
+                    <Text id="LAtext3" text="*" class="mandatoryStar" />
+                </HBox>
+                    <Input id="enterEmailId" placeholder="Enter Applicant Email Id" width="100%" class="customInput"/>
+                </VBox>
+
+                <VBox class="customMargin">
+                <HBox id="LAhbox4">
+                    <Label id="LAlabel5" text="Enter Aadhaar No" class="customLabel" />
+                    <Text id="LAtext4" text="*" class="mandatoryStar" />
+                </HBox>
+                    <Input id="enterAadhaarNo" placeholder="Enter Aadhaar No" width="100%" class="customInput" />
+                </VBox>
+
+
+
+                <VBox class="customMargin" id="LAbox3">
+                <VBox class="customMargin">
+                
+                
+                    <Label text="Upload Documents(Mandatory*)" class="customLabel" />
+                    <ComboBox id="selectDocumentType" width="40%" placeholder="Select Document Type" class="customInput" />
+                </VBox>
+                    <Label text="Images or Documents (Upload below 2mb)" class="customLabel"/>
+                    
+
+                    <Button id="chooseFileButton" text="Choose a file..." width="35%" class="customButton" press=".onChooseFile"/>
+                    <Button id="uploadDocumentsButton" text="Upload Documents" type="Accept" width="35%" class="customButton" press=".onUpload"/>
+
+                
+                
+                
+                </VBox>
+
+                </VBox>
+
+                <VBox id="LAbox2" width="48%">
+                
+                <VBox class="customMargin">
+                <HBox id="LAhbox5">
+                    <Label id="LAlabel6" text="Enter PAN No" class="customLabel"/>
+                    <Text id="LAtext5" text="*" class="mandatoryStar" />
+                </HBox>
+                    <Input id="enterPanNo" placeholder="Enter PAN No" width="98%" class="customInput"/>
+                </VBox>
+
+                <VBox class="customMargin">
+                <HBox id="LAhbox6">
+                    <Label id="LAlabel7" text="Enter Salary" class="customLabel"/>
+                    <Text id="LAtext6" text="*" class="mandatoryStar" />
+                </HBox>
+                    <Input id="enterSalary" placeholder="Enter Salary" width="98%" class="customInput"/>
+                </VBox>
+
+                <VBox class="customMargin">
+                <HBox id="LAhbox7">
+                    <Label id="LAlabel8" text="Select Loan Type" class="customLabel" />
+                    <Text id="LAtext7" text="*" class="mandatoryStar" />
+                </HBox>
+                    <Input id="selectloantype" placeholder="Select Loan Type" width="98%" class="customInput"/>
+                </VBox>
+
+                <VBox class="customMargin">
+                <HBox >
+                    <Label text="Enter Loan Amount" class="customLabel" />
+                    <Text text="*" class="mandatoryStar"/>
+                </HBox>
+                    <Input id="enterloanamount" placeholder="Enter Loan Amount" width="98%" class="customInput"/>
+                </VBox>
+                
+                </VBox>
+
+                
+                </FlexBox>
+                
             </f:SimpleForm>
             
         </content>
