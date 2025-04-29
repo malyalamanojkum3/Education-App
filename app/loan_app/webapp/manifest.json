@@ -57,6 +57,7 @@
   },
   "sap.ui5": {
     "flexEnabled": false,
+    "flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.135.0",
       "libs": {
@@ -113,8 +114,15 @@
           ]
         },
         {
+          "name": "Dashboard",
+          "pattern": "Dashboard",
+          "target": [
+            "TargetDashboard"
+          ]
+        },
+        {
           "name": "RouteloanApplication",
-          "pattern": ":?query:",
+          "pattern": "loanApplication",
           "target": [
             "TargetloanApplication"
           ]
@@ -124,6 +132,10 @@
         "Targetmain": {
           "id": "main",
           "name": "main"
+        },
+        "TargetDashboard": {
+          "id": "dashboard",
+          "name": "dashboard"
         },
         "TargetloanApplication": {
           "id": "loanApplication",
