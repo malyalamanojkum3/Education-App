@@ -120,6 +120,20 @@
           ]
         },
         {
+          "name": "Dashboard",
+          "pattern": "Dashboard",
+          "target": [
+            "TargetDashboard"
+          ]
+        },
+        {
+          "name": "RouteloanApplication",
+          "pattern": "loanApplication",
+          "target": [
+            "TargetloanApplication"
+          ]
+        },
+        {
           "name": "LoanStatusDetails",
           "pattern": "LoanStatusDetails",
           "target": [
@@ -139,6 +153,14 @@
         "TargetLoanStatusDetails": {
           "id": "LoanStatusDetails",
           "name": "LoanStatusDetails"
+        },
+        "TargetDashboard": {
+          "id": "dashboard",
+          "name": "dashboard"
+        },
+        "TargetloanApplication": {
+          "id": "loanApplication",
+          "name": "loanApplication"
         }
       }
     },

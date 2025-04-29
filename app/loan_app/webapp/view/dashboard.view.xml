@@ -23,6 +23,8 @@
         </contentRight>
       </Bar>
     </customHeader>
-    
+    <VBox id="contentPage">
+
+    </VBox>
  </Page>
 </mvc:View>
