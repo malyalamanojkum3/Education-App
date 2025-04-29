@@ -1,0 +1,28 @@
+<mvc:View controllerName="loanapp.controller.dashboard"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    
+<Page
+    id="dashboardPage"
+    title="Dashboard"
+    showHeader="true">
+
+    <customHeader>
+      <Bar design="Header" class="box">
+        <contentMiddle>
+          <HBox justifyContent="Center" alignItems="Center" width="100%">
+            <Button id="applybutton" text="Apply Loan" press="onApplyLoan" class="mybuttonspacing"/>
+            <Button id="loanstatus" text="Loan Status" press="onLoanStatus" class="mybuttonspacing"/>
+            <Button id="appiledloan" text="Applied Loan" press="onAppiledLoan" class="mybuttonspacing"/>
+            <Button id="loandetails" text="Loan Details" press="onLoanDetails" class="mybuttonspacing"/>
+            <Button id="profile" text="Profile" press="onProfile" class="mybuttonspacing"/>
+          </HBox>
+        </contentMiddle>
+        <contentRight>
+          <Button id="logout" text="Logout" press="onLogout" class="mybuttonspacing"/>
+        </contentRight>
+      </Bar>
+    </customHeader>
+    
+ </Page>
+</mvc:View>

@@ -5,6 +5,8 @@ sap.ui.define([
 
     return Controller.extend("loanapp.controller.main", {
         onInit() {
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo("Dashboard");
         }
     });
 });
