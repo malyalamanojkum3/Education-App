@@ -7,31 +7,78 @@ sap.ui.define([
 
     return Controller.extend("loanapp.controller.dashboard", {
         onInit: function () {
-           
-        },
-        onApplyLoan : function () {
-            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-            oRouter.navTo("RouteloanApplication");
-        },
-        onProfile: function()
-        {
-            var oView = this.getView();
-            if (!this.byID('profiledialog')) {
-                Fragment.load({
-                    id: oView.getId(),
-                    name: "loanapp.fragments.ProfileDialog"
-                    
-                }).then(function(oDialog){
-                    oView.addDependent(oDialog);
-                    oDialog.open();
-                     
-                });
-
-            }else
-            {
-                this.byID('profiledialog').open();
+            const oModel = new sap.ui.model.json.JSONModel({
+              tiles: [
+                {
+                  title: "Apply Loan",
+                  description: "Apply for new education loan",
+                  icon: "https://cdn-icons-png.flaticon.com/512/1828/1828817.png",
+                  key: "ApplyLoan"
+                },
+                {
+                  title: "Loan Status",
+                  description: "Check current status of loan",
+                  icon: "https://cdn-icons-png.flaticon.com/512/3135/3135773.png",
+                  key: "LoanStatus"
+                },
+                {
+                  title: "Profile",
+                  description: "User details and information",
+                  icon: "https://cdn-icons-png.flaticon.com/512/1077/1077063.png",
+                  key: "Profile"
+                },
+                {
+                  title: "Applied Loans",
+                  description: "Track your previous applications",
+                  icon: "https://cdn-icons-png.flaticon.com/512/943/943593.png",
+                  key: "AppliedLoan"
+                },
+                {
+                  title: "Loan Details",
+                  description: "Interest rates, EMI, tenure info",
+                  icon: "https://cdn-icons-png.flaticon.com/512/1250/1250615.png",
+                  key: "LoanDetails"
+                }
+              ]
+            });
+          
+            this.getView().setModel(oModel);
+          },
+          onTilePress: function (oEvent) {
+            const oItem = oEvent.getSource(); // the clicked GridListItem
+            const oContext = oItem.getBindingContext();
+            if (!oContext) {
+              sap.m.MessageToast.show("No binding context found");
+              return;
             }
-        }
+          
+            const key = oContext.getObject().key;
+            console.log("Pressed key:", key);
+          
+            const router = sap.ui.core.UIComponent.getRouterFor(this);
+            switch (key) {
+              case "ApplyLoan":
+                router.navTo("RouteloanApplication");
+                break;
+              case "LoanStatus":
+                router.navTo("LoanStatus");
+                break;
+              case "Profile":
+                this.onProfile();
+                break;
+              case "AppliedLoan":
+                router.navTo("AppliedLoan");
+                break;
+              case "LoanDetails":
+                router.navTo("LoanDetails");
+                break;
+              default:
+                sap.m.MessageToast.show("Unknown tile key: " + key);
+            }
+          }
+          
+        });
 
-    });    
+        
+        
 });
