@@ -17,7 +17,7 @@ type UserRole : String enum{
    loanType : String;
    applicantName :String;
    applicantAddress:String;
-   applicantMobile:String;
+   applicantPHno:String;
    applicantEmail:String;
    applicantAadhar:String;
    applicantPAN:String;

@@ -17,7 +17,7 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "/odata/v4/my/",
+        "uri": "odata/v4/my/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -74,17 +74,20 @@
         "settings": {
           "bundleName": "loanapp.i18n.i18n"
         }
-      },
-      "": {
-        "dataSource": "mainService",
-        "preload": true,
-        "settings": {
-          "operationMode": "Server",
-          "autoExpandSelect": true,
-          "earlyRequests": true
-        }
-      }
-    },
+      },"mainModel": {
+                "type": "sap.ui.model.odata.v4.ODataModel",
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "synchronizationMode": "None",
+                    "operationMode": "Server",
+                    "autoExpandSelect": true,
+                    "earlyRequests": true,
+                    "groupId": "$auto"
+
+                }
+            }
+        },
     "resources": {
       "css": [
         {
@@ -109,7 +112,8 @@
           "name": "Routemain",
           "pattern": ":?query:",
           "target": [
-            "Targetmain"
+            "Targetmain",
+            "Targetmain1"
           ]
         }
       ],
@@ -117,6 +121,10 @@
         "Targetmain": {
           "id": "main",
           "name": "main"
+        },
+        "Targetmain1": {
+          "id": "AdminAppliedLoans",
+          "name": "AdminAppliedLoans"
         }
       }
     },
