@@ -61,7 +61,7 @@ sap.ui.define([
                 router.navTo("RouteloanApplication");
                 break;
               case "LoanStatus":
-                router.navTo("LoanStatus");
+                router.navTo("LoanStatusPage");
                 break;
               case "Profile":
                 this.onProfile();
