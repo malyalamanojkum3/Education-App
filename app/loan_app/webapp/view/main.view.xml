@@ -1,8 +1,6 @@
 <mvc:View controllerName="loanapp.controller.main"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
-    <Page id="LoginPage" title="Login" titleAlignment="Center" class="sapUiContentPadding">
-    
-
+    <Page id="LoginPage" class="sapUiContentPadding">
     </Page>
 </mvc:View>

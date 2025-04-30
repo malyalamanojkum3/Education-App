@@ -4,11 +4,20 @@
 
   <Page
   id="dashboardPage"
-  title="Education Loan"
   showHeader="true"
   xmlns:f="sap.f"
   xmlns:m="sap.m"
   xmlns:core="sap.ui.core">
+
+  <customHeader>
+      <Bar design="Header" class="box">
+        <contentMiddle>
+        </contentMiddle>
+        <contentRight>
+          <Button text="Logout" press="onLogout" class="mybuttonspacing"/>
+        </contentRight>
+      </Bar>
+    </customHeader>
 
   <content>
     <f:GridList

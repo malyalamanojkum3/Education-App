@@ -5,21 +5,10 @@
     xmlns="sap.m"
     xmlns:f="sap.ui.layout.form"
     >
-    
-   
- 
- 
     <Page id="LApage" showHeader="true" enableScrolling="true" class="customPage">
      <customHeader>
       <Bar design="Header" class="box">
         <contentMiddle>
-          <HBox justifyContent="Center" alignItems="Center" width="100%">
-            <Button id="applybutton1" text="Apply Loan" press="onApplyLoan" class="mybuttonspacing"/>
-            <Button id="loanstatus1" text="Loan Status" press="onLoanStatus" class="mybuttonspacing"/>
-            <Button id="appiledloan1" text="Applied Loan" press="onAppiledLoan" class="mybuttonspacing"/>
-            <Button id="loandetails1" text="Loan Details" press="onLoanDetails" class="mybuttonspacing"/>
-            <Button id="profile1" text="Profile" press="onProfile" class="mybuttonspacing"/>
-          </HBox>
         </contentMiddle>
         <contentRight>
           <Button id="logout1" text="Logout" press="onLogout" class="mybuttonspacing"/>
@@ -39,63 +28,58 @@
                 
             <VBox class="formContainer" width="48%" >
                 <VBox class="customMargin">
-                <HBox id="LAhbox0">
-                    <Label id="LAlabel1" text="Enter Applicant Name" class="customLabel"/>
-                    <Text id="LAtext" text="*" class="mandatoryStar" />
+                <HBox  alignItems="Center">
+                    <Label id="LAlabel1" text="Enter Applicant Name" required="true"  class="customLabel"/>
+                    <Input id="enterApplicantName" placeholder="Enter Applicant Name"  liveChange=".nameValidation" class="customInput" />
                 </HBox>
-                    <Input id="enterApplicantName" placeholder="Enter Applicant Name" width="100%" class="customInput" />
                 </VBox>
 
                 <VBox class="customMargin">
-                <HBox id="LAhbox1">
-                    <Label id="LAlabel2" text="Enter Applicant Address" class="customLabel" />
-                    <Text id="LAtext1" text="*" class="mandatoryStar" />
+                <HBox alignItems="Center">
+                    <Label id="LAlabel2" text="Enter Applicant Address" required="true" class="customLabel" />
+                    <Input id="enterApplicantAddress" placeholder="Enter Applicant Address"  class="customInput" />
                 </HBox>
-                    <Input id="enterApplicantAddress" placeholder="Enter Applicant Address" width="100%" class="customInput" />
                 </VBox>
 
 
                 <VBox class="customMargin">
-                <HBox id="LAhbox2">
-                    <Label id="LAlabel3" text="Enter Applicant Mobile No" class="customLabel"/>
-                    <Text id="LAtext2" text="*" class="mandatoryStar" />
+                <HBox alignItems="Center">
+                    <Label id="LAlabel3" text="Enter Applicant Mobile No" required="true" class="customLabel"/>
+                    <Input id="enterApplicantMobileNo" placeholder="Enter Applicant Mobile No" class="customInput"/>
                 </HBox>
-                    <Input id="enterApplicantMobileNo" placeholder="Enter Applicant Mobile No" width="100%" class="customInput"/>
                 </VBox>
 
                 <VBox class="customMargin">
-                <HBox id="LAhbox3">
-                    <Label id="LAlabel4" text="Enter Applicant Email Id" class="customLabel"/>
-                    <Text id="LAtext3" text="*" class="mandatoryStar" />
-                </HBox>
-                    <Input id="enterEmailId" placeholder="Enter Applicant Email Id" width="100%" class="customInput"/>
+                <HBox alignItems="Center">
+                    <Label id="LAlabel4" text="Enter Applicant Email Id" required="true" class="customLabel"/>
+                    <Input id="enterEmailId" placeholder="Enter Applicant Email Id"  class="customInput"/>
+                    </HBox>
                 </VBox>
 
                 <VBox class="customMargin">
-                <HBox id="LAhbox4">
-                    <Label id="LAlabel5" text="Enter Aadhaar No" class="customLabel" />
-                    <Text id="LAtext4" text="*" class="mandatoryStar" />
+                <HBox alignItems="Center">
+                    <Label id="LAlabel5" text="Enter Aadhaar No" required="true" class="customLabel" />
+                    <Input id="enterAadhaarNo" placeholder="Enter Aadhaar No"  class="customInput" />
                 </HBox>
-                    <Input id="enterAadhaarNo" placeholder="Enter Aadhaar No" width="100%" class="customInput" />
                 </VBox>
 
 
 
                 <VBox class="customMargin" id="LAbox3">
                 <VBox class="customMargin">
-                
-                
-                    <Label text="Upload Documents(Mandatory*)" class="customLabel" />
-                    <ComboBox id="selectDocumentType" width="40%" placeholder="Select Document Type" class="customInput" />
+                <HBox alignItems="Center">
+                    <Label text="Upload Documents" required="true" class="customLabel" />
+                    <ComboBox id="selectDocumentType" width="100%" placeholder="Select Document Type" class="customInput" />
+                </HBox>
                 </VBox>
-                    <Label text="Images or Documents (Upload below 2mb)" class="customLabel"/>
+                <HBox alignItems="Center" >
+                    <Label text="Images or Documents (Upload below 2mb)" required="true" class="documentLabel"/>
                     
-
-                    <Button id="chooseFileButton" text="Choose a file..." width="35%" class="customButton" press=".onChooseFile"/>
-                    <Button id="uploadDocumentsButton" text="Upload Documents" type="Accept" width="35%" class="customButton" press=".onUpload"/>
-
-                
-                
+                    <VBox >
+                    <Button id="chooseFileButton" text="Choose a file..." width="100%" class="customButton" press=".onChooseFile"/>
+                    <Button id="uploadDocumentsButton" text="Upload Documents" type="Accept" width="100%" class="customButton" press=".onUpload"/>
+                    </VBox>
+                </HBox>
                 
                 </VBox>
 
@@ -104,35 +88,31 @@
                 <VBox id="LAbox2" width="48%">
                 
                 <VBox class="customMargin">
-                <HBox id="LAhbox5">
-                    <Label id="LAlabel6" text="Enter PAN No" class="customLabel"/>
-                    <Text id="LAtext5" text="*" class="mandatoryStar" />
+                <HBox alignItems="Center">
+                    <Label id="LAlabel6" text="Enter PAN No" required="true" class="customLabel"/>
+                    <Input id="enterPanNo" placeholder="Enter PAN No"  class="customInput"/>
                 </HBox>
-                    <Input id="enterPanNo" placeholder="Enter PAN No" width="98%" class="customInput"/>
                 </VBox>
 
                 <VBox class="customMargin">
-                <HBox id="LAhbox6">
-                    <Label id="LAlabel7" text="Enter Salary" class="customLabel"/>
-                    <Text id="LAtext6" text="*" class="mandatoryStar" />
+                <HBox alignItems="Center">
+                    <Label id="LAlabel7" text="Enter Salary" required="true" class="customLabel"/>
+                    <Input id="enterSalary" placeholder="Enter Salary"  class="customInput"/>
                 </HBox>
-                    <Input id="enterSalary" placeholder="Enter Salary" width="98%" class="customInput"/>
                 </VBox>
 
                 <VBox class="customMargin">
-                <HBox id="LAhbox7">
-                    <Label id="LAlabel8" text="Select Loan Type" class="customLabel" />
-                    <Text id="LAtext7" text="*" class="mandatoryStar" />
+                <HBox alignItems="Center">
+                    <Label id="LAlabel8" text="Select Loan Type" required="true" class="customLabel" />
+                    <Input id="selectloantype" placeholder="Select Loan Type"  class="customInput"/>
                 </HBox>
-                    <Input id="selectloantype" placeholder="Select Loan Type" width="98%" class="customInput"/>
                 </VBox>
 
                 <VBox class="customMargin">
-                <HBox >
-                    <Label text="Enter Loan Amount" class="customLabel" />
-                    <Text text="*" class="mandatoryStar"/>
+                <HBox alignItems="Center">
+                    <Label text="Enter Loan Amount" required="true" class="customLabel" />
+                    <Input id="enterloanamount" placeholder="Enter Loan Amount"  class="customInput"/>
                 </HBox>
-                    <Input id="enterloanamount" placeholder="Enter Loan Amount" width="98%" class="customInput"/>
                 </VBox>
                 
                 </VBox>
@@ -146,9 +126,8 @@
         <footer>
             <Toolbar id="LAtoolbar" class="sapUiSmallMargin">
                 <ToolbarSpacer id="LAtoolbarspacer" />
-                <Button id="LAbutton1" text="Submit" press=".onSubmit" type="Emphasized" class="customButton" />
-               
-                <Button id="LAbutton2" text="Cancel" press=".onCancel" type="Reject" class="customButton" />
+                <Button id="LAbutton1" text="Submit" press="onSubmit" type="Emphasized" width="10%" class="customButton" />
+                <Button id="LAbutton2" text="Clear" press="onClear" type="Reject" width="10%" class="customButton" />
                 <ToolbarSpacer id="LAtoolbarspacer1" />
             </Toolbar>
         </footer>

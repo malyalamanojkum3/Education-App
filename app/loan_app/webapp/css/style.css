@@ -21,6 +21,10 @@
  {
     background-color: transparent !important;
 }
+.customInput {
+    width: 200% !important;
+}
+/*
 .customInput .sapMInputBaseContentWrapper {
 
     border: none !important;
@@ -32,9 +36,9 @@
 
 
 .customInput .sapMInputBase {
-    caret-color: black !important; /* Set the cursor color */
+    caret-color: black !important; 
 }
-    
+    */
 
 .customInput .sapMInputBaseContentWrapper::placeholder {
     color: black !important;
@@ -87,4 +91,9 @@
     color: #555;
     margin-top: 0.5rem;
   }
-  
+   .customLabel {
+    width:180px;
+   }
+   .documentLabel{
+    margin-right: 10px;
+   }
