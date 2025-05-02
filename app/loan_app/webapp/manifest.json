@@ -56,7 +56,7 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": true,
+    "flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.135.0",
       "libs": {
@@ -110,10 +110,65 @@
       "routes": [
         {
           "name": "Routemain",
-          "pattern": ":?query:",
+          "pattern": "",
           "target": [
-            "Targetmain",
-            "Targetmain1"
+            "Targetmain"
+          ]
+        },
+        {
+          "name": "LoanStatusPage",
+          "pattern": "LoanStatusPage",
+          "target": [
+            "TargetLoanStatusPage"
+          ]
+        },
+        {
+          "name": "Dashboard",
+          "pattern": "Dashboard",
+          "target": [
+            "TargetDashboard"
+          ]
+        },
+        {
+          "name": "RouteloanApplication",
+          "pattern": "loanApplication",
+          "target": [
+            "TargetloanApplication"
+          ]
+        },
+        {
+          "name": "LoanStatusDetails",
+          "pattern": "LoanStatusDetails",
+          "target": [
+            "TargetLoanStatusDetails"
+          ]
+        },
+        {
+          "name": "LoanStatusPage",
+          "pattern": "LoanStatusPage",
+          "target": [
+            "TargetLoanStatusPage"
+          ]
+        },
+        {
+          "name": "Dashboard",
+          "pattern": "Dashboard",
+          "target": [
+            "TargetDashboard"
+          ]
+        },
+        {
+          "name": "RouteloanApplication",
+          "pattern": "loanApplication",
+          "target": [
+            "TargetloanApplication"
+          ]
+        },
+        {
+          "name": "LoanStatusDetails",
+          "pattern": "LoanStatusDetails",
+          "target": [
+            "TargetLoanStatusDetails"
           ]
         }
       ],
@@ -122,9 +177,21 @@
           "id": "main",
           "name": "main"
         },
-        "Targetmain1": {
-          "id": "AdminAppliedLoans",
-          "name": "AdminAppliedLoans"
+        "TargetLoanStatusPage": {
+          "id": "LoanStatusPage",
+          "name": "LoanStatusPage"
+        },
+        "TargetLoanStatusDetails": {
+          "id": "LoanStatusDetails",
+          "name": "LoanStatusDetails"
+        },
+        "TargetDashboard": {
+          "id": "dashboard",
+          "name": "dashboard"
+        },
+        "TargetloanApplication": {
+          "id": "loanApplication",
+          "name": "loanApplication"
         }
       }
     },

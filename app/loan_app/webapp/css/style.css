@@ -131,3 +131,101 @@ height: 100vh !important; /* Full height of the viewport */
   
       
     
+
+.mybuttonspacing{
+    margin-right: 20px;
+}
+
+.box{
+    background-color: #00264d !important;
+    color: white;
+    height: 1500rem;
+    
+}
+.box .sapMBarLeft,
+.box .sapMBarRight,
+.box .sapMBarMiddle,
+.box .sapMBtnInner
+ {
+    color: white !important;
+}
+.box .sapMBtnInner
+ {
+    background-color: transparent !important;
+}
+.customInput {
+    width: 200% !important;
+}
+/*
+.customInput .sapMInputBaseContentWrapper {
+
+    border: none !important;
+    height: 40px !important;
+    background-color: lightgray !important;
+    color: black !important; 
+    padding: 10px !important;
+}
+
+
+.customInput .sapMInputBase {
+    caret-color: black !important; 
+}
+    */
+
+.customInput .sapMInputBaseContentWrapper::placeholder {
+    color: black !important;
+    opacity: 1;
+    }
+
+
+.customMargin {
+    margin-bottom: 25px; /* Adjust the value as needed */
+}
+.mandatoryStar {
+    color: red;
+    margin-left: 5px;
+}
+    
+
+.formContainer{
+    margin-bottom: 25px;
+}
+
+.dashboardCard {
+    width: 200px;
+    height: 200px;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    text-align: center;
+    transition: transform 0.2s ease;
+  }
+  
+  .dashboardCard:hover {
+    transform: translateY(-4px);
+    cursor: pointer;
+  }
+  
+  .cardTitle {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .cardDesc {
+    font-size: 0.85rem;
+    color: #555;
+    margin-top: 0.5rem;
+  }
+   .customLabel {
+    width:180px;
+   }
+   .documentLabel{
+    margin-right: 10px;
+   }

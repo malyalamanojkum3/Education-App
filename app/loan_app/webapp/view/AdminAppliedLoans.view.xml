@@ -11,7 +11,7 @@
             <HBox id="centeredTitles" class="centeredTitles">
                 <Link id="appliedLoansTitle" text="Applied Loans" class="title hoverableTitle" press="onAppliedLoansPress"/>
                 <ToolbarSpacer id="_IDGenToolbarSpacer3" class="smallSpacer"/>
-                <Link id="LoanDetailsTitle" text="Loan Details" class="title hoverableTitle"/>
+                <Link id="LoanDetailsTitle" text="Loan Details" class="title hoverableTitle" press="onLoanDetailsPress"/>
             </HBox>
             <ToolbarSpacer id="_IDGenToolbarSpacer2" />
             <Title id="_IDGenTitle3" text="Logout" titleStyle="H4" class="title"/>

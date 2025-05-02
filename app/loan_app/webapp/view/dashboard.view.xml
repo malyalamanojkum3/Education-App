@@ -1,0 +1,46 @@
+<mvc:View controllerName="loanapp.controller.dashboard"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+  <Page
+  id="dashboardPage"
+  showHeader="true"
+  xmlns:f="sap.f"
+  xmlns:m="sap.m"
+  xmlns:core="sap.ui.core">
+
+  <customHeader>
+      <Bar design="Header" class="box">
+        <contentMiddle>
+        </contentMiddle>
+        <contentRight>
+          <Button text="Logout" press="onLogout" class="mybuttonspacing"/>
+        </contentRight>
+      </Bar>
+    </customHeader>
+
+  <content>
+    <f:GridList
+      id="gridDashboard"
+      items="{/tiles}"
+      growing="false"
+      class="sapUiMediumMargin"
+      customLayout="f:GridContainerSettings"
+      >
+
+      <f:GridListItem type="Active" press="onTilePress">
+  <VBox class="dashboardCard">
+    <m:Avatar displaySize="L" src="{icon}" fallbackIcon="sap-icon://employee" />
+    <Text text="{title}" class="cardTitle" />
+    <Text text="{description}" class="cardDesc" wrapping="true" />
+  </VBox>
+</f:GridListItem>
+
+
+    </f:GridList>
+  </content>
+</Page>
+
+
+
+</mvc:View>
