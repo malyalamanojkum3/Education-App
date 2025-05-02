@@ -116,6 +116,13 @@
           ]
         },
         {
+          "name": "dashboard",
+          "pattern": "dashboard",
+          "target": [
+            "Targetdashboard"
+          ]
+        },
+        {
           "name": "LoanStatusPage",
           "pattern": "LoanStatusPage",
           "target": [
@@ -176,6 +183,10 @@
         "Targetmain": {
           "id": "main",
           "name": "main"
+        },
+        "Targetdashboard": {
+          "id": "dashboard",
+          "name": "dashboard"
         },
         "TargetLoanStatusPage": {
           "id": "LoanStatusPage",
