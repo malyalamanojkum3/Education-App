@@ -1,6 +1,87 @@
-<mvc:View controllerName="loanapp.controller.main"
+<mvc:View xmlns:f="sap.f" xmlns:table="sap.ui.table" controllerName="loanapp.controller.LoanDetails"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
-    <Page id="page1" title="{i18n>title}">
-    </Page>
+    xmlns="sap.m"
+    displayBlock="true"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form">
+      <VBox  class="pageContainer" fitContainer="true">
+        <ScrollContainer id="scrollContainer1" height="100%" width="100%" vertical="true" visible="true">
+        <Toolbar class="mainToolBar">
+            <ToolbarSpacer />
+            <HBox id="centeredTitles1" class="centeredTitles">
+                <Title id="LoanDetails" text="Loan Details" class="title"/>
+                <ToolbarSpacer class="smallSpacer"/>
+            </HBox>
+                        <ToolbarSpacer />
+        </Toolbar>
+        
+            <Table id="loanDetails" items="{mainModel>/customerSet}" class="table">
+                <columns>
+                    <Column>
+                    </Column>
+                    <Column >
+                    </Column>
+                    <Column  >
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem class="spacedItem">
+                        <cells>
+                        <VBox class="gridRow">
+                        <HBox  >
+                            <Label  text="ID:" design="Bold" class="gridLabel"/>
+                            <Text  text="{mainModel>Id}" class="gridLabel style"/>
+                            </HBox>
+                        <HBox>
+                            <Label text="Applicant Name:" design="Bold" class="gridLabel"/>
+                            <Text text="{mainModel>applicantName}" class="gridLabel"/>
+                            </HBox>
+                            <HBox >
+                            <Label text="Applicant Address:" design="Bold" class="gridLabel"/>
+                            <Text text="{mainModel>applicantAddress}" class="gridLabel style"/>
+                            </HBox>
+                            <HBox >
+                            <Label  text="Applicant Mobile:" design="Bold" class="gridLabel"/>
+                            <Text text="{mainModel>applicantPHno}" class="gridLabel style"/>
+                            </HBox>
+                        <HBox >
+                            <Label  text="Applicant Email:" design="Bold" class="gridLabel"/>
+                            <Text  text="{mainModel>applicantEmail}" class="gridLabel "/>
+                        </HBox>
+                            </VBox>
+
+                        <VBox class="gridRow" >
+                        
+                        <HBox >
+                            <Label text="Applicant Aadhar:" design="Bold" class="gridLabel"/>
+                            <Text  text="{mainModel>applicantAadhar}" class="gridLabel style"/>
+                        </HBox>
+                        <HBox >
+                            <Label text="Applicant PAN:" design="Bold" class="gridLabel"/>
+                            <Text text="{mainModel>applicantPAN}" class="gridLabel style"/>
+                            </HBox>
+                        <HBox>
+                            <Label text="Applicant Salary:"  design="Bold" class="gridLabel"/>
+                            <Text  text="{mainModel>applicantSalary}" class="gridLabel"/>
+                        </HBox>
+                        <HBox>
+                            <Label text="Loan Amount:" design="Bold" class="gridLabel"/>
+                            <Text text="{mainModel>loanAmount}" class="gridLabel style"/>
+                        </HBox>
+                        <HBox>
+                            <Label  text="Loan Repayment Months:" design="Bold" class="gridLabel"/>
+                            <Text  text="{mainModel>loanRepaymentMonths}" class="gridLabel style"/>
+                        </HBox>
+                        </VBox>
+                        <VBox>
+                        <HBox>
+                        <Text text="{mainModel>loanStatus}" class="gridLabel style"/>
+                        </HBox>
+                        </VBox>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </ScrollContainer>
+    </VBox>
 </mvc:View>

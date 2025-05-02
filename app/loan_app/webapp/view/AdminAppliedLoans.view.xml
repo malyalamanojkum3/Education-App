@@ -6,18 +6,15 @@
     xmlns:form="sap.ui.layout.form">
 
     <VBox id="_IDGenVBox" class="pageContainer" fitContainer="true">
-        <Toolbar id="_IDGenToolbar" height="3rem" class="mainToolBar">
+        <ScrollContainer id="scrollContainer" height="100%" width="100%" vertical="true" visible="true">
+        <Toolbar id="_IDGenToolbar" height="2rem" class="mainToolBar">
             <ToolbarSpacer id="_IDGenToolbarSpacer1"/>
             <HBox id="centeredTitles" class="centeredTitles">
-                <Link id="appliedLoansTitle" text="Applied Loans" class="title hoverableTitle" press="onAppliedLoansPress"/>
-                <ToolbarSpacer id="_IDGenToolbarSpacer3" class="smallSpacer"/>
-                <Link id="LoanDetailsTitle" text="Loan Details" class="title hoverableTitle" press="onLoanDetailsPress"/>
+                <Title id="appliedLoansTitle" text="Applied Loans" class="title" />
             </HBox>
             <ToolbarSpacer id="_IDGenToolbarSpacer2" />
-            <Title id="_IDGenTitle3" text="Logout" titleStyle="H4" class="title"/>
         </Toolbar>
         
-        <ScrollContainer id="scrollContainer" height="100%" width="100%" vertical="true" visible="false">
             <Table id="loanList" items="{mainModel>/customerSet}" class="table">
                 <columns>
                     <Column id="_IDGenColumn">

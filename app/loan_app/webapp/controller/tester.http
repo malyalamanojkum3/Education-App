@@ -1,0 +1,22 @@
+###getting data
+
+GET http://localhost:4004/odata/v4/my/customerSet
+
+
+###getting data
+
+GET http://localhost:4004/odata/v4/my/customerSet/123e4567-e89b-12d3-a456-426614174000
+###updating the loan details
+
+PATCH http://localhost:4004/odata/v4/my/customerSet/345e6789-e89b-12d3-a456-426614174002
+Content-Type: application/json
+
+
+{
+   "loanStatus" : "Approved"
+}
+
+
+###deleting data
+
+DELETE  http://localhost:4004/odata/v4/my/customerSet/123e4567-e89b-12d3-a456-426614174001

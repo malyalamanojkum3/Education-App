@@ -74,20 +74,20 @@
         "settings": {
           "bundleName": "loanapp.i18n.i18n"
         }
-      },"mainModel": {
-                "type": "sap.ui.model.odata.v4.ODataModel",
-                "dataSource": "mainService",
-                "preload": true,
-                "settings": {
-                    "synchronizationMode": "None",
-                    "operationMode": "Server",
-                    "autoExpandSelect": true,
-                    "earlyRequests": true,
-                    "groupId": "$auto"
-
-                }
-            }
-        },
+      },
+      "mainModel": {
+        "type": "sap.ui.model.odata.v4.ODataModel",
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true,
+          "groupId": "$auto"
+        }
+      }
+    },
     "resources": {
       "css": [
         {
@@ -137,31 +137,10 @@
           ]
         },
         {
-          "name": "LoanStatusDetails",
-          "pattern": "LoanStatusDetails",
+          "name": "AdminAppliedLoans",
+          "pattern": "AdminAppliedLoans",
           "target": [
-            "TargetLoanStatusDetails"
-          ]
-        },
-        {
-          "name": "LoanStatusPage",
-          "pattern": "LoanStatusPage",
-          "target": [
-            "TargetLoanStatusPage"
-          ]
-        },
-        {
-          "name": "Dashboard",
-          "pattern": "Dashboard",
-          "target": [
-            "TargetDashboard"
-          ]
-        },
-        {
-          "name": "RouteloanApplication",
-          "pattern": "loanApplication",
-          "target": [
-            "TargetloanApplication"
+            "TargetAdminAppliedLoans"
           ]
         },
         {
@@ -169,6 +148,13 @@
           "pattern": "LoanStatusDetails",
           "target": [
             "TargetLoanStatusDetails"
+          ]
+        },
+        {
+          "name": "LoanDetails",
+          "pattern": "LoanDetails",
+          "target":[
+            "TargetLoanDetails"
           ]
         }
       ],
@@ -189,9 +175,18 @@
           "id": "dashboard",
           "name": "dashboard"
         },
+        "TargetAdminAppliedLoans": {
+          "id": "AdminAppliedLoans",
+          "name": "AdminAppliedLoans"
+          
+        },
         "TargetloanApplication": {
           "id": "loanApplication",
           "name": "loanApplication"
+        },
+        "TargetLoanDetails":{
+          "id": "LoanDetails",
+          "name": "LoanDetails"
         }
       }
     },
