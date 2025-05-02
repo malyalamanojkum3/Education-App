@@ -22,7 +22,7 @@ type LoanStatus : String enum{
    loanStatus : LoanStatus;
    applicantName :String;
    applicantAddress:String;
-   applicantMobile:String;
+   applicantPHno:String;
    applicantEmail:String;
    applicantAadhar:String;
    applicantPAN:String;

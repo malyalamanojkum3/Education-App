@@ -1,0 +1,7 @@
+Id,applicantName,applicantAddress,applicantPHno,applicantEmail,applicantAadhar,applicantPAN,applicantSalary,loanAmount,loanRepaymentMonths
+1,John Doe,123 Main St,555-1234,john.doe@example.com,1234-5678-9012,ABCDE1234F,50000,1000000,240
+2,Jane Smith,456 Elm St,555-5678,jane.smith@example.com,2345-6789-0123,BCDEF2345G,40000,500000,60
+3,Robert Brown,789 Oak St,555-9012,robert.brown@example.com,3456-7890-1234,CDEFG3456H,60000,200000,36
+4,Emily Davis,101 Pine St,555-3456,emily.davis@example.com,4567-8901-2345,DEFGH4567I,30000,300000,120
+5,Michael Wilson,202 Maple St,555-6789,michael.wilson@example.com,5678-9012-3456,EFGHI5678J,70000,1500000,180
+6,Michael William,202 Maple St,555-6789,michael.wilson@example.com,5678-9012-3457,EFGHI5678J,70000,1500000,200
