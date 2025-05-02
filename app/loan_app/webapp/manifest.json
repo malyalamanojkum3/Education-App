@@ -61,7 +61,8 @@
       "minUI5Version": "1.135.0",
       "libs": {
         "sap.m": {},
-        "sap.ui.core": {}
+        "sap.ui.core": {},
+        "sap.f":{}
       }
     },
     "contentDensities": {
@@ -139,6 +140,13 @@
           "target": [
             "TargetLoanStatusDetails"
           ]
+        },
+        {
+          "name": "Profile",
+          "pattern": "Profile",
+          "target": [
+            "TargetProfile"
+          ]
         }
       ],
       "targets": {
@@ -161,6 +169,10 @@
         "TargetloanApplication": {
           "id": "loanApplication",
           "name": "loanApplication"
+        },
+        "TargetProfile":{
+          "id": "profile",
+          "name": "profile"
         }
       }
     },

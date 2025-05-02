@@ -12,17 +12,14 @@
     <Page id="LApage" showHeader="true" enableScrolling="true" class="customPage">
      <customHeader>
       <Bar design="Header" class="box">
+      <contentLeft>
+      <Button id="homeLA" text="Home" press="onHome" class="mybuttonspacing"></Button>
+      </contentLeft>
         <contentMiddle>
-          <HBox justifyContent="Center" alignItems="Center" width="100%">
-            <Button id="applybutton1" text="Apply Loan" press="onApplyLoan" class="mybuttonspacing"/>
-            <Button id="loanstatus1" text="Loan Status" press="onLoanStatus" class="mybuttonspacing"/>
-            <Button id="appiledloan1" text="Applied Loan" press="onAppiledLoan" class="mybuttonspacing"/>
-            <Button id="loandetails1" text="Loan Details" press="onLoanDetails" class="mybuttonspacing"/>
-            <Button id="profile1" text="Profile" press="onProfile" class="mybuttonspacing"/>
-          </HBox>
+        <Title text="Education Loan" class="headerTitleCentered" />
         </contentMiddle>
         <contentRight>
-          <Button id="logout1" text="Logout" press="onLogout" class="mybuttonspacing"/>
+          <Button id="logoutLA" text="Logout" press="onLogout" class="mybuttonspacing" />
         </contentRight>
       </Bar>
     </customHeader>
