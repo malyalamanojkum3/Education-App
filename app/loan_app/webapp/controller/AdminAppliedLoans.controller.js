@@ -1,8 +1,7 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/core/Fragment",
     "sap/ui/model/odata/v4/ODataModel"
-], function (Controller, Fragment, ODataModel) {
+], function (Controller, ODataModel) {
     "use strict";
 
     return Controller.extend("loanapp.controller.AdminAppliedLoans", {
