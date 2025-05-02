@@ -68,7 +68,7 @@ sap.ui.define([
           router.navTo("Profile");
           break;
         case "AppliedLoan":
-          router.navTo("");
+          router.navTo("AdminAppliedLoans");
           break;
         case "LoanDetails":
           router.navTo("");

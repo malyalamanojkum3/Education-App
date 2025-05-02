@@ -131,13 +131,6 @@
           ]
         },
         {
-          "name": "Dashboard",
-          "pattern": "Dashboard",
-          "target": [
-            "TargetDashboard"
-          ]
-        },
-        {
           "name": "RouteloanApplication",
           "pattern": "loanApplication",
           "target": [
@@ -152,31 +145,10 @@
           ]
         },
         {
-          "name": "LoanStatusPage",
-          "pattern": "LoanStatusPage",
-          "target": [
-            "TargetLoanStatusPage"
-          ]
-        },
-        {
-          "name": "Dashboard",
-          "pattern": "Dashboard",
-          "target": [
-            "TargetDashboard"
-          ]
-        },
-        {
-          "name": "RouteloanApplication",
-          "pattern": "loanApplication",
-          "target": [
-            "TargetloanApplication"
-          ]
-        },
-        {
-          "name": "LoanStatusDetails",
-          "pattern": "LoanStatusDetails",
-          "target": [
-            "TargetLoanStatusDetails"
+          "name": "AdminAppliedLoans",
+          "pattern":"AdminAppliedLoans",
+          "target":[
+            "TargetAdminAppliedLoans"
           ]
         },
         {
@@ -204,13 +176,13 @@
           "id": "LoanStatusDetails",
           "name": "LoanStatusDetails"
         },
-        "TargetDashboard": {
-          "id": "dashboard",
-          "name": "dashboard"
-        },
         "TargetloanApplication": {
           "id": "loanApplication",
           "name": "loanApplication"
+        },
+        "TargetAdminAppliedLoans": {
+          "id":"AdminAppliedLoans",
+          "name":"AdminAppliedLoans"
         },
         "TargetProfile":{
           "id": "profile",

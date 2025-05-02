@@ -25,7 +25,7 @@ sap.ui.define([
       onLogout: function () {
         
         var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-        oRouter.navTo("Dashboard");
+        oRouter.navTo("dashboard");
         MessageToast.show("Logged out!");
         
   
@@ -33,7 +33,7 @@ sap.ui.define([
       },
       onHome: function () {
         var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-        oRouter.navTo("Dashboard");
+        oRouter.navTo("dashboard");
         MessageToast.show("Returned Home");
         
       }
