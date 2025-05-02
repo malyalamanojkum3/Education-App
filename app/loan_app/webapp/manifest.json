@@ -17,7 +17,7 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "/odata/v4/my/",
+        "uri": "odata/v4/my/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -75,17 +75,20 @@
         "settings": {
           "bundleName": "loanapp.i18n.i18n"
         }
-      },
-      "": {
-        "dataSource": "mainService",
-        "preload": true,
-        "settings": {
-          "operationMode": "Server",
-          "autoExpandSelect": true,
-          "earlyRequests": true
-        }
-      }
-    },
+      },"mainModel": {
+                "type": "sap.ui.model.odata.v4.ODataModel",
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "synchronizationMode": "None",
+                    "operationMode": "Server",
+                    "autoExpandSelect": true,
+                    "earlyRequests": true,
+                    "groupId": "$auto"
+
+                }
+            }
+        },
     "resources": {
       "css": [
         {
@@ -111,6 +114,41 @@
           "pattern": "",
           "target": [
             "Targetmain"
+          ]
+        },
+        {
+          "name": "dashboard",
+          "pattern": "dashboard",
+          "target": [
+            "Targetdashboard"
+          ]
+        },
+        {
+          "name": "LoanStatusPage",
+          "pattern": "LoanStatusPage",
+          "target": [
+            "TargetLoanStatusPage"
+          ]
+        },
+        {
+          "name": "Dashboard",
+          "pattern": "Dashboard",
+          "target": [
+            "TargetDashboard"
+          ]
+        },
+        {
+          "name": "RouteloanApplication",
+          "pattern": "loanApplication",
+          "target": [
+            "TargetloanApplication"
+          ]
+        },
+        {
+          "name": "LoanStatusDetails",
+          "pattern": "LoanStatusDetails",
+          "target": [
+            "TargetLoanStatusDetails"
           ]
         },
         {
@@ -153,6 +191,10 @@
         "Targetmain": {
           "id": "main",
           "name": "main"
+        },
+        "Targetdashboard": {
+          "id": "dashboard",
+          "name": "dashboard"
         },
         "TargetLoanStatusPage": {
           "id": "LoanStatusPage",

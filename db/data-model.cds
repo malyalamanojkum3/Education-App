@@ -4,6 +4,11 @@ type UserRole : String enum{
    admin;
    customer
 }
+type LoanStatus : String enum{
+   Pending;
+   Approved;
+   Rejected;
+}
  entity userDetails{
     key Id : Integer;
     email : String;
@@ -14,10 +19,10 @@ type UserRole : String enum{
  }
  entity loanDetails{
    key Id: UUID;
-   loanType : String;
+   loanStatus : LoanStatus;
    applicantName :String;
    applicantAddress:String;
-   applicantMobile:String;
+   applicantPHno:String;
    applicantEmail:String;
    applicantAadhar:String;
    applicantPAN:String;

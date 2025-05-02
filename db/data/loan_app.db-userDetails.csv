@@ -1,0 +1,6 @@
+Id,email,password,username,mobileNumber,userRole
+1,john.doe@example.com,password123,johndoe,9876543119,admin
+2,jane.smith@example.com,securePass456,janesmith,8765432018,customer
+3,alice.jones@example.com,alicePass789,alicejones,7654321007,customer
+4,bob.brown@example.com,bobSecure101,bobbrown,6543210896,admin
+5,charlie.davis@example.com,charliePass202,charliedavis,5432109785,customer

@@ -29,7 +29,7 @@
                     <Text text="Please enter your details below to track your loan application."/>
                     <Label width="150%"/>
                     <Input id="12345678" placeholder="Enter ID" textAlign="Center" required="false"/>
-                    <Button text="Track" press="onLoanStatusDetailsButton"/>
+                    <Button text="Track" press="onLoanStatusDetailsButton" class="PageButton"/>
                 </VBox>
             </Page>
 
