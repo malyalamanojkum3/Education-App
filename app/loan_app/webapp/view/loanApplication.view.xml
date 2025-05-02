@@ -3,6 +3,7 @@
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
+    xmlns:core="sap.ui.core"
     xmlns:f="sap.ui.layout.form"
     >
     <Page id="LApage" showHeader="true" enableScrolling="true" class="customPage">
@@ -44,22 +45,22 @@
 
                 <VBox class="customMargin">
                 <HBox alignItems="Center">
-                    <Label id="LAlabel3" text="Enter Applicant Mobile No" required="true" class="customLabel"/>
-                    <Input id="enterApplicantMobileNo" placeholder="Enter Applicant Mobile No" class="customInput"/>
+                    <Label id="LAlabel3" text="Enter Applicant Mobile No"  required="true" class="customLabel"/>
+                    <Input id="enterApplicantMobileNo" placeholder="Enter Applicant Mobile No" liveChange="numValidation" class="customInput"/>
                 </HBox>
                 </VBox>
 
                 <VBox class="customMargin">
                 <HBox alignItems="Center">
                     <Label id="LAlabel4" text="Enter Applicant Email Id" required="true" class="customLabel"/>
-                    <Input id="enterEmailId" placeholder="Enter Applicant Email Id"  class="customInput"/>
+                    <Input id="enterEmailId" placeholder="Enter Applicant Email Id" liveChange="emailValidation" class="customInput"/>
                     </HBox>
                 </VBox>
 
                 <VBox class="customMargin">
                 <HBox alignItems="Center">
                     <Label id="LAlabel5" text="Enter Aadhaar No" required="true" class="customLabel" />
-                    <Input id="enterAadhaarNo" placeholder="Enter Aadhaar No"  class="customInput" />
+                    <Input id="enterAadhaarNo" placeholder="Enter Aadhaar No" liveChange="aadhaarValidation"  class="customInput" />
                 </HBox>
                 </VBox>
 
@@ -69,7 +70,13 @@
                 <VBox class="customMargin">
                 <HBox alignItems="Center">
                     <Label text="Upload Documents" required="true" class="customLabel" />
-                    <ComboBox id="selectDocumentType" width="100%" placeholder="Select Document Type" class="customInput" />
+                    <ComboBox id="selectDocumentType" width="100%" placeholder="Select Document Type" class="customInput" >
+                    <items>
+                    <core:ListItem text="JPEG" />
+                    <core:ListItem text="JPG" />
+                    <core:ListItem text="PDF" />
+                    </items>                   
+                    </ComboBox>
                 </HBox>
                 </VBox>
                 <HBox alignItems="Center" >
@@ -80,9 +87,7 @@
                     <Button id="uploadDocumentsButton" text="Upload Documents" type="Accept" width="100%" class="customButton" press=".onUpload"/>
                     </VBox>
                 </HBox>
-                
                 </VBox>
-
                 </VBox>
 
                 <VBox id="LAbox2" width="48%">
@@ -90,28 +95,28 @@
                 <VBox class="customMargin">
                 <HBox alignItems="Center">
                     <Label id="LAlabel6" text="Enter PAN No" required="true" class="customLabel"/>
-                    <Input id="enterPanNo" placeholder="Enter PAN No"  class="customInput"/>
+                    <Input id="enterPanNo" placeholder="Enter PAN No" liveChange="panValidation" class="customInput"/>
                 </HBox>
                 </VBox>
 
                 <VBox class="customMargin">
                 <HBox alignItems="Center">
                     <Label id="LAlabel7" text="Enter Salary" required="true" class="customLabel"/>
-                    <Input id="enterSalary" placeholder="Enter Salary"  class="customInput"/>
-                </HBox>
-                </VBox>
-
-                <VBox class="customMargin">
-                <HBox alignItems="Center">
-                    <Label id="LAlabel8" text="Select Loan Type" required="true" class="customLabel" />
-                    <Input id="selectloantype" placeholder="Select Loan Type"  class="customInput"/>
+                    <Input id="enterSalary" placeholder="Enter Salary" liveChange="salaryValidation"  class="customInput"/>
                 </HBox>
                 </VBox>
 
                 <VBox class="customMargin">
                 <HBox alignItems="Center">
                     <Label text="Enter Loan Amount" required="true" class="customLabel" />
-                    <Input id="enterloanamount" placeholder="Enter Loan Amount"  class="customInput"/>
+                    <Input id="enterloanamount" placeholder="Enter Loan Amount" liveChange="loanamountValidation"  class="customInput"/>
+                </HBox>
+                </VBox>
+
+                <VBox class="customMargin">
+                <HBox alignItems="Center">
+                    <Label id="LAlabel8" text="Enter Repayment Months" required="true" class="customLabel" />
+                    <Input id="enterloanrepaymentmonths" placeholder="Enter Loan Repayment Months" liveChange="repayValidation"  class="customInput"/>
                 </HBox>
                 </VBox>
                 
