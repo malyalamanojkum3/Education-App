@@ -21,6 +21,13 @@
       </Bar>
       
     </customHeader>
+    <content>
+    <Bar>
+    <contentLeft >
+    <Text text="Profile Information" class="subHeader" />
+    </contentLeft>
+    </Bar>
+    </content>
         <content>
         <VBox class="profileWrapper" >
           <Panel headerText="Profile Information"  class="profilepanelheader sapUiResponsiveMargin" expandable="false">

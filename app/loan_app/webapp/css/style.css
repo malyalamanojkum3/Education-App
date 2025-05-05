@@ -289,3 +289,11 @@ text-align: center !important;
   
   color: white;
 }
+/* === Common classes === */
+.subHeader{
+  font-size: 20px;
+  color:#0070f2;
+  font-weight: bold;
+  margin-left: 20px;
+  margin-top: 5px;
+}

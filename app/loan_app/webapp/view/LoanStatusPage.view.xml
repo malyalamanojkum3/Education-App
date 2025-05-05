@@ -6,10 +6,9 @@
     xmlns="sap.m">
 
     
-    <Shell>
       
-            <Page id="LoanStatusPage" title="Track Your Loan Application" titleLevel="H2" titleAlignment="Center" class="sapUiContentPadding">
-            <customHeader>
+    <Page id="LoanStatusPage" showHeader="true" enableScrolling="true" class="customPage">
+    <customHeader>
       <Bar design="Header" class="box">
        <contentLeft>
        <Button id="homels" text="Home" press="onHome" class="mybuttonspacing"></Button>
@@ -23,6 +22,13 @@
       </Bar>
       
     </customHeader>
+    <content>
+    <Bar>
+    <contentLeft >
+    <Text text="Loan Status" class="subHeader" />
+    </contentLeft>
+    </Bar>
+    </content>
                 <VBox class="sapUiSmallMargin" justifyContent="Center" alignItems="Center" height="70%">
                     <Image src="images/loanstatus.png" width="350px" height="200px" class="sapUiSmallMarginBottom" />
                     <Label text="Welcome to the Loan Tracking Application" design="Bold" textAlign="Center"/>
@@ -116,5 +122,5 @@
 	</VBox> 
     </Page>
 -->
-    </Shell>
+
 </mvc:View>

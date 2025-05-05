@@ -18,6 +18,13 @@
         </contentRight>
       </Bar>
     </customHeader>
+    <content>
+    <Bar>
+    <contentLeft >
+    <Text text="Loan Details" class="subHeader" />
+    </contentLeft>
+    </Bar>
+    </content>
       <VBox  class="pageContainer" fitContainer="true">
         <ScrollContainer id="scrollContainer1" height="100%" width="100%" vertical="true" visible="true">
         

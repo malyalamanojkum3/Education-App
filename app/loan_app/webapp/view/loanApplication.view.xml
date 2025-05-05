@@ -21,6 +21,14 @@
       </Bar>
     </customHeader>
     
+    <content>
+    <Bar>
+    <contentLeft >
+    <Text text="Application Form" class="subHeader" />
+    </contentLeft>
+    </Bar>
+    </content>
+    
      
         <content>
 

@@ -18,6 +18,13 @@
         </contentRight>
       </Bar>
     </customHeader>
+    <content>
+    <Bar>
+    <contentLeft >
+    <Text text="Applied Loans" class="subHeader" />
+    </contentLeft>
+    </Bar>
+    </content>
     <VBox id="_IDGenVBox" class="pageContainer" fitContainer="true">
         <ScrollContainer id="scrollContainer" height="100%" width="100%" vertical="true" visible="true">
             <Table id="loanList" items="{mainModel>/customerSet}" class="table">
