@@ -103,15 +103,14 @@ height: 100vh !important; /* Full height of the viewport */
 }
 .customerDetails{
   padding: 5px;
-  margin: 2.5px;
-  font-weight: 200;
-  font-size: large;
-  background-color: #f8f7f7;
+  margin: 1px;
+  background-color: #ffffff;
+  
 }
+  
 
 .font{
   font-size: small;
-  font-weight: 100;
   color: black;
 }
   

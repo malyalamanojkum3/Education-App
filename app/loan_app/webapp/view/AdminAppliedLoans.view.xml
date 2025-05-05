@@ -51,50 +51,60 @@
             </Table>
         </ScrollContainer>
     </VBox>
-    <Dialog id="customerDetailsDialog" title="Customer Details" class="customerDetails">
+    <Dialog id="customerDetailsDialog" title="CUSTOMER DETAILS" >
         <content>
-            <VBox id="_IDGenVBox1">
-            <HBox id="_IDGenHBox21" class="customerDetails">
-                    <Label id="_IDGenLabel21" text="ID:" design="Bold" class="font" />
-                    <Text id="_IDGenText71" text="{mainModel>Id}" class="font"/>
+        <HBox>
+            <VBox>
+            <HBox class="customerDetails">
+                    <Label text="ID:" design="Bold" class="font" />
+                    <Text text="{mainModel>Id}" class="font"/>
                 </HBox>
-                <HBox id="_IDGenHBox211" class="customerDetails">
-                    <Label id="_IDGenLabel11" text="Applicant Name:" design="Bold" class="font" />
-                    <Text id="_IDGenText711" text="{mainModel>applicantName}" class="font"/>
+                <HBox  class="customerDetails">
+                    <Label  text="Applicant Name:" design="Bold" class="font" />
+                    <Text text="{mainModel>applicantName}" class="font"/>
                 </HBox>
-                <HBox id="_IDGenHBox2" class="customerDetails">
-                    <Label id="_IDGenLabel" text="Applicant Address:" design="Bold" class="font"/>
-                    <Text id="_IDGenText7" text="{mainModel>applicantAddress}" class="font" />
+                </VBox>
+                <VBox>
+                <HBox  class="customerDetails">
+                    <Label  text="Applicant Address:" design="Bold" class="font"/>
+                    <Text  text="{mainModel>applicantAddress}" class="font" />
                 </HBox>
-                <HBox id="_IDGenHBox3" class="customerDetails">
-                    <Label id="_IDGenLabel1" text="Applicant Mobile:" design="Bold" class="font" />
-                    <Text id="_IDGenText8" text="{mainModel>applicantPHno}" class="font" />
+                <HBox class="customerDetails">
+                    <Label text="Applicant Mobile:" design="Bold" class="font" />
+                    <Text text="{mainModel>applicantPHno}" class="font" />
                 </HBox>
-                <HBox id="_IDGenHBox4" class="customerDetails">
-                    <Label id="_IDGenLabel2" text="Applicant Email:" design="Bold" class="font"/>
-                    <Text id="_IDGenText9" text="{mainModel>applicantEmail}" class="font"/>
+                </VBox>
+                <VBox>
+                <HBox  class="customerDetails">
+                    <Label  text="Applicant Email:" design="Bold" class="font"/>
+                    <Text  text="{mainModel>applicantEmail}" class="font"/>
                 </HBox>
-                <HBox id="_IDGenHBox5" class="customerDetails">
-                    <Label id="_IDGenLabel3" text="Applicant Aadhar:" design="Bold" class="font" />
-                    <Text id="_IDGenText10" text="{mainModel>applicantAadhar}" class="font"/>
+                <HBox class="customerDetails">
+                    <Label text="Applicant Aadhar:" design="Bold" class="font" />
+                    <Text text="{mainModel>applicantAadhar}" class="font"/>
                 </HBox>
-                <HBox id="_IDGenHBox6" class="customerDetails">
-                    <Label id="_IDGenLabel4" text="Applicant PAN:" design="Bold" class="font" />
-                    <Text id="_IDGenText11" text="{mainModel>applicantPAN}" class="font"/>
+                </VBox>
+                <VBox>
+                <HBox class="customerDetails">
+                    <Label text="Applicant PAN:" design="Bold" class="font" />
+                    <Text text="{mainModel>applicantPAN}" class="font"/>
                 </HBox>
-                <HBox id="_IDGenHBox7" class="customerDetails">
-                    <Label id="_IDGenLabel5" text="Applicant Salary:" design="Bold" class="font"/>
-                    <Text id="_IDGenText12" text="{mainModel>applicantSalary}" class="font" />
+                <HBox class="customerDetails">
+                    <Label text="Applicant Salary:" design="Bold" class="font"/>
+                    <Text text="{mainModel>applicantSalary}" class="font" />
                 </HBox>
-                <HBox id="_IDGenHBox8" class="customerDetails">
-                    <Label id="_IDGenLabel6" text="Loan Amount:" design="Bold" class="font" />
-                    <Text id="_IDGenText13" text="{mainModel>loanAmount}" class="font"/>
+                </VBox>
+                <VBox>
+                <HBox class="customerDetails">
+                    <Label text="Loan Repayment Months:" design="Bold" class="font"/>
+                    <Text text="{mainModel>loanRepaymentMonths}" class="font" />
                 </HBox>
-                <HBox id="_IDGenHBox9" class="customerDetails">
-                    <Label id="_IDGenLabel7" text="Loan Repayment Months:" design="Bold" class="font"/>
-                    <Text id="_IDGenText14" text="{mainModel>loanRepaymentMonths}" class="font" />
+                <HBox class="customerDetails">
+                    <Label text="Loan Amount:" design="Bold" class="font" />
+                    <Text text="{mainModel>loanAmount}" class="font"/>
                 </HBox>
-            </VBox>
+                </VBox>
+                </HBox>
         </content>
         <endButton>
             <Button id="_IDGenButton" text="Close" press="onCloseDialog" />

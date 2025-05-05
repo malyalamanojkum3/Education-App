@@ -69,7 +69,7 @@
                             <Text text="{mainModel>loanAmount}" class="gridLabel style"/>
                         </HBox>
                         <HBox>
-                            <Label  text="Loan Repayment Months:" design="Bold" class="gridLabel"/>
+                            <Label  text="Repayment Months:" design="Bold" class="gridLabel"/>
                             <Text  text="{mainModel>loanRepaymentMonths}" class="gridLabel style"/>
                         </HBox>
                         </VBox>
