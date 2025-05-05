@@ -1,0 +1,4 @@
+Id,loanStatus,applicantName,applicantAddress,applicantPHno,applicantEmail,applicantAadhar,applicantPAN,applicantSalary,loanAmount,loanRepaymentMonths
+123e4567-e89b-12d3-a456-426614174000,Approved,John Doe,123 Main St-Bengaluru-Karnataka-India,9876543210,johndoe@example.com,1234-5678-9012,ABCDE1234F,75000,500000,60
+234e5678-e89b-12d3-a456-426614174001,Pending,Jane Smith,456 Elm St-Mumbai-Maharashtra-India,8765432109,janesmith@example.com,2345-6789-0123,BCDEF2345G,65000,300000,48
+345e6789-e89b-12d3-a456-426614174002,Rejected,Robert Brown,789 Oak St-Delhi-India,7654321098,robertbrown@example.com,3456-7890-1234,CDEFG3456H,55000,200000,36

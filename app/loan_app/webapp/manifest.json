@@ -17,7 +17,7 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "/odata/v4/my/",
+        "uri": "odata/v4/my/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -61,7 +61,8 @@
       "minUI5Version": "1.135.0",
       "libs": {
         "sap.m": {},
-        "sap.ui.core": {}
+        "sap.ui.core": {},
+        "sap.f":{}
       }
     },
     "contentDensities": {
@@ -75,13 +76,16 @@
           "bundleName": "loanapp.i18n.i18n"
         }
       },
-      "": {
+      "mainModel": {
+        "type": "sap.ui.model.odata.v4.ODataModel",
         "dataSource": "mainService",
         "preload": true,
         "settings": {
+          "synchronizationMode": "None",
           "operationMode": "Server",
           "autoExpandSelect": true,
-          "earlyRequests": true
+          "earlyRequests": true,
+          "groupId": "$auto"
         }
       }
     },
@@ -113,10 +117,24 @@
           ]
         },
         {
+          "name": "dashboard",
+          "pattern": "dashboard",
+          "target": [
+            "Targetdashboard"
+          ]
+        },
+        {
           "name": "LoanStatusPage",
           "pattern": "LoanStatusPage",
           "target": [
             "TargetLoanStatusPage"
+          ]
+        },
+        {
+          "name": "RouteloanApplication",
+          "pattern": "loanApplication",
+          "target": [
+            "TargetloanApplication"
           ]
         },
         {
@@ -125,12 +143,37 @@
           "target": [
             "TargetLoanStatusDetails"
           ]
+        },
+        {
+          "name": "AdminAppliedLoans",
+          "pattern":"AdminAppliedLoans",
+          "target":[
+            "TargetAdminAppliedLoans"
+          ]
+        },
+        {
+          "name": "Profile",
+          "pattern": "Profile",
+          "target": [
+            "TargetProfile"
+          ]
+        },
+        {
+          "name": "LoanDetails",
+          "pattern": "LoanDetails",
+          "target":[
+            "TargetLoanDetails"
+          ]
         }
       ],
       "targets": {
         "Targetmain": {
           "id": "main",
           "name": "main"
+        },
+        "Targetdashboard": {
+          "id": "dashboard",
+          "name": "dashboard"
         },
         "TargetLoanStatusPage": {
           "id": "LoanStatusPage",
@@ -139,6 +182,22 @@
         "TargetLoanStatusDetails": {
           "id": "LoanStatusDetails",
           "name": "LoanStatusDetails"
+        },
+        "TargetloanApplication": {
+          "id": "loanApplication",
+          "name": "loanApplication"
+        },
+        "TargetLoanDetails":{
+          "id": "LoanDetails",
+          "name": "LoanDetails"
+        },
+        "TargetAdminAppliedLoans": {
+          "id":"AdminAppliedLoans",
+          "name":"AdminAppliedLoans"
+        },
+        "TargetProfile":{
+          "id": "profile",
+          "name": "profile"
         }
       }
     },

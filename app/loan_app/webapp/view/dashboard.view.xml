@@ -1,28 +1,75 @@
-<mvc:View controllerName="loanapp.controller.dashboard"
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
-    
-<Page
+<mvc:View
+  controllerName="loanapp.controller.dashboard"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:f="sap.f"
+  xmlns:core="sap.ui.core">
+
+  <Page
     id="dashboardPage"
-    title="Dashboard"
+    title="Education Loan"
     showHeader="true">
 
     <customHeader>
       <Bar design="Header" class="box">
+      <contentLeft>
+      </contentLeft>
         <contentMiddle>
-          <HBox justifyContent="Center" alignItems="Center" width="100%">
-            <Button id="applybutton" text="Apply Loan" press="onApplyLoan" class="mybuttonspacing"/>
-            <Button id="loanstatus" text="Loan Status" press="onLoanStatus" class="mybuttonspacing"/>
-            <Button id="appiledloan" text="Applied Loan" press="onAppiledLoan" class="mybuttonspacing"/>
-            <Button id="loandetails" text="Loan Details" press="onLoanDetails" class="mybuttonspacing"/>
-            <Button id="profile" text="Profile" press="onProfile" class="mybuttonspacing"/>
-          </HBox>
+        <Title text="Education Loan" class="headerTitleCentered" />
         </contentMiddle>
         <contentRight>
-          <Button id="logout" text="Logout" press="onLogout" class="mybuttonspacing"/>
+          <Button id="logoutd" text="Logout" press="onLogout" class="mybuttonspacing" />
         </contentRight>
       </Bar>
     </customHeader>
-    
- </Page>
+
+    <content>
+      <f:GridList
+        id="gridDashboard"
+        items="{
+          path: '/tiles'
+        }"
+        growing="false"
+        class="sapUiMediumMargin dashboardGridLayout"
+        customLayout="f:GridContainerSettings">
+        
+        <f:GridListItem type="Active" press="onTilePress">
+          <VBox class="dashboardCard">
+            <customData>
+              <core:CustomData key="key" value="{key}" />
+            </customData>
+            <Avatar displaySize="L" src="{icon}" fallbackIcon="sap-icon://employee" />
+            <Text text="{title}" class="cardTitle" />
+            <Text text="{description}" class="cardDesc" wrapping="true" />
+          </VBox>
+        </f:GridListItem>
+      
+      </f:GridList>
+
+     <f:GridList
+        id="gridDashboard1"
+        items="{
+          path: '/tiles1'
+        }"
+        growing="false"
+        class="sapUiMediumMargin dashboardGridLayout"
+        customLayout="f:GridContainerSettings">
+        <f:GridContainerSettings gap="12233999999999rem"/>
+
+        
+
+        <f:GridListItem type="Active" press="onTilePress">
+          <VBox class="dashboardCard">
+            <customData>
+              <core:CustomData key="key" value="{key}" />
+            </customData>
+            <Avatar displaySize="L" src="{icon}" fallbackIcon="sap-icon://employee" />
+            <Text text="{title}" class="cardTitle" />
+            <Text text="{description}" class="cardDesc" wrapping="true" />
+          </VBox>
+        </f:GridListItem>
+
+      </f:GridList>
+    </content>
+  </Page>
 </mvc:View>
