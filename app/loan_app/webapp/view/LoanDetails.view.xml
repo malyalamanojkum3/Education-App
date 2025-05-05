@@ -4,16 +4,22 @@
     displayBlock="true"
     xmlns:core="sap.ui.core"
     xmlns:form="sap.ui.layout.form">
+     <Page id ="loanDetailsPage" showHeader="true" enableScrolling="true" class="customPage">
+    <customHeader>
+      <Bar design="Header" class="box">
+      <contentLeft>
+      <Button  text="Home" press="onHome" class="mybuttonspacing"></Button>
+      </contentLeft>
+        <contentMiddle>
+        <Title text="Education Loan" class="headerTitleCentered" />
+        </contentMiddle>
+        <contentRight>
+          <Button  text="Logout" press="onLogout" class="mybuttonspacing" />
+        </contentRight>
+      </Bar>
+    </customHeader>
       <VBox  class="pageContainer" fitContainer="true">
         <ScrollContainer id="scrollContainer1" height="100%" width="100%" vertical="true" visible="true">
-        <Toolbar class="mainToolBar">
-            <ToolbarSpacer />
-            <HBox id="centeredTitles1" class="centeredTitles">
-                <Title id="LoanDetails" text="Loan Details" class="title"/>
-                <ToolbarSpacer class="smallSpacer"/>
-            </HBox>
-                        <ToolbarSpacer />
-        </Toolbar>
         
             <Table id="loanDetails" items="{mainModel>/customerSet}" class="table">
                 <columns>
@@ -84,4 +90,5 @@
             </Table>
         </ScrollContainer>
     </VBox>
+    </Page>
 </mvc:View>

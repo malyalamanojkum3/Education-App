@@ -83,7 +83,22 @@ onCloseDialog: function () {
                     MessageToast.show("Error rejecting loan");
                 }
             });
-        }
+        },
+        onLogout: function () {
+        
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo("dashboard");
+            MessageToast.show("Logged out!");
+            
+      
+    
+          },
+          onHome: function () {
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo("dashboard");
+            MessageToast.show("Returned Home");
+            
+          }
         
     });
 })

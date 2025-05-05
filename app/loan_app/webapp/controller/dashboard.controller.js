@@ -71,7 +71,7 @@ sap.ui.define([
           router.navTo("AdminAppliedLoans");
           break;
         case "LoanDetails":
-          router.navTo("");
+          router.navTo("LoanDetails");
           break;
         default:
           MessageToast.show("Unknown tile key: " + key);

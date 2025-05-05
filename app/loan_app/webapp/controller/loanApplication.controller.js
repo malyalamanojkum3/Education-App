@@ -170,6 +170,21 @@ sap.ui.define([
             } else {
               fieldName.setValueState(sap.ui.core.ValueState.None);
             }
+          },
+          onLogout: function () {
+        
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo("dashboard");
+            MessageToast.show("Logged out!");
+            
+      
+    
+          },
+          onHome: function () {
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo("dashboard");
+            MessageToast.show("Returned Home");
+            
           }
           
     

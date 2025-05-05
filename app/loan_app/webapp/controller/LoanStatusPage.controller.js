@@ -12,7 +12,22 @@ sap.ui.define([
                 error:(oError)=>{
                     console.log("Failed", oError);
                 }
-        }
+        },
+        onLogout: function () {
+        
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo("dashboard");
+            MessageToast.show("Logged out!");
+            
+      
+    
+          },
+          onHome: function () {
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo("dashboard");
+            MessageToast.show("Returned Home");
+            
+          }
         
     });
 });

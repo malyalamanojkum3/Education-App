@@ -4,17 +4,22 @@
     displayBlock="true"
     xmlns:core="sap.ui.core"
     xmlns:form="sap.ui.layout.form">
-
+    <Page id ="appliedLoans" showHeader="true" enableScrolling="true" class="customPage">
+    <customHeader>
+      <Bar design="Header" class="box">
+      <contentLeft>
+      <Button  text="Home" press="onHome" class="mybuttonspacing"></Button>
+      </contentLeft>
+        <contentMiddle>
+        <Title text="Education Loan" class="headerTitleCentered" />
+        </contentMiddle>
+        <contentRight>
+          <Button  text="Logout" press="onLogout" class="mybuttonspacing" />
+        </contentRight>
+      </Bar>
+    </customHeader>
     <VBox id="_IDGenVBox" class="pageContainer" fitContainer="true">
         <ScrollContainer id="scrollContainer" height="100%" width="100%" vertical="true" visible="true">
-        <Toolbar id="_IDGenToolbar" height="2rem" class="mainToolBar">
-            <ToolbarSpacer id="_IDGenToolbarSpacer1"/>
-            <HBox id="centeredTitles" class="centeredTitles">
-                <Title id="appliedLoansTitle" text="Applied Loans" class="title" />
-            </HBox>
-            <ToolbarSpacer id="_IDGenToolbarSpacer2" />
-        </Toolbar>
-        
             <Table id="loanList" items="{mainModel>/customerSet}" class="table">
                 <columns>
                     <Column id="_IDGenColumn">
@@ -51,6 +56,7 @@
             </Table>
         </ScrollContainer>
     </VBox>
+    </Page>
     <Dialog id="customerDetailsDialog" title="CUSTOMER DETAILS" >
         <content>
         <HBox>
