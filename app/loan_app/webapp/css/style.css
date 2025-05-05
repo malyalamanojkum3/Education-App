@@ -132,110 +132,160 @@ height: 100vh !important; /* Full height of the viewport */
     padding: 5px;
     margin: 3px;
   }
-  
 
-
-    
-
-  
-  
-      
-    
 
 .mybuttonspacing{
     margin-right: 20px;
 }
 
-.box{
-    background-color: #00264d !important;
-    color: white;
-    height: 1500rem;
-    
+/* === Header Bar Styling === */
+.box {
+  background-color: #00264d !important;
+  color: white !important;
 }
+
 .box .sapMBarLeft,
 .box .sapMBarRight,
-.box .sapMBarMiddle,
-.box .sapMBtnInner
- {
-    color: white !important;
+.box .sapMBarMiddle{
+text-align: center !important;
 }
-.box .sapMBtnInner
- {
-    background-color: transparent !important;
+.box .sapMBtnInner {
+  color: white !important;
+
 }
+
+.box .sapMBtnInner {
+  background-color: transparent !important;
+}
+
+/* === Loan Applocation Page CSS === */
 .customInput {
     width: 200% !important;
 }
-/*
-.customInput .sapMInputBaseContentWrapper {
-
-    border: none !important;
-    height: 40px !important;
-    background-color: lightgray !important;
-    color: black !important; 
-    padding: 10px !important;
-}
-
-
-.customInput .sapMInputBase {
-    caret-color: black !important; 
-}
-    */
 
 .customInput .sapMInputBaseContentWrapper::placeholder {
-    color: black !important;
-    opacity: 1;
-    }
-
-
+  color: black !important;
+  opacity: 1;
+}
+.customLabel {
+  width:180px;
+ }
+ .documentLabel{
+  margin-right: 10px;
+ }
 .customMargin {
-    margin-bottom: 25px; /* Adjust the value as needed */
+  margin-bottom: 25px;
 }
-.mandatoryStar {
-    color: red;
-    margin-left: 5px;
+.formContainer {
+  margin-bottom: 25px;
 }
-    
 
-.formContainer{
-    margin-bottom: 25px;
+/* === Dashboard Grid Layout using CSS Grid === */
+
+
+
+.dashboardGridLayout {
+  display: grid;
+  width: 70%;
+  max-width: 1200px; /* Set a maximum width for the grid */
+  margin-right: 10;
+  box-sizing: border-box;
 }
 
 .dashboardCard {
-    width: 200px;
-    height: 200px;
-    padding: 1rem;
-    margin: 1rem;
-    border-radius: 10px;
-    background-color: white;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    text-align: center;
-    transition: transform 0.2s ease;
-  }
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+  height: 200px;
+  cursor: pointer;
+  margin: 0;
+}
+
+
+.dashboardCard:hover {
+  transform: translateY(-4px);
+  cursor: pointer;
+}
+
+.cardTitle {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.cardDesc {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+
+/* === Profile Panel === */
+.profilepanelheader .sapMBarMiddle {
+  justify-content: justify !important;
+  text-align: justify !important;
+}
+
+.profileWrapper {
+  width: 600px;
+  height: fit-content;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+/* === Header Text White === */
+.sapMBar .sapMTitle {
+  color: white !important;
+}
+
+.headrtitle {
+  color: white !important;
+  word-spacing: 2;
+  text-align: center;
+}
+
+
+.dashboardCard:hover {
+  transform: translateY(-4px);
+  cursor: pointer;
+}
+
+.cardTitle {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.cardDesc {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+/* === Profile Panel === */
+.profilepanelheader {
+  text-align: center;
+}
+
+.profileWrapper {
+  width: 600px;
+  height: fit-content;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+/* === Header Text White === */
+.sapMBar .sapMTitle {
+  color: white !important;
+}
+.headerTitleCentered {
+  width: 100%;
+  text-align: center;
   
-  .dashboardCard:hover {
-    transform: translateY(-4px);
-    cursor: pointer;
-  }
-  
-  .cardTitle {
-    font-weight: bold;
-    font-size: 1rem;
-    margin-top: 1rem;
-  }
-  
-  .cardDesc {
-    font-size: 0.85rem;
-    color: #555;
-    margin-top: 0.5rem;
-  }
-   .customLabel {
-    width:180px;
-   }
-   .documentLabel{
-    margin-right: 10px;
-   }
+  color: white;
+}

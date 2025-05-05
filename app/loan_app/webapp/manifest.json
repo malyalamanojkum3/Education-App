@@ -61,7 +61,8 @@
       "minUI5Version": "1.135.0",
       "libs": {
         "sap.m": {},
-        "sap.ui.core": {}
+        "sap.ui.core": {},
+        "sap.f":{}
       }
     },
     "contentDensities": {
@@ -116,17 +117,17 @@
           ]
         },
         {
+          "name": "dashboard",
+          "pattern": "dashboard",
+          "target": [
+            "Targetdashboard"
+          ]
+        },
+        {
           "name": "LoanStatusPage",
           "pattern": "LoanStatusPage",
           "target": [
             "TargetLoanStatusPage"
-          ]
-        },
-        {
-          "name": "Dashboard",
-          "pattern": "Dashboard",
-          "target": [
-            "TargetDashboard"
           ]
         },
         {
@@ -137,17 +138,24 @@
           ]
         },
         {
-          "name": "AdminAppliedLoans",
-          "pattern": "AdminAppliedLoans",
-          "target": [
-            "TargetAdminAppliedLoans"
-          ]
-        },
-        {
           "name": "LoanStatusDetails",
           "pattern": "LoanStatusDetails",
           "target": [
             "TargetLoanStatusDetails"
+          ]
+        },
+        {
+          "name": "AdminAppliedLoans",
+          "pattern":"AdminAppliedLoans",
+          "target":[
+            "TargetAdminAppliedLoans"
+          ]
+        },
+        {
+          "name": "Profile",
+          "pattern": "Profile",
+          "target": [
+            "TargetProfile"
           ]
         },
         {
@@ -163,6 +171,10 @@
           "id": "main",
           "name": "main"
         },
+        "Targetdashboard": {
+          "id": "dashboard",
+          "name": "dashboard"
+        },
         "TargetLoanStatusPage": {
           "id": "LoanStatusPage",
           "name": "LoanStatusPage"
@@ -171,15 +183,6 @@
           "id": "LoanStatusDetails",
           "name": "LoanStatusDetails"
         },
-        "TargetDashboard": {
-          "id": "dashboard",
-          "name": "dashboard"
-        },
-        "TargetAdminAppliedLoans": {
-          "id": "AdminAppliedLoans",
-          "name": "AdminAppliedLoans"
-          
-        },
         "TargetloanApplication": {
           "id": "loanApplication",
           "name": "loanApplication"
@@ -187,6 +190,14 @@
         "TargetLoanDetails":{
           "id": "LoanDetails",
           "name": "LoanDetails"
+        },
+        "TargetAdminAppliedLoans": {
+          "id":"AdminAppliedLoans",
+          "name":"AdminAppliedLoans"
+        },
+        "TargetProfile":{
+          "id": "profile",
+          "name": "profile"
         }
       }
     },
