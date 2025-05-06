@@ -28,7 +28,7 @@
       <VBox  class="pageContainer" fitContainer="true">
         <ScrollContainer id="scrollContainer1" height="100%" width="100%" vertical="true" visible="true">
         
-            <Table id="loanDetails" items="{mainModel>/customerSet}" class="table">
+            <Table id="loanDetails" items="{mainModel>/customer}" class="table">
                 <columns>
                     <Column>
                     </Column>
