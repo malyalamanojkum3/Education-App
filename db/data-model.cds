@@ -16,6 +16,7 @@ type LoanStatus : String enum{
     username: String;
     mobileNumber: String;
     userRole: UserRole;
+    loans: Association to many loanDetails on loans.user = $self;
  }
  entity loanDetails{
    key Id: UUID;
@@ -29,4 +30,6 @@ type LoanStatus : String enum{
    applicantSalary:String;
    loanAmount:String;
    loanRepaymentMonths:String;
+   doucument:String;
+   user: Association to userDetails;
  }
