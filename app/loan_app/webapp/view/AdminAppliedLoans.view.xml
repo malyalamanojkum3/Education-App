@@ -27,7 +27,7 @@
     </content>
     <VBox id="_IDGenVBox" class="pageContainer" fitContainer="true">
         <ScrollContainer id="scrollContainer" height="100%" width="100%" vertical="true" visible="true">
-            <Table id="loanList" items="{mainModel>/customerSet}" class="table">
+            <Table id="loanList" items="{mainModel>/customer}" class="table">
                 <columns>
                     <Column id="_IDGenColumn">
                         <Text id="_IDGenText" text="ID" class="font1"/>

@@ -1,14 +1,111 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/m/MessageBox"
-], (Controller, MessageBox) => {
+    "sap/m/MessageBox",
+    "sap/ui/model/json/JSONModel"
+], (Controller, MessageBox, JSONModel) => {
     "use strict";
 
     return Controller.extend("loanapp.controller.loanApplication", {
+      onInit() {
+        // Initialize the model
+        var oModel = new JSONModel("odata/v4/my/customer");
+        this.getView().setModel(oModel);
+    },
         onSubmit() {
-            MessageBox.success("You have applied for loan successfully\nYour loan id: 092889123");
+          //capturing the data in var
+          var ApplicantName = this.getView().byId("enterApplicantName").getValue();
+          var ApplicantAddress = this.getView().byId("enterApplicantAddress").getValue();
+          var ApplicantMobileNo = this.getView().byId("enterApplicantMobileNo").getValue();
+          var ApplicantEmailId = this.getView().byId("enterEmailId").getValue();
+          var ApplicantAadhaarNo = this.getView().byId("enterAadhaarNo").getValue();
+          var ApplicantPANNo = this.getView().byId("enterPanNo").getValue();
+          var ApplicantSalary = this.getView().byId("enterSalary").getValue();
+          var ApplicantLoanAmount = this.getView().byId("enterloanamount").getValue();
+          var ApplicantRepaymentMonths = this.getView().byId("enterloanrepaymentmonths").getValue();
+
+          //log the captured data for debugging
+          console.log("Applicant Name:", ApplicantName);
+          console.log("Applicant Address:", ApplicantAddress);
+          console.log("Applicant Mobile No:", ApplicantMobileNo);
+          console.log("Applicant Email Id:", ApplicantEmailId);
+          console.log("Aadhaar No:", ApplicantAadhaarNo);
+          console.log("PAN No:", ApplicantPANNo);
+          console.log("Salary:", ApplicantSalary);
+          console.log("Loan Amount:", ApplicantLoanAmount);
+          console.log("Loan Repayment Months:", ApplicantRepaymentMonths);
+
+          //creating new object
+          var NewUser = {
+            applicantName: ApplicantName,
+            applicantAddress: ApplicantAddress,
+            applicantPHno: ApplicantMobileNo,
+            applicantEmail: ApplicantEmailId,
+            applicantAadhar: ApplicantAadhaarNo,
+            applicantPAN: ApplicantPANNo,
+            applicantSalary: ApplicantSalary,
+            loanAmount: ApplicantLoanAmount,
+            loanRepaymentMonths: ApplicantRepaymentMonths,
+            loanStatus: "Pending"
+          };
+
+          //missing fields
+          let missingFields = [];
+          if(!ApplicantName) missingFields.push("Applicant Name");
+          if(!ApplicantAddress) missingFields.push("Applicant Address");
+          if(!ApplicantMobileNo) missingFields.push("Applicant Moblie No");
+          if(!ApplicantAadhaarNo) missingFields.push("Applicant Aadhaar No");
+          if(!ApplicantEmailId) missingFields.push("Applicant Email Id");
+          if(!ApplicantPANNo) missingFields.push("PAN No");
+          if(!ApplicantSalary) missingFields.push("Applicant Salary");
+          if(!ApplicantLoanAmount) missingFields.push("Loan Amount");
+          if(!ApplicantRepaymentMonths) missingFields.push("Loan Repayment Months");
+
+          if(missingFields.length>0){
+            sap.m.MessageBox.error("Please fill the required fields:\n" + missingFields.join("\n"));
+            return;
+          }
+
+
+          //posting data
+          $.ajax({
+            url: "/odata/v4/my/customer",
+            method: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(NewUser),
+            success: (data) => {
+              
+              MessageBox.success("You have applied for loan successfully\nYour loan id:"+ data.Id, {
+
+                onClose: () => {
+                  this.byId("enterApplicantName").setValue("");
+            this.byId("enterApplicantAddress").setValue("");
+            this.byId("enterApplicantMobileNo").setValue("");
+            this.byId("enterEmailId").setValue("");
+            this.byId("enterAadhaarNo").setValue("");
+            this.byId("enterPanNo").setValue("");
+            this.byId("enterSalary").setValue("");
+            this.byId("enterloanamount").setValue("");
+            this.byId("enterloanrepaymentmonths").setValue("");
+
+            //navigate
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo("dashboard");
+                }
+
+              } );
             
+            
+
+              
+            },
+            error: (error) => {
+              MessageToast.show("Error submitting: " + error.responseText);
+            }
+          });
+          
+
         },
+
         onCancel() {
             sap.m.MessageToast.show("Loan application cancelled");
             
