@@ -18,8 +18,8 @@
           <Button id="logoutLS" text="Logout" press="onLogout" class="mybuttonspacing"/>
         </contentRight>
       </Bar>
-     
     </customHeader>
+
     <content>
     <Bar>
     <contentLeft >
@@ -27,6 +27,7 @@
     </contentLeft>
     </Bar>
     </content>
+    
                 <VBox class="sapUiSmallMargin" justifyContent="Center" alignItems="Center" height="70%">
                     <Image src="images/loanstatus.png" width="350px" height="200px" class="sapUiSmallMarginBottom" />
                     <Label text="Welcome to the Loan Tracking Application" design="Bold" textAlign="Center"/>
