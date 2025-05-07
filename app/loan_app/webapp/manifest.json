@@ -139,7 +139,7 @@
         },
         {
           "name": "LoanStatusDetails",
-          "pattern": "LoanStatusDetails",
+          "pattern": "LoanStatusDetails/{customerId}",
           "target": [
             "TargetLoanStatusDetails"
           ]

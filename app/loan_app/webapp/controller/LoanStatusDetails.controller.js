@@ -1,74 +1,94 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/model/json/JSONModel"
-], function (Controller, JSONModel) {
+    "sap/ui/model/odata/v2/ODataModel",
+    "sap/m/MessageToast"
+], function(Controller, ODataModel, MessageToast) {
     "use strict";
-
+    
     return Controller.extend("loanapp.controller.LoanStatusDetails", {
-        onInit: function () {
-            this._fetchLoanDetails();
+        onInit: function() {
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.getRoute("LoanStatusDetails").attachPatternMatched(this._onObjectMatched, this);
         },
-        onBackButtonPress: function() {
-            // Navigate back to the previous page
+        
+        _onObjectMatched: function(oEvent) {
+            var sCustomerId = oEvent.getParameter("arguments").customerId;
+            this._loadCustomerDetails(sCustomerId);
+        },
+        
+        _loadCustomerDetails: function(sCustomerId) {
+            var oMainModel = this.getView().getModel("mainModel");
+            var sPath = "/customer('" + sCustomerId + "')";
+            
+            this.getView().bindElement({
+                path: sPath,
+                model: "mainModel",
+                parameters: {
+                    expand: "LoanDetails"
+                },
+                events: {
+                    dataReceived: this._onDataReceived.bind(this)
+                }
+            });
+        },
+        
+        _onDataReceived: function() {
+            var oContext = this.getView().getBindingContext("mainModel");
+            if (!oContext) {
+                return;
+            }
+            var oData = oContext.getObject();
+            var sLoanStatus = oData.loanStatus; // Expecting "Submitted", "Pending", "Approved", "Rejected"
+            
+            // Map loan status to an index:
+            // 0: Submitted, 1: Pending, 2: Approved, 3: Rejected
+            var activeStep = 0;
+            switch (sLoanStatus) {
+                case "Submitted":
+                    activeStep = 0;
+                    break;
+                case "Pending":
+                    activeStep = 1;
+                    break;
+                case "Approved":
+                    activeStep = 2;
+                    break;
+                case "Rejected":
+                    activeStep = 3;
+                    break;
+                default:
+                    activeStep = 0;
+            }
+            
+            // Define the active colors according to semantic state.
+            // Colors: Blue for Submitted, Orange for Pending, Green for Approved, Red for Rejected.
+            var stepColors = ["#007aff", "#ff9500", "#4cd964", "#ff3b30"];
+            var defaultColor = "#d3d3d3"; // Grey for inactive segments.
+            
+            var steps = ["Submitted", "Pending", "Approved", "Rejected"];
+            
+            // Build the HTML snippet for the status bar.
+            var htmlContent = '<div style="display: flex; justify-content: center; align-items: stretch; width: 100%; max-width:600px;">';
+            steps.forEach(function(step, index) {
+                // Use the designated color if this is the active step; otherwise use default grey.
+                var bgColor = (index === activeStep) ? stepColors[index] : defaultColor;
+                htmlContent += '<div style="flex:1; margin: 5px; padding: 10px; text-align: center; border-radius: 5px; background-color:' + bgColor + '; color: white; font-weight: bold;">' + step + '</div>';
+            });
+            htmlContent += '</div>';
+            
+            // Set the generated HTML content to the HTML control.
+            this.getView().byId("statusBarHTML").setContent(htmlContent);
+        },
+        
+        onNavBack: function() {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.navTo("LoanStatusPage");
+            MessageToast.show("Back to status");
         },
-
-        _fetchLoanDetails: function () {
-            // Mock backend API response
-            var mockBackendData = {
-                ApplicantName:"Ram",
-                Email        :"ram@example.com",
-                Phone        :"9876543210",
-                Street       :"MG Road",
-                HouseNumber  :"123",
-                AadharNumber :"1234-5678-9101",
-                LoanStatus   :"Submitted",
-                DOB          :"1990-05-01",
-                LoanID       :"LN12345",
-                LoanAmount   :"500,000",
-                PANNumber    :"ABCDE1234F"
-            };
-
-            var oModel = new JSONModel(mockBackendData);
-            this.getView().setModel(oModel, "loanModel");
-
-            // Map LoanStatus to ProgressIndicator values
-            var statusMapping = {
-                "Submitted": { percent: 50, text: "Submitted", state: "Information" },
-                "Pending": { percent: 50, text: "Pending", state: "Warning" },
-                "Reviewed": { percent: 75, text: "Reviewed", state: "Success" },
-                "Approved": { percent: 100, text: "Approved", state: "Success" },
-                "Rejected": { percent: 100, text: "Rejected", state: "Error" }
-            };
-
-            var loanStatus = mockBackendData.LoanStatus;
-            var statusDetails = statusMapping[loanStatus] || { percent: 0, text: "Unknown", state: "Error" };
-
-            oModel.setProperty("/StatusPercent", statusDetails.percent);
-            oModel.setProperty("/StatusText", statusDetails.text);
-            oModel.setProperty("/StatusState", statusDetails.state);
+        onHome: function () {
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo("dashboard");
+            MessageToast.show("Returned Home");
         }
     });
 });
-
-
-
-
-/*sap.ui.define([
-    "sap/ui/core/mvc/Controller"
-], function(Controller) {
-    "use strict";
-
-    return Controller.extend("loanapp.controller.LoanStatusDetails", {
-        onInit: function() {
-            // Initialization code can be added here if needed
-        },
-        onBackButtonPress: function() {
-            // Navigate back to the previous page
-            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-            oRouter.navTo("LoanStatusPage");
-        },
-        
-    });
-});*/

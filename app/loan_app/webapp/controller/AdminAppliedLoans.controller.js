@@ -60,7 +60,7 @@ sap.ui.define([
             oData.loanStatus = "Rejected";
 
             jQuery.ajax({
-                url: "/odata/v4/my/customerSet('" + oData.Id + "')",
+                url: "/odata/v4/my/customer('" + oData.Id + "')",
                 method: "PUT",
                 data: JSON.stringify(oData), // Send the entire object
                 contentType: "application/json",
