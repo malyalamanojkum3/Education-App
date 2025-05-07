@@ -4,3 +4,7 @@ Id,email,password,username,mobileNumber,userRole
 3,alice.jones@example.com,alicePass789,alicejones,7654321007,customer
 4,bob.brown@example.com,bobSecure101,bobbrown,6543210896,admin
 5,charlie.davis@example.com,charliePass202,charliedavis,5432109785,customer
+6,charlie.davis@example.com,charliePass202,charliedavis,5432109785,customer
+7,charlie.davis@example.com,charliePass202,charliedavis,5432109785,customer
+8,charlie.davis@example.com,charliePass202,charliedavis,5432109785,customer
+9,charlie.davis@example.com,charliePass202,charliedavis,5432109785,customer

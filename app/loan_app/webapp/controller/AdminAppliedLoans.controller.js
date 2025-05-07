@@ -1,31 +1,26 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageToast",
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator",
     "sap/ui/model/odata/v4/ODataModel",
     
-], function (Controller, MessageToast, ODataModel) {
+], function (Controller, MessageToast, Filter,FilterOperator,ODataModel) {
     "use strict";
 
     return Controller.extend("loanapp.controller.AdminAppliedLoans", {
-        onInit: function () {
-            // Initialize the OData model
-            var oModel = new ODataModel({
-                serviceUrl: "/odata/v4/my/"
-            });
-            this.getView().setModel(oModel, "mainModel");
-        },
+        //  onInit: function () {
+        //      // // Initialize the OData model
+        //      var oModel = new ODataModel({
+        //           serviceUrl: "/odata/v4/my/"
+        //       });
+        //       this.getView().setModel(oModel);
+        //  },
 
         onViewDetails: function (oEvent) {
-            // Get the selected item context
-            var oItem = oEvent.getSource().getParent().getParent();
-            var oContext = oItem.getBindingContext("mainModel");
-
-            // Get the data from the context
-            var oData = oContext.getObject();
-
+            var oItem = oEvent.getSource().getBindingContext();
             var oDialog = this.byId("customerDetailsDialog");
-            oDialog.setBindingContext(oContext, "mainModel");
-
+            oDialog.setBindingContext(oItem);
             oDialog.open();
         },
 
@@ -35,29 +30,23 @@ sap.ui.define([
         },
 
         onApproveLoan: function (oEvent) {
-            var oItem = oEvent.getSource().getParent().getParent();
-            var oContext = oItem.getBindingContext("mainModel");
-            var oModel = this.getView().getModel("mainModel");
-            var sPath = oContext.getPath();
+            var oModel = this.getView().getModel();
+            var oItem = oEvent.getSource();
+            var oContext = oItem.getBindingContext();
             var oData = oContext.getObject();
-
-            // Update the loanStatus in the local object
-            oData.loanStatus = "Approved";
-
-            jQuery.ajax({
-                url: "/odata/v4/my/customerSet('" + oData.Id + "')",
-                method: "PUT",
-                data: JSON.stringify(oData), // Send the entire object
-                contentType: "application/json",
-                success: function (response) {
-                    oModel.setProperty(sPath, oData); // Update the model with the entire object
-                    oModel.refresh(true);
+            var sPath = oContext.getPath();
+            
+            var oUpdatedData = {
+                loanStatus: "Approved"
+            };
+            oModel.update(sPath,oUpdatedData,{
+                success: function(){
                     MessageToast.show("Loan Approved");
                 },
-                error: function (error) {
-                    MessageToast.show("Error approving loan");
+                error: function(){
+                    MessageToast.show("Error Approving Loan")
                 }
-            });
+            })
         },
 
         onRejectLoan: function (oEvent) {
@@ -99,9 +88,33 @@ sap.ui.define([
             oRouter.navTo("dashboard");
             MessageToast.show("Returned Home");
 
-        }
+        },
        
-         
+        onSearch: function (oEvent) 
+        {
+          //var sQurey = oEvent.getParameter("query");
+          var sQurey = oEvent.getSource().getValue();
+          var filterConditions = [
+            new Filter("applicantName", FilterOperator.Contains, sQurey),
+            new Filter("applicantAddress", FilterOperator.Contains, sQurey),
+
+        ];
+        var combinedFilters=new Filter({
+            filters: filterConditions,
+            and: false
+        })
+          var oTable = this.byId("loanList");
+          var oBinding = oTable.getBinding("items");
+          oBinding.filter(combinedFilters);
+        },
+      
+        onReset: function(){
+        var oTable = this.byId("loanList");
+          var oBinding = oTable.getBinding("items");
+          oBinding.filter([]);
+          this.getView().byId("querySearch").setValue("");
+            
+        }
 
 
     });
