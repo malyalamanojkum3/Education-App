@@ -71,40 +71,13 @@ height: 100vh !important; /* Full height of the viewport */
   color: #fcfbfb !important; 
   transition: font-size 0.3s ease, color 0.3s ease; 
 }
-
-.approve{
-  background-color: #319535 !important; 
-  color: white !important;
-  padding: 10px 10px;
-  text-align: center;
-  font-size: 15px;
-  margin: 5px 5px;
-  cursor: pointer;
-}
-
-.view{
-  background-color: #17ba9f !important; 
-  color: white !important;
-  padding: 10px 10px;
-  text-align: center;
-  font-size: 15px;
-  margin: 5px 5px;
-  cursor: pointer;
-}
-
-.reject {
-  background-color: #e9281a !important; 
-  color: white !important;
-  padding: 10px 10px;
-  text-align: center;
-  font-size: 15px;
-  margin: 5px 5px;
-  cursor: pointer;
-}
 .customerDetails{
-  padding: 5px;
-  margin: 1px;
+
+  width: 600px;
+  height: fit-content;
   background-color: #ffffff;
+
+  
   
 }
   
@@ -112,6 +85,7 @@ height: 100vh !important; /* Full height of the viewport */
 .font{
   font-size: small;
   color: black;
+  padding: 10px;
 }
   
 .action {
@@ -296,4 +270,16 @@ text-align: center !important;
   font-weight: bold;
   margin-left: 20px;
   margin-top: 5px;
+}
+
+.actionbuttonspacing
+{
+  margin-right: 20px;
+}
+
+.sapMDlg {
+  min-width: 300px;
+  min-height: 200px;
+  max-width: 600px;
+  max-height: 400px;
 }

@@ -1,7 +1,8 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-     "sap/m/MessageToast",
-    "sap/ui/model/odata/v4/ODataModel"
+    "sap/m/MessageToast",
+    "sap/ui/model/odata/v4/ODataModel",
+    
 ], function (Controller, MessageToast, ODataModel) {
     "use strict";
 
@@ -15,34 +16,34 @@ sap.ui.define([
         },
 
         onViewDetails: function (oEvent) {
-             // Get the selected item context
-             var oItem = oEvent.getSource().getParent().getParent();
-             var oContext = oItem.getBindingContext("mainModel");
-            
+            // Get the selected item context
+            var oItem = oEvent.getSource().getParent().getParent();
+            var oContext = oItem.getBindingContext("mainModel");
+
             // Get the data from the context
             var oData = oContext.getObject();
-            
-             var oDialog = this.byId("customerDetailsDialog");
-             oDialog.setBindingContext(oContext, "mainModel");
+
+            var oDialog = this.byId("customerDetailsDialog");
+            oDialog.setBindingContext(oContext, "mainModel");
 
             oDialog.open();
-         },
-                    
-        
-onCloseDialog: function () {
-     this.byId("customerDetailsDialog").close();
-        }, 
-    
+        },
+
+
+        onCloseDialog: function () {
+            this.byId("customerDetailsDialog").close();
+        },
+
         onApproveLoan: function (oEvent) {
             var oItem = oEvent.getSource().getParent().getParent();
             var oContext = oItem.getBindingContext("mainModel");
             var oModel = this.getView().getModel("mainModel");
             var sPath = oContext.getPath();
             var oData = oContext.getObject();
-        
+
             // Update the loanStatus in the local object
             oData.loanStatus = "Approved";
-        
+
             jQuery.ajax({
                 url: "/odata/v4/my/customerSet('" + oData.Id + "')",
                 method: "PUT",
@@ -58,17 +59,17 @@ onCloseDialog: function () {
                 }
             });
         },
-        
+
         onRejectLoan: function (oEvent) {
             var oItem = oEvent.getSource().getParent().getParent();
             var oContext = oItem.getBindingContext("mainModel");
             var oModel = this.getView().getModel("mainModel");
             var sPath = oContext.getPath();
             var oData = oContext.getObject();
-        
+
             // Update the loanStatus in the local object
             oData.loanStatus = "Rejected";
-        
+
             jQuery.ajax({
                 url: "/odata/v4/my/customerSet('" + oData.Id + "')",
                 method: "PUT",
@@ -85,20 +86,23 @@ onCloseDialog: function () {
             });
         },
         onLogout: function () {
-        
+
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.navTo("dashboard");
             MessageToast.show("Logged out!");
-            
-      
-    
-          },
-          onHome: function () {
+
+
+
+        },
+        onHome: function () {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.navTo("dashboard");
             MessageToast.show("Returned Home");
-            
-          }
-        
+
+        }
+       
+         
+
+
     });
 })

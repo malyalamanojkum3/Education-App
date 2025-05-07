@@ -23,11 +23,32 @@
     <contentLeft >
     <Text text="Applied Loans" class="subHeader" />
     </contentLeft>
+    <contentRight>
+    <OverflowToolbar id="filtersbar">
+						<ToolbarSpacer/>
+						<SearchField ariaLabelledBy="" id="" liveChange="onFilter">
+							<layoutData>
+							<OverflowToolbarLayoutData maxWidth="300px" shrinkable="true" priority="NeverOverflow"/></layoutData>
+						</SearchField>
+						<Button text="Reset" type="Transparent" press="onReset"/>
+						<OverflowToolbarButton tooltip="Sort" type="Transparent" text="Sort" icon="sap-icon://sort" press="onSort"/>
+						<OverflowToolbarButton tooltip="Group" type="Transparent" text="Group" icon="sap-icon://group-2" press="onGroup"/>
+						<OverflowToolbarMenuButton tooltip="Export" type="Transparent" text="Export" buttonMode="Split" icon="sap-icon://share" defaultAction="onDefaultActionAccept" beforeMenuOpen="onBeforeMenuOpen" useDefaultActionOnly="true">
+							<menu>
+								<Menu itemSelected="onMenuAction">
+									<MenuItem text="Export as PDF" icon="sap-icon://pdf-attachment" />
+									<MenuItem text="Export to Excel" icon="sap-icon://excel-attachment" />
+								</Menu>
+							</menu>
+						</OverflowToolbarMenuButton>
+					</OverflowToolbar>
+    </contentRight>
     </Bar>
+    
     </content>
     <VBox id="_IDGenVBox" class="pageContainer" fitContainer="true">
         <ScrollContainer id="scrollContainer" height="100%" width="100%" vertical="true" visible="true">
-            <Table id="loanList" items="{mainModel>/customerSet}" class="table">
+            <Table id="loanList" items="{mainModel>/customer}" class="table">
                 <columns>
                     <Column id="_IDGenColumn">
                         <Text id="_IDGenText" text="ID" class="font1"/>
@@ -53,9 +74,13 @@
                             <Text id="_IDGenText6" text="{mainModel>applicantAddress}" />
                             <Text id="_IDGenText77" text="{mainModel>applicantPHno}"/>
                             <HBox id="_IDGenHBox" class="action">
-                                <Link id="_IDGenLink" text="View"  class="view" press="onViewDetails" />
-                                <Link id="_IDGenLink1" text="Approve" class="approve" press="onApproveLoan" />
-                                <Link id="_IDGenLink2" text="Reject" class="reject" press="onRejectLoan" />
+            
+                                <Button type="Default" text="View" press="onViewDetails" class="actionbuttonspacing"/>
+                                 <Button type="Accept" text="Accept" press="onApproveLoan" class="actionbuttonspacing"/>
+                                 <Button type="Reject" text="Reject" press="onRejectLoan" class="actionbuttonspacing"/>
+                        
+    
+                               
                             </HBox>
                         </cells>
                     </ColumnListItem>
@@ -64,60 +89,43 @@
         </ScrollContainer>
     </VBox>
     </Page>
-    <Dialog id="customerDetailsDialog" title="CUSTOMER DETAILS" >
+     <Dialog id="customerDetailsDialog" title="CUSTOMER DETAILS" >
         <content>
-        <HBox>
+        <HBox class="customerDetails">
             <VBox>
-            <HBox class="customerDetails">
                     <Label text="ID:" design="Bold" class="font" />
                     <Text text="{mainModel>Id}" class="font"/>
-                </HBox>
-                <HBox  class="customerDetails">
                     <Label  text="Applicant Name:" design="Bold" class="font" />
                     <Text text="{mainModel>applicantName}" class="font"/>
-                </HBox>
-                </VBox>
-                <VBox>
-                <HBox  class="customerDetails">
+                
+            
                     <Label  text="Applicant Address:" design="Bold" class="font"/>
                     <Text  text="{mainModel>applicantAddress}" class="font" />
-                </HBox>
-                <HBox class="customerDetails">
+               
                     <Label text="Applicant Mobile:" design="Bold" class="font" />
                     <Text text="{mainModel>applicantPHno}" class="font" />
-                </HBox>
-                </VBox>
-                <VBox>
-                <HBox  class="customerDetails">
+                
                     <Label  text="Applicant Email:" design="Bold" class="font"/>
                     <Text  text="{mainModel>applicantEmail}" class="font"/>
-                </HBox>
-                <HBox class="customerDetails">
+              
                     <Label text="Applicant Aadhar:" design="Bold" class="font" />
                     <Text text="{mainModel>applicantAadhar}" class="font"/>
-                </HBox>
-                </VBox>
-                <VBox>
-                <HBox class="customerDetails">
+                
                     <Label text="Applicant PAN:" design="Bold" class="font" />
                     <Text text="{mainModel>applicantPAN}" class="font"/>
-                </HBox>
-                <HBox class="customerDetails">
+                
                     <Label text="Applicant Salary:" design="Bold" class="font"/>
                     <Text text="{mainModel>applicantSalary}" class="font" />
-                </HBox>
-                </VBox>
-                <VBox>
-                <HBox class="customerDetails">
+                
                     <Label text="Loan Repayment Months:" design="Bold" class="font"/>
                     <Text text="{mainModel>loanRepaymentMonths}" class="font" />
-                </HBox>
-                <HBox class="customerDetails">
+              
                     <Label text="Loan Amount:" design="Bold" class="font" />
                     <Text text="{mainModel>loanAmount}" class="font"/>
-                </HBox>
+                
                 </VBox>
                 </HBox>
+                
         </content>
         <endButton>
             <Button id="_IDGenButton" text="Close" press="onCloseDialog" />
