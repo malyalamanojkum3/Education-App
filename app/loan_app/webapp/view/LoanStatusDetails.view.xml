@@ -1,110 +1,75 @@
 <mvc:View controllerName="loanapp.controller.LoanStatusDetails"
     xmlns:core="sap.ui.core"
-    xmlns:ui5="sap.ui.core"
-    xmlns:layout="sap.ui.layout"
-    xmlns:form="sap.ui.layout.form"
-    xmlns:ui="sap.ui.core"
-    xmlns:mvc="sap.ui.core.mvc" 
-    xmlns="sap.m" 
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
     xmlns:f="sap.ui.layout.form">
-
-<Page id="LoanStatusDetailsPage" title="Loan Status Details" titleAlignment="Center" class="sapUiContentPadding">
-    <headerContent>
-        <Button text="Back to Loan Status Page" press="onBackButtonPress"/>
-    </headerContent>
-        <content>
-        <Title text="Applicant Loan Details" level="H2" class="sapUiSmallMargin"/>
-            <VBox class="sapUiSmallMargin">
-                <!-- Applicant Loan Details -->
-               <f:Form id="FormDisplay480_12120Dual" editable="false">
+    <Page id="LoanStatusDetailsPage" title="Loan Details" showNavButton="true" navButtonPress="onNavBack">
+        <VBox class="sapUiSmallMargin">
+            <f:Form id="LoanDetailsForm" editable="false">
                 <f:layout>
-                <f:ResponsiveGridLayout
-                id="ResponsiveGridLayout480_12120Dual"
-                labelSpanXL="4"
-				labelSpanL="4"
-				labelSpanM="4"
-				labelSpanS="4"
-				adjustLabelSpan="true"
-				emptySpanXL="0"
-				emptySpanL="0"
-				emptySpanM="0"
-				emptySpanS="0"
-				columnsXL="2"
-				columnsL="2"
-				columnsM="2"
-				singleContainerFullSize="false" />
-			    </f:layout>
+                    <f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" columnsXL="2" columnsL="2" columnsM="2"/>
+                </f:layout>
                 <f:formContainers>
                     <f:FormContainer>
                         <f:formElements>
-                            <f:FormElement label="Applicant Name"> 
-                                <f:fields >
-                                    <Text text="{loanModel>/ApplicantName}" id="nameText"/>
+                            <f:FormElement label="ID">
+                                <f:fields>
+                                    <Text text="{mainModel>Id}"/>
                                 </f:fields>
                             </f:FormElement>
-                            <f:FormElement label="Email">
+                            <f:FormElement label="Loan Status">
                                 <f:fields>
-                                    <Text text="{loanModel>/Email}" id="emailText"/>
+                                    <Text text="{mainModel>loanStatus}"/>
                                 </f:fields>
                             </f:FormElement>
-                            <f:FormElement label="Phone">
+                            <f:FormElement label="Applicant Name">
                                 <f:fields>
-                                    <Text text="{loanModel>/Phone}" id="phoneText"/>
+                                    <Text text="{mainModel>applicantName}"/>
                                 </f:fields>
                             </f:FormElement>
-                            <f:FormElement label="Address">
+                            <f:FormElement label="Applicant Address">
                                 <f:fields>
-                                    <Text text="{loanModel>/Street} {loanModel>/HouseNumber}" id="addressText"/>
+                                    <Text text="{mainModel>applicantAddress}"/>
                                 </f:fields>
                             </f:FormElement>
-                            <f:FormElement label="Aadhar Number">
+                            <f:FormElement label="Applicant Phone Number">
                                 <f:fields>
-                                    <Text text="{loanModel>/AadharNumber}" id="aadharText"/>
+                                    <Text text="{mainModel>applicantPHno}"/>
                                 </f:fields>
                             </f:FormElement>
                         </f:formElements>
                     </f:FormContainer>
                     <f:FormContainer>
                         <f:formElements>
-                            <f:FormElement label="Loan Status">
+                            <f:FormElement label="Applicant Email">
                                 <f:fields>
-                                    <Text text="{loanModel>/LoanStatus}" id="loanStatusText"/>
+                                    <Text text="{mainModel>applicantEmail}"/>
                                 </f:fields>
                             </f:FormElement>
-                            <f:FormElement label="Date of Birth">
+                            <f:FormElement label="Applicant Aadhar Number">
                                 <f:fields>
-                                    <Text text="{loanModel>/DOB}" id="dobText"/>
+                                    <Text text="{mainModel>applicantAadhar}"/>
                                 </f:fields>
                             </f:FormElement>
-                            <f:FormElement label="Loan ID">
+                            <f:FormElement label="Applicant PAN Number">
                                 <f:fields>
-                                    <Text text="{loanModel>/LoanID}" id="loanIdText"/>
+                                    <Text text="{mainModel>applicantPAN}"/>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Applicant Salary">
+                                <f:fields>
+                                    <Text text="{mainModel>applicantSalary}"/>
                                 </f:fields>
                             </f:FormElement>
                             <f:FormElement label="Loan Amount">
                                 <f:fields>
-                                    <Text text="{loanModel>/LoanAmount}" id="loanAmountText"/>
-                                </f:fields>
-                            </f:FormElement>
-                            <f:FormElement label="PAN Number">
-                                <f:fields>
-                                    <Text text="{loanModel>/PANNumber}" id="panText"/>
+                                    <Text text="{mainModel>loanAmount}"/>
                                 </f:fields>
                             </f:FormElement>
                         </f:formElements>
                     </f:FormContainer>
-                    </f:formContainers>
-                </f:Form> 
-                 </VBox>
-                 </content>
-
-                <!-- Tracking Status Bar -->
-                <Title text="Loan Application Status" level="H2" textAlign="Center" class="sapUiSmallMargin"/>
-                <ProgressIndicator
-                    id="loanStatusProgress"
-                    displayValue="{loanModel>/StatusText}"
-                    percentValue="{loanModel>/StatusPercent}"
-                    showValue="true"
-                    state="{loanModel>/StatusState}" />
+                </f:formContainers>
+            </f:Form>
+        </VBox>
     </Page>
 </mvc:View>
