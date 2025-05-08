@@ -4,6 +4,8 @@
     displayBlock="true"
     xmlns="sap.m"
     xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:unified="sap.ui.unified"
     xmlns:f="sap.ui.layout.form"
     >
     <Page id="LApage" showHeader="true" enableScrolling="true" class="customPage">
@@ -97,7 +99,11 @@
                     
                     <VBox >
                     <Button id="chooseFileButton" text="Choose a file..." width="100%" class="customButton" press=".onChooseFile"/>
-                    <Button id="uploadDocumentsButton" text="Upload Documents" type="Accept" width="100%" class="customButton" press=".onUpload"/>
+                    <Input id="filePath" visible="true" editable="false" />
+                    
+                    <Button id="uploadDocumentsButton" text="Upload Documents" type="Accept"  width="100%" class="customButton" press=".onUpload"/>
+                    <Input id="loanId" visible="false" /> 
+
                     </VBox>
                 </HBox>
                 </VBox>
@@ -132,6 +138,9 @@
                     <Input id="enterloanrepaymentmonths" placeholder="Enter Loan Repayment Months" liveChange="repayValidation"  class="customInput"/>
                 </HBox>
                 </VBox>
+
+
+
                 
                 </VBox>
 
