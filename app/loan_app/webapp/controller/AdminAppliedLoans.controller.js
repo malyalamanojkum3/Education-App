@@ -9,18 +9,28 @@ sap.ui.define([
     "use strict";
 
     return Controller.extend("loanapp.controller.AdminAppliedLoans", {
-        //  onInit: function () {
-        //      // // Initialize the OData model
-        //      var oModel = new ODataModel({
-        //           serviceUrl: "/odata/v4/my/"
-        //       });
-        //       this.getView().setModel(oModel);
-        //  },
+        onInit: function () {
+            // Apply the filter when the view is initialized
+            this._applyPendingLoansFilter();
+        },
+        
+        _applyPendingLoansFilter: function () {
+            // Get the table control
+            // Create a filter for loanStatus = "Pending"
+            var oFilter = new sap.ui.model.Filter("loanStatus", sap.ui.model.FilterOperator.EQ, "Pending");
+        
+            var oTable = this.byId("loanList");
+            var oBinding = oTable.getBinding("items");
+            console.log("oBinding",oBinding);
+        
+            // Apply the filter
+           // oBinding.filter([oFilter]);
+        },
 
         onViewDetails: function (oEvent) {
-            var oItem = oEvent.getSource().getBindingContext();
+            var oItem = oEvent.getSource().getBindingContext("mainModel");
             var oDialog = this.byId("customerDetailsDialog");
-            oDialog.setBindingContext(oItem);
+            oDialog.setBindingContext(oItem,"mainModel");
             oDialog.open();
         },
 
@@ -30,23 +40,30 @@ sap.ui.define([
         },
 
         onApproveLoan: function (oEvent) {
-            var oModel = this.getView().getModel();
-            var oItem = oEvent.getSource();
-            var oContext = oItem.getBindingContext();
-            var oData = oContext.getObject();
+            var oItem = oEvent.getSource().getParent().getParent();
+            var oContext = oItem.getBindingContext("mainModel");
+            var oModel = this.getView().getModel("mainModel");
             var sPath = oContext.getPath();
-            
-            var oUpdatedData = {
-                loanStatus: "Approved"
-            };
-            oModel.update(sPath,oUpdatedData,{
-                success: function(){
+            var oData = oContext.getObject();
+
+            // Update the loanStatus in the local object
+            oData.loanStatus = "Approved";
+
+            jQuery.ajax({
+                url: "/odata/v4/my/customer('" + oData.Id + "')",
+                method: "PUT",
+                data: JSON.stringify(oData), // Send the entire object
+                contentType: "application/json",
+                success: function (response) {
+                    // oModel.setProperty(sPath, oData); // Update the model with the entire object
+                    // oModel.refresh(true);
+                    oModel.refresh();
                     MessageToast.show("Loan Approved");
                 },
-                error: function(){
-                    MessageToast.show("Error Approving Loan")
+                error: function (error) {
+                    MessageToast.show("Error Approving loan");
                 }
-            })
+            });
         },
 
         onRejectLoan: function (oEvent) {
@@ -65,8 +82,9 @@ sap.ui.define([
                 data: JSON.stringify(oData), // Send the entire object
                 contentType: "application/json",
                 success: function (response) {
-                    oModel.setProperty(sPath, oData); // Update the model with the entire object
-                    oModel.refresh(true);
+                    // oModel.setProperty(sPath, oData); // Update the model with the entire object
+                    // oModel.refresh(true);
+                    oModel.refresh();
                     MessageToast.show("Loan Rejected");
                 },
                 error: function (error) {
@@ -96,7 +114,10 @@ sap.ui.define([
           var sQurey = oEvent.getSource().getValue();
           var filterConditions = [
             new Filter("applicantName", FilterOperator.Contains, sQurey),
-            new Filter("applicantAddress", FilterOperator.Contains, sQurey),
+            new Filter("applicantEmail", FilterOperator.Contains, sQurey),
+            new Filter("applicantPHno", FilterOperator.Contains, sQurey),
+            new Filter("applicantAadhar", FilterOperator.Contains, sQurey),
+            //new Filter("Id", FilterOperator.Contains, sQurey)
 
         ];
         var combinedFilters=new Filter({
