@@ -7,9 +7,12 @@ sap.ui.define([
 
     return Controller.extend("loanapp.controller.loanApplication", {
       onInit() {
+
         // Initialize the model
         var oModel = new JSONModel("odata/v4/my/customer");
         this.getView().setModel(oModel);
+
+      
     },
         onSubmit() {
           //capturing the data in var
@@ -34,6 +37,18 @@ sap.ui.define([
           console.log("Loan Amount:", ApplicantLoanAmount);
           console.log("Loan Repayment Months:", ApplicantRepaymentMonths);
 
+
+          //validation formats
+          var nameFormat = /^[a-zA-Z\s]+$/;
+          var mobileFormat = /^[0-9]{10}$/;
+          var emailFormat =  /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          var aadhaarFormat = /^[0-9]{12}$/;
+          var panFormat = /[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+          var salaryFormat = /^[0-9]*$/;
+          var loanamtFormat = /^[0-9]*$/;
+          var repayFormat = /^[0-9]{1,2}$/;
+
+          
           //creating new object
           var NewUser = {
             applicantName: ApplicantName,
@@ -47,6 +62,24 @@ sap.ui.define([
             loanRepaymentMonths: ApplicantRepaymentMonths,
             loanStatus: "Pending"
           };
+
+          //checking for wrong format
+          let formatErrors = [];
+          if(!ApplicantName.match(nameFormat)) formatErrors.push("Applicant name (only alphabets are allowed)");
+          if(!ApplicantMobileNo.match(mobileFormat)) formatErrors.push("Applicant Mobile No (Must be 10 digits");
+          if(!ApplicantEmailId.match(emailFormat)) formatErrors.push("Applicant Email Id (Invalid email format)");
+          if(!ApplicantAadhaarNo.match(aadhaarFormat)) formatErrors.push("Applicant Aadhaar No (Must be 12 digits)");
+          if(!ApplicantPANNo.match(panFormat)) formatErrors.push("Applicant PAN No (Invalid Pan No format)");
+          if(!ApplicantSalary.match(salaryFormat)) formatErrors.push("Applicant Salary (only numbers allowed)");
+          if(!ApplicantLoanAmount.match(loanamtFormat)) formatErrors.push("Applicant LoanAmount (only Numbers are allowed)");
+          if(!ApplicantRepaymentMonths.match(repayFormat)) formatErrors.push("Applicant Repaymonths (upto 2 digits)");
+
+          if(formatErrors.length > 0){
+            sap.m.MessageBox.error("Please correct the following fields:\n" + formatErrors.join("\n"));
+            return;
+          }
+
+
 
           //missing fields
           let missingFields = [];
@@ -115,14 +148,16 @@ sap.ui.define([
             var oFileUploader = document.createElement('input');
             oFileUploader.type = 'file';
             oFileUploader.onchange = function (event) {
-            var oFilePathInput = this.byId("filePath");
-            oFilePathInput.setValue(event.target.files[0].name);
-                 }.bind(this);
+              var file = event.target.files[0];
+              this._file = file; 
+              var oFilePathInput = this.byId("filePath");
+              oFilePathInput.setValue(file.name);
+
+            }.bind(this);
             oFileUploader.click();
+
                 },
-        onUpload: function () {
-          sap.m.MessageToast.show("Documents uploaded successfully");  
-        },
+                
         onClear: function(){
             this.byId("enterApplicantName").setValue("");
             this.byId("enterApplicantAddress").setValue("");
@@ -133,6 +168,8 @@ sap.ui.define([
             this.byId("enterSalary").setValue("");
             this.byId("enterloanamount").setValue("");
             this.byId("enterloanrepaymentmonths").setValue("");
+            this.byId("selectDocumentType").setSelectedKey(null);
+
 
         },
         nameValidation: function(oEvent) {
@@ -147,7 +184,6 @@ sap.ui.define([
             } else if (!fieldValue.match(format)) {
               fieldName.setValueState(sap.ui.core.ValueState.Error);
               fieldName.setValueStateText("Only Alphabets can Accepted");
-              fieldName.setValue("");
             } else {
               fieldName.setValueState(sap.ui.core.ValueState.None);
             }
@@ -164,7 +200,6 @@ sap.ui.define([
             } else if (!fieldValue.match(format)) {
               fieldName.setValueState(sap.ui.core.ValueState.Error);
               fieldName.setValueStateText("Only Numbers can Accepted");
-              fieldName.setValue("");
             } else {
               fieldName.setValueState(sap.ui.core.ValueState.None);
             }
@@ -194,7 +229,6 @@ sap.ui.define([
             } else if (!fieldValue.match(format)) {
               fieldName.setValueState(sap.ui.core.ValueState.Error);
               fieldName.setValueStateText("Only Numbers can Accepted");
-              fieldName.setValue("");
             } else {
               fieldName.setValueState(sap.ui.core.ValueState.None);
             }
@@ -212,7 +246,6 @@ sap.ui.define([
             } else if (!fieldValue.match(format)) {
               fieldName.setValueState(sap.ui.core.ValueState.Error);
               fieldName.setValueStateText("Invalid Pan number");
-              fieldName.setValue("");
             } else {
               fieldName.setValueState(sap.ui.core.ValueState.None);
             }
@@ -229,7 +262,6 @@ sap.ui.define([
             } else if (!fieldValue.match(format)) {
               fieldName.setValueState(sap.ui.core.ValueState.Error);
               fieldName.setValueStateText("Only Numbers can Accepted");
-              fieldName.setValue("");
             } else {
               fieldName.setValueState(sap.ui.core.ValueState.None);
             }
@@ -246,7 +278,6 @@ sap.ui.define([
             } else if (!fieldValue.match(format)) {
               fieldName.setValueState(sap.ui.core.ValueState.Error);
               fieldName.setValueStateText("Only Numbers can Accepted");
-              fieldName.setValue("");
             } else {
               fieldName.setValueState(sap.ui.core.ValueState.None);
             }
@@ -263,7 +294,6 @@ sap.ui.define([
             } else if (!fieldValue.match(format)) {
               fieldName.setValueState(sap.ui.core.ValueState.Error);
               fieldName.setValueStateText("Only Numbers can Accepted");
-              fieldName.setValue("");
             } else {
               fieldName.setValueState(sap.ui.core.ValueState.None);
             }
