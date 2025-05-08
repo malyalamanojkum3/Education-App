@@ -76,7 +76,7 @@
           "bundleName": "loanapp.i18n.i18n"
         }
       },
-      "": {
+      "mainModel": {
         "type": "sap.ui.model.odata.v4.ODataModel",
         "dataSource": "mainService",
         "preload": true,
