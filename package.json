@@ -26,7 +26,10 @@
     "requires": {
       "[production]": {
         "db": "hana"
-      }
+      },
+       "[hybrid]": {
+     "db": "hana"
+     }  
     }
   }
 }

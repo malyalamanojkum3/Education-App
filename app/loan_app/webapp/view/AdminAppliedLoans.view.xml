@@ -25,6 +25,12 @@
     </contentLeft>
     <contentRight>
     <OverflowToolbar id="filtersbar">
+ <ComboBox id="statusComboBox" selectedKey="All" change="onStatusChange">
+ <core:Item key="All" text="All" />
+ <core:Item key="Approved" text="Approved Loans" />
+ <core:Item key="Pending" text="Pending Loans" />
+ <core:Item key="Rejected" text="Rejected Loans" />
+ </ComboBox>
 						<ToolbarSpacer/>
 						<SearchField id ="querySearch" liveChange="onSearch">
 							<layoutData>
@@ -77,15 +83,16 @@
                             <Text id="_IDGenText6" text="{mainModel>applicantEmail}" />
                             <Text id="_IDGenText77" text="{mainModel>applicantPHno}"/>
                             <Text id="_IDGenText78" text="{mainModel>applicantAadhar}"/>
-                            <HBox id="_IDGenHBox" class="action">
-            
-                                <Button type="Default" text="View" press="onViewDetails" class="actionbuttonspacing"/>
-                                 <Button type="Accept" text="Accept" press="onApproveLoan" class="actionbuttonspacing"/>
-                                 <Button type="Reject" text="Reject" press="onRejectLoan" class="actionbuttonspacing"/>
-                        
-    
-                               
-                            </HBox>
+                           
+<HBox id="_IDGenHBox" class="action">
+     <Button type="Default" text="View" press="onViewDetails" class="actionbuttonspacing"/>
+     <Button type="Accept" text="Accept" press="onApproveLoan"
+    visible="{path: 'mainModel>loanStatus', formatter: '.isPending', targetType: 'any' }"
+    class="actionbuttonspacing"/>
+<Button type="Reject" text="Reject" press="onRejectLoan"
+    visible="{path: 'mainModel>loanStatus', formatter: '.isPending',  targetType: 'any' }"
+    class="actionbuttonspacing"/>
+ </HBox>
                         </cells>
                     </ColumnListItem>
                 </items>
@@ -99,10 +106,10 @@
             <VBox>
                     <Label text="ID:" design="Bold" class="font" />
                     <Text text="{mainModel>Id}" class="font"/>
+                    
                     <Label  text="Name:" design="Bold" class="font" />
                     <Text text="{mainModel>applicantName}" class="font"/>
-                
-            
+
                     <Label  text="Address:" design="Bold" class="font"/>
                     <Text  text="{mainModel>applicantAddress}" class="font" />
                

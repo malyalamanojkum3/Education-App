@@ -44,14 +44,14 @@ sap.ui.define([
             var oContext = oItem.getBindingContext("mainModel");
             var oModel = this.getView().getModel("mainModel");
             var sPath = oContext.getPath();
-            var oData = oContext.getObject();
+            var oData = oContext.getObject(); 
 
             // Update the loanStatus in the local object
             oData.loanStatus = "Approved";
 
             jQuery.ajax({
                 url: "/odata/v4/my/customer('" + oData.Id + "')",
-                method: "PUT",
+                method: "PATCH",
                 data: JSON.stringify(oData), // Send the entire object
                 contentType: "application/json",
                 success: function (response) {
@@ -78,7 +78,7 @@ sap.ui.define([
 
             jQuery.ajax({
                 url: "/odata/v4/my/customer('" + oData.Id + "')",
-                method: "PUT",
+                method: "PATCH",
                 data: JSON.stringify(oData), // Send the entire object
                 contentType: "application/json",
                 success: function (response) {
@@ -135,8 +135,25 @@ sap.ui.define([
           oBinding.filter([]);
           this.getView().byId("querySearch").setValue("");
             
-        }
-
-
+        },      
+       
+             onStatusChange: function (oEvent) {
+                 var oComboBox = this.byId("statusComboBox");
+                 var sSelectedKey = oComboBox.getSelectedKey();
+                 var oTable = this.byId("loanList");
+                 var oBinding = oTable.getBinding("items");
+                 var aFilters = [];
+            
+             if (sSelectedKey !== "All") {
+             aFilters.push(new Filter("loanStatus", FilterOperator.EQ, sSelectedKey));
+             }
+            
+             oBinding.filter(aFilters);
+             }  ,
+             
+isPending: function (status) {
+         return status === "Pending";
+    }
+                        
     });
 })
