@@ -56,7 +56,7 @@ sap.ui.define([
         }
         
         // Example usage:
-        const appName = "Education Loan";
+        const appName = "EducationLoan";
         const randomString = generateLoanId();
         // Output: 2025-myApp-1234 (example)
         
