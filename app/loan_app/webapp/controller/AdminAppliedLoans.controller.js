@@ -12,6 +12,7 @@ sap.ui.define([
         onInit: function () {
             // Apply the filter when the view is initialized
             this._applyPendingLoansFilter();
+
         },
         
         _applyPendingLoansFilter: function () {
@@ -39,56 +40,50 @@ sap.ui.define([
             this.byId("customerDetailsDialog").close();
         },
 
-        onApproveLoan: function (oEvent) {
-            var oItem = oEvent.getSource().getParent().getParent();
-            var oContext = oItem.getBindingContext("mainModel");
+        onApproveLoan: function () {
+            var oDialog = this.byId("customerDetailsDialog");
+            var oContext = oDialog.getBindingContext("mainModel");
             var oModel = this.getView().getModel("mainModel");
-            var sPath = oContext.getPath();
-            var oData = oContext.getObject(); 
-
-            // Update the loanStatus in the local object
+            var oData = oContext.getObject();
+        
             oData.loanStatus = "Approved";
-
+        
             jQuery.ajax({
                 url: "/odata/v4/my/customer('" + oData.Id + "')",
                 method: "PATCH",
-                data: JSON.stringify(oData), // Send the entire object
+                data: JSON.stringify(oData),
                 contentType: "application/json",
-                success: function (response) {
-                    // oModel.setProperty(sPath, oData); // Update the model with the entire object
-                    // oModel.refresh(true);
+                success: () => {
                     oModel.refresh();
                     MessageToast.show("Loan Approved");
+                    oDialog.close();
                 },
-                error: function (error) {
-                    MessageToast.show("Error Approving loan");
+                error: () => {
+                    MessageToast.show("Error Approving Loan");
                 }
             });
-        },
+        },        
 
-        onRejectLoan: function (oEvent) {
-            var oItem = oEvent.getSource().getParent().getParent();
-            var oContext = oItem.getBindingContext("mainModel");
+        onRejectLoan: function () {
+            var oDialog = this.byId("customerDetailsDialog");
+            var oContext = oDialog.getBindingContext("mainModel");
             var oModel = this.getView().getModel("mainModel");
-            var sPath = oContext.getPath();
             var oData = oContext.getObject();
-
-            // Update the loanStatus in the local object
+        
             oData.loanStatus = "Rejected";
-
+        
             jQuery.ajax({
                 url: "/odata/v4/my/customer('" + oData.Id + "')",
                 method: "PATCH",
-                data: JSON.stringify(oData), // Send the entire object
+                data: JSON.stringify(oData),
                 contentType: "application/json",
-                success: function (response) {
-                    // oModel.setProperty(sPath, oData); // Update the model with the entire object
-                    // oModel.refresh(true);
+                success: () => {
                     oModel.refresh();
                     MessageToast.show("Loan Rejected");
+                    oDialog.close();
                 },
-                error: function (error) {
-                    MessageToast.show("Error rejecting loan");
+                error: () => {
+                    MessageToast.show("Error Rejecting Loan");
                 }
             });
         },
@@ -97,7 +92,6 @@ sap.ui.define([
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.navTo("dashboard");
             MessageToast.show("Logged out!");
-
 
 
         },
@@ -137,23 +131,29 @@ sap.ui.define([
             
         },      
        
-             onStatusChange: function (oEvent) {
-                 var oComboBox = this.byId("statusComboBox");
-                 var sSelectedKey = oComboBox.getSelectedKey();
-                 var oTable = this.byId("loanList");
-                 var oBinding = oTable.getBinding("items");
-                 var aFilters = [];
-            
-             if (sSelectedKey !== "All") {
-             aFilters.push(new Filter("loanStatus", FilterOperator.EQ, sSelectedKey));
-             }
-            
-             oBinding.filter(aFilters);
-             }  ,
-             
+        onStatusChange: function () {
+            var sSelectedKey = this.byId("statusComboBox").getSelectedKey();
+            var oTable = this.byId("loanList");
+            var oBinding = oTable.getBinding("items");
+        
+            var aFilters = [];
+            if (sSelectedKey && sSelectedKey !== "All") {
+                aFilters.push(new Filter("loanStatus", FilterOperator.EQ, sSelectedKey));
+            }
+        
+            oBinding.filter(aFilters);
+        
+            // Update column visibility and no data text
+            var oStatusColumn = this.byId("statusColumn");
+            if (oStatusColumn) {
+                oStatusColumn.setVisible(sSelectedKey === "All");
+            }
+        
+            oTable.setNoDataText(sSelectedKey === "Pending" ? "Empty Right Now" : "No Data Available");
+        },                
+                   
 isPending: function (status) {
          return status === "Pending";
-    }
-                        
+    }                       
     });
 })

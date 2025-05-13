@@ -25,7 +25,8 @@
     </contentLeft>
     <contentRight>
     <OverflowToolbar id="filtersbar">
- <ComboBox id="statusComboBox" selectedKey="All" change="onStatusChange">
+ 
+<ComboBox id="statusComboBox" selectedKey="All" change="onStatusChange">
  <core:Item key="All" text="All" />
  <core:Item key="Approved" text="Approved Loans" />
  <core:Item key="Pending" text="Pending Loans" />
@@ -54,7 +55,7 @@
     </content>
     <VBox id="_IDGenVBox" class="pageContainer" fitContainer="true">
         <ScrollContainer id="scrollContainer" height="100%" width="100%" vertical="true" visible="true">
-            <Table id="loanList" items="{mainModel>/customer}" class="table">
+            <Table id="loanList" items="{mainModel>/customer}" class="table" noDataText="No Data Available">
                 <columns>
                     <Column id="_IDGenColumn">
                         <Text id="_IDGenText" text="ID" class="font1"/>
@@ -69,8 +70,11 @@
                         <Text id="_IDGenText1111" text="MobileNo" class="font1"/>
                     </Column>
                     <Column>
-                        <Text  text="Aadhar No." class="font1"/>
+                        <Text  text="Aadhar Number" class="font1"/>
                     </Column>
+                    <Column>
+    <Text text="Status" class="font1"/>
+</Column>
                     <Column id="_IDGenColumn3" hAlign="Center">
                         <Text id="_IDGenText3" text="Actions" class="action font1"/>
                     </Column>
@@ -83,15 +87,10 @@
                             <Text id="_IDGenText6" text="{mainModel>applicantEmail}" />
                             <Text id="_IDGenText77" text="{mainModel>applicantPHno}"/>
                             <Text id="_IDGenText78" text="{mainModel>applicantAadhar}"/>
-                           
+                           <Text id="_IDGenText782" text="{mainModel>loanStatus}"/>
 <HBox id="_IDGenHBox" class="action">
      <Button type="Default" text="View" press="onViewDetails" class="actionbuttonspacing"/>
-     <Button type="Accept" text="Accept" press="onApproveLoan"
-    visible="{path: 'mainModel>loanStatus', formatter: '.isPending', targetType: 'any' }"
-    class="actionbuttonspacing"/>
-<Button type="Reject" text="Reject" press="onRejectLoan"
-    visible="{path: 'mainModel>loanStatus', formatter: '.isPending',  targetType: 'any' }"
-    class="actionbuttonspacing"/>
+        
  </HBox>
                         </cells>
                     </ColumnListItem>
@@ -100,46 +99,60 @@
         </ScrollContainer>
     </VBox>
     </Page>
-     <Dialog id="customerDetailsDialog" title="CUSTOMER DETAILS" >
-        <content>
-        <HBox class="customerDetails">
-            <VBox>
-                    <Label text="ID:" design="Bold" class="font" />
-                    <Text text="{mainModel>Id}" class="font"/>
-                    
-                    <Label  text="Name:" design="Bold" class="font" />
-                    <Text text="{mainModel>applicantName}" class="font"/>
+     <Dialog id="customerDetailsDialog" titleAlignment="Auto"  title="Customer Loan Details">
 
-                    <Label  text="Address:" design="Bold" class="font"/>
-                    <Text  text="{mainModel>applicantAddress}" class="font" />
-               
-                    <Label text="Mobile:" design="Bold" class="font" />
-                    <Text text="{mainModel>applicantPHno}" class="font" />
-                
-                    <Label  text="Email:" design="Bold" class="font"/>
-                    <Text  text="{mainModel>applicantEmail}" class="font"/>
-              
-                    <Label text="Aadhar No.:" design="Bold" class="font" />
-                    <Text text="{mainModel>applicantAadhar}" class="font"/>
-                
-                    <Label text="PAN No.:" design="Bold" class="font" />
-                    <Text text="{mainModel>applicantPAN}" class="font"/>
-                
-                    <Label text="Salary:" design="Bold" class="font"/>
-                    <Text text="{mainModel>applicantSalary}" class="font" />
-                
-                    <Label text="Loan Repayment Months:" design="Bold" class="font"/>
-                    <Text text="{mainModel>loanRepaymentMonths}" class="font" />
-              
-                    <Label text="Loan Amount:" design="Bold" class="font" />
-                    <Text text="{mainModel>loanAmount}" class="font"/>
-                
-                </VBox>
+        <content>
+            <VBox class="customMargin">
+            <HBox>
+                    <Label text="ID:" design="Bold" class="font customLabel"/>
+                    <Text text="{mainModel>Id}" class="font customInput"/>
+                    </HBox>
+                    <HBox>
+                    <Label  text="Name:" design="Bold" class="font customLabel" />
+                    <Text text="{mainModel>applicantName}" class="font customInput"/>
+</HBox>
+<HBox>
+                    <Label  text="Address:" design="Bold" class="font customLabel"/>
+                    <Text  text="{mainModel>applicantAddress}" class="font customInput" />
+               </HBox>
+                    <HBox>
+                    <Label text="Mobile:" design="Bold" class="font customLabel" />
+                    <Text text="{mainModel>applicantPHno}" class="font customInput" />
                 </HBox>
-                
+                    <HBox>
+                    <Label  text="Email:" design="Bold" class="font customLabel"/>
+                    <Text  text="{mainModel>applicantEmail}" class="font customInput"/>
+              </HBox>
+                    <HBox>
+                    <Label text="Aadhar No.:" design="Bold" class="font customLabel" />
+                    <Text text="{mainModel>applicantAadhar}" class="font customInput"/>
+                </HBox>
+                    <HBox>
+                    <Label text="PAN No.:" design="Bold" class="font customLabel" />
+                    <Text text="{mainModel>applicantPAN}" class="font customInput"/>
+                </HBox>
+                    <HBox>
+                    <Label text="Salary:" design="Bold" class="font customLabel"/>
+                    <Text text="{mainModel>applicantSalary}" class="font customInput" />
+                </HBox>
+                    <HBox>
+                    <Label text="Loan Repayment Months:" design="Bold" class="font customLabel"/>
+                    <Text text="{mainModel>loanRepaymentMonths}" class="font customInput" />
+              </HBox>
+                    <HBox>
+                    <Label text="Loan Amount:" design="Bold" class="font customLabel" />
+                    <Text text="{mainModel>loanAmount}" class="font customInput"/>
+                </HBox>
+                </VBox>
         </content>
-        <endButton>
-            <Button id="_IDGenButton" text="Close" press="onCloseDialog" />
-        </endButton>
+     <buttons>
+     <Button type="Accept" text="Accept" press="onApproveLoan"
+    visible="{path: 'mainModel>loanStatus', formatter: '.isPending', targetType: 'any' }"
+    class="actionbuttonspacing"/>  
+<Button type="Reject" text="Reject" press="onRejectLoan"
+    visible="{path: 'mainModel>loanStatus', formatter: '.isPending',  targetType: 'any' }"
+    class="actionbuttonspacing"/>
+<Button text="Close" press="onCloseDialog" />
+</buttons>
     </Dialog>
 </mvc:View>

@@ -71,16 +71,13 @@ height: 100vh !important; /* Full height of the viewport */
   color: #fcfbfb !important; 
   transition: font-size 0.3s ease, color 0.3s ease; 
 }
-.customerDetails{
+.customerDetails1{
 
   width: 600px;
   height: fit-content;
   background-color: #ffffff;
-
-  
   
 }
-  
 
 .font{
   font-size: small;

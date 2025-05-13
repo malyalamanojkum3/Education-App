@@ -56,31 +56,24 @@
                     <Input id="enterApplicantAddress" placeholder="Enter Applicant Address"  class="customInput" />
                 </HBox>
                 </VBox>
-
-
                 <VBox class="customMargin">
                 <HBox alignItems="Center">
                     <Label id="LAlabel3" text="Enter Applicant Mobile No"  required="true" class="customLabel"/>
                     <Input id="enterApplicantMobileNo" placeholder="Enter Applicant Mobile No" liveChange="numValidation" class="customInput"/>
                 </HBox>
                 </VBox>
-
                 <VBox class="customMargin">
                 <HBox alignItems="Center">
                     <Label id="LAlabel4" text="Enter Applicant Email Id" required="true" class="customLabel"/>
                     <Input id="enterEmailId" placeholder="Enter Applicant Email Id" liveChange="emailValidation" class="customInput"/>
                     </HBox>
                 </VBox>
-
                 <VBox class="customMargin">
                 <HBox alignItems="Center">
                     <Label id="LAlabel5" text="Enter Aadhaar No" required="true" class="customLabel" />
                     <Input id="enterAadhaarNo" placeholder="Enter Aadhaar No" liveChange="aadhaarValidation"  class="customInput" />
                 </HBox>
                 </VBox>
-
-
-
                 <VBox class="customMargin" id="LAbox3">
                 <VBox class="customMargin">
                 <HBox alignItems="Center">
