@@ -25,6 +25,7 @@ sap.ui.define([
             } else {
                 MessageToast.show("Please enter a valid Customer ID.");
             }
+            this.byId("Id").setValue("");
         },
         _isValidCustomerId: function(sCustomerId) {
             var oModel = this.getView().getModel("mainModel");
@@ -41,11 +42,13 @@ sap.ui.define([
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.navTo("dashboard");
             MessageToast.show("Logged out!");
+            this.byId("Id").setValue("");
         },
         onHome: function () {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.navTo("dashboard");
             MessageToast.show("Returned Home");
+            this.byId("Id").setValue("");
         }
     });
 });

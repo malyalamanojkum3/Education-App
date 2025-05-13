@@ -48,6 +48,23 @@ sap.ui.define([
           var loanamtFormat = /^[0-9]*$/;
           var repayFormat = /^[0-9]{1,2}$/;
 
+          //generate loan id
+          function generateLoanId() {
+            const currentYear = new Date().getFullYear();
+            const randomNumber = Math.floor(Math.random() * 10000); // Generates a random number between 0 and 9999
+            return `${currentYear}-${appName}-${randomNumber}`;
+        }
+        
+        // Example usage:
+        const appName = "Education Loan";
+        const randomString = generateLoanId();
+        // Output: 2025-myApp-1234 (example)
+        
+        // Storing the generated string in a variable
+        const LoanId = randomString;
+        
+        // You can now use 'storedString' wherever needed
+        console.log(LoanId); 
           
           //creating new object
           var NewUser = {
@@ -60,7 +77,9 @@ sap.ui.define([
             applicantSalary: ApplicantSalary,
             loanAmount: ApplicantLoanAmount,
             loanRepaymentMonths: ApplicantRepaymentMonths,
-            loanStatus: "Pending"
+            loanStatus: "Pending",
+            doucument: this.filebase64String,
+            Id: LoanId
           };
 
           //checking for wrong format
@@ -136,7 +155,6 @@ sap.ui.define([
             }
           });
           
-
         },
 
         onCancel() {
@@ -157,6 +175,44 @@ sap.ui.define([
             oFileUploader.click();
 
                 },
+        // onUpload: function () {
+        //     var file = this._file;
+        //     if(!file){
+        //       sap.m.MessageToast.show("Please choose a file first.");
+        //       return;
+        //     }
+        //     var filename = file.name;
+        //     var filesize = file.size;
+        //     var extension = filename.substr(filename.lastIndexOf('.')+1).toLowerCase();
+        //     console.log(extension);
+
+        //     if(!["pdf", "jpeg", "png", "jpg"].includes(extension)) {
+        //       sap.m.MessageToast.show("Kindly upload only JPG, JPEG, PDF, and PNG files");
+        //       return;
+
+        //     } else if (filesize > 2000000) {
+        //       sap.m.MessageToast.show("File size should not be more than 2MB.");
+        //       return;
+        //     }
+
+        //     var reader = new FileReader();
+        //     reader.onload = function(e) {
+        //       var fileupArray = new Uint8Array(e.target.result);
+        //       this.fileData = fileupArray;
+
+        //       //Convert Uint8Array to a string
+        //       var binaryString = Array.from(fileupArray, byte => String.fromCharCode(byte)).join('');
+
+        //       // Convert binary string to Base64
+        //       var base64Stringfile = btoa(binaryString);
+        //       this.filebase64String = base64Stringfile;
+        //       console.log(this.filebase64String);
+
+        //     }.bind(this);
+        //     reader.readAsArrayBuffer(file);
+
+
+        // },
                 
         onClear: function(){
             this.byId("enterApplicantName").setValue("");

@@ -19,7 +19,7 @@ type LoanStatus : String enum{
     loans: Association to many loanDetails on loans.user = $self;
  }
  entity loanDetails{
-   key Id: UUID;
+   key Id: String;
    loanStatus : LoanStatus;
    applicantName :String;
    applicantAddress:String;

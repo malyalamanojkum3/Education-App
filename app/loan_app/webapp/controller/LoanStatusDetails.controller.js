@@ -84,6 +84,7 @@ sap.ui.define([
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.navTo("LoanStatusPage");
             MessageToast.show("Back to status");
+            
         },
         onHome: function () {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
