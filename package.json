@@ -28,9 +28,9 @@
       "[production]": {
         "db": "hana"
       },
-       "[hybrid]": {
-     "db": "hana"
-     }  
+      "[hybrid]": {
+        "db": "hana"
+      }
     }
   }
 }

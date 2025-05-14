@@ -99,51 +99,96 @@
         </ScrollContainer>
     </VBox>
     </Page>
-     <Dialog id="customerDetailsDialog" titleAlignment="Auto"  title="Customer Loan Details">
+    
+
+<Dialog id="customerDetailsDialog" 
+contentWidth="700px"
+>
+     <customHeader>
+     <Bar>
+     
+<contentLeft>
+     <Label text="" width="100px" /> <!-- Spacer -->
+     </contentLeft>
+     <contentMiddle>
+     <ToolbarSpacer/>
+     <Title text="CUSTOMER LOAN DETAILS" />
+     <ToolbarSpacer/>
+     </contentMiddle>
+     <contentRight>
+     <Label text="" width="100px" /> <!-- Spacer -->
+     </contentRight>
+     </Bar>
+     </customHeader>
 
         <content>
+        <HBox>
             <VBox class="customMargin">
             <HBox>
-                    <Label text="ID:" design="Bold" class="font customLabel"/>
-                    <Text text="{mainModel>Id}" class="font customInput"/>
+                    <Label text="ID:"  class="font customLabel1"/>
+                    <Text text="{mainModel>Id}" class="font customInput1"/>
                     </HBox>
                     <HBox>
-                    <Label  text="Name:" design="Bold" class="font customLabel" />
-                    <Text text="{mainModel>applicantName}" class="font customInput"/>
+                    <Label  text="Name:" class="font customLabel1" />
+                    <Text text="{mainModel>applicantName}" class="font customInput1"/>
 </HBox>
 <HBox>
-                    <Label  text="Address:" design="Bold" class="font customLabel"/>
-                    <Text  text="{mainModel>applicantAddress}" class="font customInput" />
+                    <Label  text="Address:" class="font customLabel1"/>
+                    <Text  text="{mainModel>applicantAddress}" class="font customInput1" />
                </HBox>
                     <HBox>
-                    <Label text="Mobile:" design="Bold" class="font customLabel" />
-                    <Text text="{mainModel>applicantPHno}" class="font customInput" />
+                    <Label text="Mobile:" class="font customLabel1" />
+                    <Text text="{mainModel>applicantPHno}" class="font customInput1" />
                 </HBox>
                     <HBox>
-                    <Label  text="Email:" design="Bold" class="font customLabel"/>
-                    <Text  text="{mainModel>applicantEmail}" class="font customInput"/>
+                    <Label  text="Email:" class="font customLabel1"/>
+                    <Text  text="{mainModel>applicantEmail}" class="font customInput1"/>
+              </HBox>
+              <HBox>
+           <Label text="Documents:" class="font customLabel1"/>
+     <VBox>
+         <List items="{mainModel>doucument}">
+     <StandardListItem
+     title="{mainModel>applicantName}"
+     icon="sap-icon://attachment"
+     type="Active"
+     press="onDocumentPress"
+     />
+ </List>
+     </VBox>
+</HBox>
+              </VBox>
+              <Label width="80px" /> <!-- Spacer -->
+              <VBox class="customMargin">
+                    <HBox>
+                    <Label text="Aadhar No.:"  class="font customLabel1" />
+                    <Text text="{mainModel>applicantAadhar}" class="font customInput1"/>
+                </HBox>
+                    <HBox>
+                    <Label text="PAN No.:" class="font customLabel1" />
+                    <Text text="{mainModel>applicantPAN}" class="font customInput1"/>
+                </HBox>
+                    <HBox>
+                    <Label text="Salary:" class="font customLabel1"/>
+                    <Text text="{mainModel>applicantSalary}" class="font customInput1" />
+                </HBox>
+                    <HBox>
+                    <Label text="Loan Repayment Months:" class="font customLabel1"/>
+                    <Text text="{mainModel>loanRepaymentMonths}" class="font customInput1" />
               </HBox>
                     <HBox>
-                    <Label text="Aadhar No.:" design="Bold" class="font customLabel" />
-                    <Text text="{mainModel>applicantAadhar}" class="font customInput"/>
+                    <Label text="Loan Amount:" class="font customLabel1" />
+                    <Text text="{mainModel>loanAmount}" class="font customInput1"/>
                 </HBox>
-                    <HBox>
-                    <Label text="PAN No.:" design="Bold" class="font customLabel" />
-                    <Text text="{mainModel>applicantPAN}" class="font customInput"/>
-                </HBox>
-                    <HBox>
-                    <Label text="Salary:" design="Bold" class="font customLabel"/>
-                    <Text text="{mainModel>applicantSalary}" class="font customInput" />
-                </HBox>
-                    <HBox>
-                    <Label text="Loan Repayment Months:" design="Bold" class="font customLabel"/>
-                    <Text text="{mainModel>loanRepaymentMonths}" class="font customInput" />
-              </HBox>
-                    <HBox>
-                    <Label text="Loan Amount:" design="Bold" class="font customLabel" />
-                    <Text text="{mainModel>loanAmount}" class="font customInput"/>
+                <HBox>
+                    <Label text="Loan Status:" class="font customLabel1" />
+                    <Text text="{mainModel>loanStatus}" class="font customInput1"/>
                 </HBox>
                 </VBox>
+                
+
+
+                </HBox>
         </content>
      <buttons>
      <Button type="Accept" text="Accept" press="onApproveLoan"
