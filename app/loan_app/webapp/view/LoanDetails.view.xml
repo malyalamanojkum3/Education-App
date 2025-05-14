@@ -77,7 +77,14 @@
                             <Text text="{mainModel>applicantName}" class="gridLabel"/>
                             <Text text="{mainModel>applicantEmail}" class="gridLabel style"/>
                             <Text text="{mainModel>applicantPHno}" class="gridLabel style"/>
-                            <Text text="{mainModel>loanStatus}" class="gridLabel style"/>
+                            <HBox>
+                            <items>
+    <core:Icon src="{= ${mainModel>loanStatus} === 'Approved' ? 'sap-icon://verified' : ${mainModel>loanStatus} === 'Pending' ? 'sap-icon://pending' :  'sap-icon://sys-cancel-2'}" 
+    color="{= ${mainModel>loanStatus} === 'Approved' ? 'Positive' : ${mainModel>loanStatus} === 'Pending' ? 'Critical' : 'Negative'}"/>
+    <Text text="{mainModel>loanStatus}"/>
+    </items>
+</HBox>
+ 
                             <Button type="Default" text="View" press="onViewDetails" class="actionbuttonspacing"/>
                         </cells>
                     </ColumnListItem>
@@ -90,10 +97,17 @@
         <content>
         <HBox class="customerDetails">
             <VBox>
+            
                     <Label text="ID:" design="Bold" class="font" />
                     <Text text="{mainModel>Id}" class="font"/>
+                    
+
+                    
+                    
                     <Label  text="Applicant Name:" design="Bold" class="font" />
                     <Text text="{mainModel>applicantName}" class="font"/>
+                    
+
                 
             
                     <Label  text="Applicant Address:" design="Bold" class="font"/>

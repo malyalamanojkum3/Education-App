@@ -35,8 +35,7 @@ sap.ui.define([
             oDialog.open();
         },
 
-
-        onCloseDialog: function () {
+     onCloseDialog: function () {
             this.byId("customerDetailsDialog").close();
         },
 
