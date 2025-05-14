@@ -1,8 +1,9 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageBox",
+    "sap/m/MessageToast",
     "sap/ui/model/json/JSONModel"
-], (Controller, MessageBox, JSONModel) => {
+], (Controller, MessageBox,MessageToast, JSONModel) => {
     "use strict";
 
     return Controller.extend("loanapp.controller.loanApplication", {

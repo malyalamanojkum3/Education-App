@@ -87,10 +87,22 @@
                             <Text id="_IDGenText6" text="{mainModel>applicantEmail}" />
                             <Text id="_IDGenText77" text="{mainModel>applicantPHno}"/>
                             <Text id="_IDGenText78" text="{mainModel>applicantAadhar}"/>
-                           <Text id="_IDGenText782" text="{mainModel>loanStatus}"/>
+                           
+<HBox>
+     <Text text="{mainModel>loanStatus}" /> 
+    <core:Icon
+    src="{= ${mainModel>loanStatus} === 'Approved' ? 'sap-icon://accept' : ${mainModel>loanStatus} === 'Rejected' ? 'sap-icon://decline' : 'sap-icon://alert'}"
+    size="1rem"
+    class="statusIcon">
+    <core:customData>
+        <core:CustomData key="status" value="{mainModel>loanStatus}" writeToDom="true" />
+    </core:customData>
+</core:Icon>
+
+</HBox>
 <HBox id="_IDGenHBox" class="action">
      <Button type="Default" text="View" press="onViewDetails" class="actionbuttonspacing"/>
-        
+     
  </HBox>
                         </cells>
                     </ColumnListItem>
@@ -102,7 +114,7 @@
     
 
 <Dialog id="customerDetailsDialog" 
-contentWidth="700px"
+class="content"
 >
      <customHeader>
      <Bar>
@@ -122,8 +134,11 @@ contentWidth="700px"
      </customHeader>
 
         <content>
-        <HBox>
-            <VBox class="customMargin">
+        
+        <HBox >
+        <Label text="" width="40px" /> <!-- Spacer -->
+            <VBox >
+            <HBox>
             <HBox>
                     <Label text="ID:"  class="font customLabel1"/>
                     <Text text="{mainModel>Id}" class="font customInput1"/>
@@ -132,19 +147,54 @@ contentWidth="700px"
                     <Label  text="Name:" class="font customLabel1" />
                     <Text text="{mainModel>applicantName}" class="font customInput1"/>
 </HBox>
+</HBox>
 <HBox>
-                    <Label  text="Address:" class="font customLabel1"/>
-                    <Text  text="{mainModel>applicantAddress}" class="font customInput1" />
-               </HBox>
-                    <HBox>
-                    <Label text="Mobile:" class="font customLabel1" />
-                    <Text text="{mainModel>applicantPHno}" class="font customInput1" />
-                </HBox>
                     <HBox>
                     <Label  text="Email:" class="font customLabel1"/>
                     <Text  text="{mainModel>applicantEmail}" class="font customInput1"/>
               </HBox>
-              <HBox>
+                    <HBox>
+                    <Label text="Mobile:" class="font customLabel1" />
+                    <Text text="{mainModel>applicantPHno}" class="font customInput1" />
+                </HBox>
+                </HBox>
+    <HBox>
+                    <HBox>
+                    <Label text="Aadhar No.:"  class="font customLabel1" />
+                    <Text text="{mainModel>applicantAadhar}" class="font customInput1"/>
+                </HBox>
+                    <HBox>
+                    <Label text="PAN No.:" class="font customLabel1" />
+                    <Text text="{mainModel>applicantPAN}" class="font customInput1"/>
+                </HBox>
+                </HBox>
+                    <HBox>
+                    <HBox>
+                    <Label text="Salary:" class="font customLabel1"/>
+                    <Text text="{mainModel>applicantSalary}" class="font customInput1" />
+                </HBox>
+                    <HBox>
+                    <Label text="Tenure:" class="font customLabel1"/>
+                    <Text text="{mainModel>loanRepaymentMonths} Months" class="font customInput1" />
+              </HBox>
+              </HBox>
+                    <HBox>
+                    <HBox>
+                    <Label text="Loan Amount:" class="font customLabel1" />
+                    <Text text="{mainModel>loanAmount}" class="font customInput1"/>
+                </HBox>
+                <HBox>
+                    <Label text="Loan Status:" class="font customLabel1" />
+                    <Text text="{mainModel>loanStatus}" class="font customInput1"/>
+                </HBox>
+                </HBox>
+                 <HBox>
+                 
+                <HBox>
+                    <Label  text="Address:" class="font customLabel1"/>
+                    <Text  text="{mainModel>applicantAddress}" class="font customInput1" />
+               </HBox>
+               <HBox>
            <Label text="Documents:" class="font customLabel1"/>
      <VBox>
          <List items="{mainModel>doucument}">
@@ -157,37 +207,9 @@ contentWidth="700px"
  </List>
      </VBox>
 </HBox>
-              </VBox>
-              <Label width="80px" /> <!-- Spacer -->
-              <VBox class="customMargin">
-                    <HBox>
-                    <Label text="Aadhar No.:"  class="font customLabel1" />
-                    <Text text="{mainModel>applicantAadhar}" class="font customInput1"/>
-                </HBox>
-                    <HBox>
-                    <Label text="PAN No.:" class="font customLabel1" />
-                    <Text text="{mainModel>applicantPAN}" class="font customInput1"/>
-                </HBox>
-                    <HBox>
-                    <Label text="Salary:" class="font customLabel1"/>
-                    <Text text="{mainModel>applicantSalary}" class="font customInput1" />
-                </HBox>
-                    <HBox>
-                    <Label text="Loan Repayment Months:" class="font customLabel1"/>
-                    <Text text="{mainModel>loanRepaymentMonths}" class="font customInput1" />
-              </HBox>
-                    <HBox>
-                    <Label text="Loan Amount:" class="font customLabel1" />
-                    <Text text="{mainModel>loanAmount}" class="font customInput1"/>
-                </HBox>
-                <HBox>
-                    <Label text="Loan Status:" class="font customLabel1" />
-                    <Text text="{mainModel>loanStatus}" class="font customInput1"/>
-                </HBox>
+               </HBox>
                 </VBox>
                 
-
-
                 </HBox>
         </content>
      <buttons>

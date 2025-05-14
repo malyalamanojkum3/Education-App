@@ -92,6 +92,8 @@ height: 100vh !important; /* Full height of the viewport */
   }
   .font1{
     font-size: large !important;
+    font-weight: bold !important;
+  font-family: 'Times New Roman', Times, serif !important;
 
   }
   .gridLabel{
@@ -109,15 +111,20 @@ height: 100vh !important; /* Full height of the viewport */
     margin-right: 20px;
 }
 .customLabel1 {
-  width: 150px;
+  width: 110px !important;
   font-family: 'Times New Roman', Times, serif ;
   font-size: medium;
   font-weight: 600;
  }
+ 
+.content {
+     width: 700px;
+  }
+  
  .customInput1 {
-  width: 200% !important;
   font-family: 'Times New Roman', Times, serif ;
   font-size: medium;
+  width: 220px !important;
   box-sizing: border-box !important;
 }
 
@@ -148,6 +155,25 @@ height: 100vh !important; /* Full height of the viewport */
   
 }
 
+.statusIcon {
+     margin-left: 0.5rem !important;
+     font-size: 1.2rem !important;
+      text-shadow: 0 0 1px currentColor !important
+  }
+  
+.statusIcon[data-status="Approved"] {
+     color: rgb(3, 90, 3) !important;
+  }
+  
+  .statusIcon[data-status="Rejected"] {
+     color: red !important;
+  }
+  
+  .statusIcon[data-status="Pending"] {
+     color: rgb(225, 148, 3) !important;
+  }
+  
+  
 
 .box .sapMBarLeft,
 .box .sapMBarRight,
