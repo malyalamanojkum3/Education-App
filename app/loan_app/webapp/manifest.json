@@ -62,7 +62,8 @@
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
-        "sap.f":{}
+        "sap.f":{},
+        "sap.suite.ui.commons": {}
       }
     },
     "contentDensities": {

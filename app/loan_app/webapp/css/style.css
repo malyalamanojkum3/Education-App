@@ -113,7 +113,9 @@ height: 100vh !important; /* Full height of the viewport */
 .box {
   background-color: #00264d !important;
   color: white !important;
+  
 }
+
 
 .box .sapMBarLeft,
 .box .sapMBarRight,
@@ -271,7 +273,7 @@ text-align: center !important;
 
 .actionbuttonspacing
 {
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 .sapMDlg {
@@ -280,3 +282,10 @@ text-align: center !important;
   max-width: 600px;
   max-height: 400px;
 }
+
+.workflowBox
+{
+margin-top: 2rem;
+}
+
+ 

@@ -3,6 +3,10 @@
     xmlns:core="sap.ui.core"
     xmlns:f="sap.ui.layout.form"
     xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:suite="sap.suite.ui.commons"
+   xmlns:microchart="sap.suite.ui.microchart"
+    xmlns:si="sap.suite.ui.commons.statusindicator"
     controllerName="loanapp.controller.LoanStatusDetails">
     
     <Page 
@@ -105,12 +109,59 @@
                 </f:Form>
             </VBox>
             
-            <!-- Status Bar rendered via HTML -->
+            
+            <!-- Status Bar rendered via HTML
             <VBox class="sapUiSmallMargin" alignItems="Center" width="100%" height="100%">
                 <Title text="Loan Status" level="H2" textAlign="Center"/>
                 <core:HTML id="statusBarHTML" content=""/>
-            </VBox>
-            
-        </content>
+            </VBox> -->
+
+<HBox justifyContent="Center" alignItems="Center" class="workflowBox">
+ 
+  <!-- Submitted -->
+  <VBox alignItems="Center">
+    <core:Icon
+      src="sap-icon://upload"
+      size="{= ${mainModel>loanStatus} === 'Submitted' ? '2.5rem' : '2rem'}"
+      color="{= ${mainModel>loanStatus} === 'Submitted' ? '#0b74da' : '#cccccc'}"
+      class="{= ${mainModel>loanStatus} === 'Submitted' ? 'highlightStatus' : '' }"/>
+    <Text text="Submitted"/>
+  </VBox>
+ 
+  <Text text="—" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" />
+ 
+  <!-- In Progress -->
+  <VBox alignItems="Center">
+    <core:Icon
+      src="sap-icon://pending"
+      size="{= ${mainModel>loanStatus} === 'Pending' ? '2.5rem' : '2rem'}"
+      color="{= ${mainModel>loanStatus} === 'Pending' ? 'orange' : '#cccccc'}"/>
+    <Text text="In Progress"/>
+  </VBox>
+ 
+  <Text text="—" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" />
+ 
+  <!-- Approved -->
+  <VBox alignItems="Center">
+    <core:Icon
+      src="sap-icon://verified"
+      size="{= ${mainModel>loanStatus} === 'Approved' ? '2.5rem' : '2rem'}"
+      color="{= ${mainModel>loanStatus} === 'Approved' ? 'green' : '#cccccc'}"
+      />
+    <Text text="Approved"/>
+  </VBox>
+ 
+  <Text text="—" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" />
+ 
+  <!-- Rejected -->
+  <VBox alignItems="Center">
+    <core:Icon
+      src="sap-icon://decline"
+      size="{= ${mainModel>loanStatus} === 'Rejected' ? '2.5rem' : '2rem'}"
+      color="{= ${mainModel>loanStatus} === 'Rejected' ? 'red' : '#cccccc'}" />
+    <Text text="Rejected"/>
+  </VBox>
+  </HBox>
+  </content>
     </Page>
 </mvc:View>
