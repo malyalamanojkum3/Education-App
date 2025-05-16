@@ -1,9 +1,9 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageBox",
+    "sap/m/MessageToast",
     "sap/ui/model/json/JSONModel"
-    
-], (Controller, MessageBox, JSONModel) => {
+], (Controller, MessageBox,MessageToast, JSONModel) => {
     "use strict";
 
     return Controller.extend("loanapp.controller.loanApplication", {
@@ -50,40 +50,6 @@ sap.ui.define([
           var loanamtFormat = /^[0-9]*$/;
           var repayFormat = /^[0-9]{1,2}$/;
 
-          //generate loan id
-          function generateLoanId() {
-            const currentYear = new Date().getFullYear();
-            const randomNumber = Math.floor(Math.random() * 10000); // Generates a random number between 0 and 9999
-            return `${currentYear}-${appName}-${randomNumber}`;
-        }
-        
-        // Example usage:
-        const appName = "EducationLoan";
-        const randomString = generateLoanId();
-        // Output: 2025-myApp-1234 (example)
-        
-        // Storing the generated string in a variable
-        const LoanId = randomString;
-        
-        // You can now use 'storedString' wherever needed
-        console.log(LoanId); 
-          
-          //creating new object
-          var NewUser = {
-            applicantName: ApplicantName,
-            applicantAddress: ApplicantAddress,
-            applicantPHno: ApplicantMobileNo,
-            applicantEmail: ApplicantEmailId,
-            applicantAadhar: ApplicantAadhaarNo,
-            applicantPAN: ApplicantPANNo,
-            applicantSalary: ApplicantSalary,
-            loanAmount: ApplicantLoanAmount,
-            loanRepaymentMonths: ApplicantRepaymentMonths,
-            loanStatus: "Pending",
-            doucument: this.filebase64String,
-            Id: LoanId
-          };
-
           //checking for wrong format
           let formatErrors = [];
           if(!ApplicantName.match(nameFormat)) formatErrors.push("Applicant name (only alphabets are allowed)");
@@ -99,8 +65,6 @@ sap.ui.define([
             sap.m.MessageBox.error("Please correct the following fields:\n" + formatErrors.join("\n"));
             return;
           }
-
-
 
           //missing fields
           let missingFields = [];
@@ -118,11 +82,22 @@ sap.ui.define([
             sap.m.MessageBox.error("Please fill the required fields:\n" + missingFields.join("\n"));
             return;
           }
-
-
+          //creating new object
+          var NewUser = {
+            applicantName: ApplicantName,
+            applicantAddress: ApplicantAddress,
+            applicantPHno: ApplicantMobileNo,
+            applicantEmail: ApplicantEmailId,
+            applicantAadhar: ApplicantAadhaarNo,
+            applicantPAN: ApplicantPANNo,
+            applicantSalary: ApplicantSalary,
+            loanAmount: ApplicantLoanAmount,
+            loanRepaymentMonths: ApplicantRepaymentMonths,
+            document: this.filebase64String,
+          };
           //posting data
           $.ajax({
-            url: "/odata/v4/my/customer",
+            url: "/odata/v4/my/submitLoanApplication",
             method: "POST",
             contentType: "application/json",
             data: JSON.stringify(NewUser),
@@ -144,24 +119,17 @@ sap.ui.define([
             //navigate
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.navTo("dashboard");
-                }
-
-              } );
-            
-            
-
-              
+            }
+            });
             },
             error: (error) => {
               MessageToast.show("Error submitting: " + error.responseText);
             }
           });
-          
         },
 
         onCancel() {
-            sap.m.MessageToast.show("Loan application cancelled");
-            
+            sap.m.MessageToast.show("Loan application cancelled"); 
         },
         
         onChooseFile: function () {
@@ -235,8 +203,6 @@ sap.ui.define([
             this.byId("enterloanamount").setValue("");
             this.byId("enterloanrepaymentmonths").setValue("");
             this.byId("selectDocumentType").setSelectedKey(null);
-
-
         },
         nameValidation: function(oEvent) {
             var fieldValue = oEvent.getSource().getValue();
@@ -374,17 +340,12 @@ sap.ui.define([
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.navTo("dashboard");
             MessageToast.show("Logged out!");
-            
-      
-    
           },
           onHome: function () {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.navTo("dashboard");
             MessageToast.show("Returned Home");
-            
           }
-          
-    
+
     });
 });

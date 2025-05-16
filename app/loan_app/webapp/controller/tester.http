@@ -1,14 +1,14 @@
 ###getting data
 
-GET http://localhost:4004/odata/v4/my/customerSet
+GET http://localhost:4004/odata/v4/my/customer
 
 
 ###getting data
 
-GET http://localhost:4004/odata/v4/my/customerSet/123e4567-e89b-12d3-a456-426614174000
+GET http://localhost:4004/odata/v4/my/customer/123e4567-e89b-12d3-a456-426614174000
 ###updating the loan details
 
-PATCH http://localhost:4004/odata/v4/my/customerSet/345e6789-e89b-12d3-a456-426614174002
+PATCH http://localhost:4004/odata/v4/my/customer/345e6789-e89b-12d3-a456-426614174002
 Content-Type: application/json
 
 
@@ -19,4 +19,4 @@ Content-Type: application/json
 
 ###deleting data
 
-DELETE  http://localhost:4004/odata/v4/my/customerSet/123e4567-e89b-12d3-a456-426614174001
+DELETE  http://localhost:4004/odata/v4/my/customer/123e4567-e89b-12d3-a456-426614174001
