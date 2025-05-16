@@ -158,14 +158,8 @@
           "target": [
             "TargetProfile"
           ]
-        },
-        {
-          "name": "LoanDetails",
-          "pattern": "LoanDetails",
-          "target":[
-            "TargetLoanDetails"
-          ]
         }
+       
       ],
       "targets": {
         "Targetmain": {
@@ -188,10 +182,7 @@
           "id": "loanApplication",
           "name": "loanApplication"
         },
-        "TargetLoanDetails":{
-          "id": "LoanDetails",
-          "name": "LoanDetails"
-        },
+        
         "TargetAdminAppliedLoans": {
           "id":"AdminAppliedLoans",
           "name":"AdminAppliedLoans"

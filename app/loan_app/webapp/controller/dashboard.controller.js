@@ -16,12 +16,7 @@ sap.ui.define([
             icon: "https://cdn-icons-png.flaticon.com/512/1828/1828817.png",
             key: "ApplyLoan"
           },
-          {
-            title: "Loan Status",
-            description: "Check current status of loan",
-            icon: "https://cdn-icons-png.flaticon.com/512/3135/3135773.png",
-            key: "LoanStatus"
-          },
+          
           {
             title: "Profile",
             description: "User details and information",
@@ -32,18 +27,17 @@ sap.ui.define([
         ],
 
         tiles1 : [
-
           {
-            title: "Applied Loans",
-            description: "Track your previous applications",
-            icon: "https://cdn-icons-png.flaticon.com/512/943/943593.png",
-            key: "AppliedLoan"
+            title: "Loan Status",
+            description: "Check current status of loan",
+            icon: "https://cdn-icons-png.flaticon.com/512/3135/3135773.png",
+            key: "LoanStatus"
           },
           {
-            title: "Loan Details",
-            description: "Interest rates, EMI, tenure info",
-            icon: "https://cdn-icons-png.flaticon.com/512/1250/1250615.png",
-            key: "LoanDetails"
+            title: "Applied Loans",
+            description: "Details of Customer Loan Applications",
+            icon: "https://cdn-icons-png.flaticon.com/512/943/943593.png",
+            key: "AppliedLoan"
           }
           
         ]
@@ -69,9 +63,6 @@ sap.ui.define([
           break;
         case "AppliedLoan":
           router.navTo("AdminAppliedLoans");
-          break;
-        case "LoanDetails":
-          router.navTo("LoanDetails");
           break;
         default:
           MessageToast.show("Unknown tile key: " + key);
