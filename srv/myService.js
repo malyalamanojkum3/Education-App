@@ -1,3 +1,5 @@
+const { tx } = require("@sap/cds");
+
 module.exports = cds.service.impl(function(){
   const { customer} = this.entities;
     function customIdGenerator(){
@@ -10,7 +12,7 @@ module.exports = cds.service.impl(function(){
         const data = req.data;
         const Id = customIdGenerator();
         // Insert into DB
-        await INSERT.into(customer).entries({
+        const result = await cds.tx(req).create(customer).entries({
           Id,
           applicantName: data.applicantName,
           applicantAddress: data.applicantAddress,
@@ -22,7 +24,7 @@ module.exports = cds.service.impl(function(){
           loanAmount: data.loanAmount,
           loanRepaymentMonths: data.loanRepaymentMonths,
           loanStatus: "Pending",
-          //document: data.document
+          document: data.document
         });
     
         return { Id };
@@ -30,10 +32,7 @@ module.exports = cds.service.impl(function(){
 
       this.on("approveLoan", async(req) => {
         const { Id } = req.data;
-
-        const result = await UPDATE(customer)
-          .set({ loanStatus: "Approved" })
-          .where({ Id });
+        const result = cds.tx(req).update(customer).with({ loanStatus: "Approved" }).where({ Id });
 
         if (result === 0) {
           return req.error(404, `Loan application with Id ${Id} not found.`);
@@ -45,10 +44,7 @@ module.exports = cds.service.impl(function(){
       this.on("rejectLoan", async(req) => {
         const { Id } = req.data;
 
-        const result = await UPDATE(customer)
-          .set({ loanStatus: "Rejected" })
-          .where({ Id });
-
+        const result = cds.tx(req).update(customer).with({ loanStatus: "Rejected" }).where({ Id });
         if (result === 0) {
           return req.error(404, `Loan application with Id ${Id} not found.`);
         }
