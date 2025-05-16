@@ -171,7 +171,7 @@ class="content"
                     <HBox>
                     <HBox>
                     <Label text="Salary:" class="font customLabel1"/>
-                    <Text text="₹{mainModel>applicantSalary}" class="font customInput1" />
+                    <Text text="₹{mainModel>applicantSalary}.00" class="font customInput1" />
                 </HBox>
                     <HBox>
                     <Label text="Tenure:" class="font customLabel1"/>
@@ -181,7 +181,7 @@ class="content"
                     <HBox>
                     <HBox>
                     <Label text="Principal:" class="font customLabel1" />
-                    <Text text="₹{mainModel>loanAmount}" class="font customInput1"/>
+                    <Text text="₹{mainModel>loanAmount}.00" class="font customInput1"/>
                 </HBox>
                 <HBox>
                     <Label text="Loan Status:" class="font customLabel1" />
