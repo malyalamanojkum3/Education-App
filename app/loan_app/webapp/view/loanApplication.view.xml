@@ -8,6 +8,7 @@
     xmlns:unified="sap.ui.unified"
     xmlns:f="sap.ui.layout.form"
     >
+    
     <Page id="LApage" showHeader="true" enableScrolling="true" class="customPage">
      <customHeader>
       <Bar design="Header" class="box">
@@ -33,6 +34,7 @@
     
      
         <content>
+        
 
             <f:SimpleForm class="center">
             <FlexBox
@@ -46,7 +48,7 @@
                 <VBox class="customMargin">
                 <HBox  alignItems="Center">
                     <Label id="LAlabel1" text="Enter Applicant Name" required="true"  class="customLabel"/>
-                    <Input id="enterApplicantName" placeholder="Enter Applicant Name"  liveChange=".nameValidation" class="customInput" />
+                    <Input id="enterApplicantName"   placeholder="Enter Applicant Name"  liveChange=".nameValidation" class="customInput" />
                 </HBox>
                 </VBox>
 
@@ -68,7 +70,7 @@
                 <VBox class="customMargin">
                 <HBox alignItems="Center">
                     <Label id="LAlabel4" text="Enter Applicant Email Id" required="true" class="customLabel"/>
-                    <Input id="enterEmailId" placeholder="Enter Applicant Email Id" liveChange="emailValidation" class="customInput"/>
+                    <Input id="enterEmailId" placeholder="Enter Applicant Email Id" liveChange="emailValidation"  class="customInput"/>
                     </HBox>
                 </VBox>
 

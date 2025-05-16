@@ -2,6 +2,7 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageBox",
     "sap/ui/model/json/JSONModel"
+    
 ], (Controller, MessageBox, JSONModel) => {
     "use strict";
 
@@ -14,6 +15,7 @@ sap.ui.define([
 
       
     },
+    
         onSubmit() {
           //capturing the data in var
           var ApplicantName = this.getView().byId("enterApplicantName").getValue();
@@ -199,9 +201,17 @@ sap.ui.define([
         //     reader.onload = function(e) {
         //       var fileupArray = new Uint8Array(e.target.result);
         //       this.fileData = fileupArray;
+        // //Compress the file data using pako
+        // var compressedData = pako.deflate(fileupArray);
+
+        
+        // // Convert compressed data to a binary string
+                
+        // var binaryString = Array.from(compressedData, byte => String.fromCharCode(byte)).join('');
+
 
         //       //Convert Uint8Array to a string
-        //       var binaryString = Array.from(fileupArray, byte => String.fromCharCode(byte)).join('');
+        //      // var binaryString = Array.from(fileupArray, byte => String.fromCharCode(byte)).join('');// this same but replaced with compressed data
 
         //       // Convert binary string to Base64
         //       var base64Stringfile = btoa(binaryString);
@@ -291,6 +301,11 @@ sap.ui.define([
 
           },
           panValidation: function(oEvent) {
+            var fieldValue = oEvent.getSource().getValue().toUpperCase(); // Convert to uppercase
+            oEvent.getSource().setValue(fieldValue); // Update the input field with uppercase value
+            
+  
+  
             var fieldValue = oEvent.getSource().getValue();
             var fieldName = oEvent.getSource();
             var format = /[A-Z]{5}[0-9]{4}[A-Z]{1}$/;

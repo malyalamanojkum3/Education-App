@@ -283,3 +283,62 @@ text-align: center !important;
   max-width: 600px;
   max-height: 400px;
 }
+
+.htext{
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  margin: 0;
+  padding: 0;
+  
+}
+
+.loginBox{
+  background-color: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.inputem{
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.inputpass{
+  margin-bottom: 1rem !important;
+}
+
+.linebar{
+  background-color: #818181; 
+  width: 100%; 
+  margin-top: 10px; 
+  margin-bottom: 10px;
+}
+
+.htextreg{
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.htextregsmall{
+  font-weight: lighter;
+
+}
+
+.inputn{
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.inputn1{
+  margin-bottom: 1rem !important;
+}
+
+.sapUiContentPadding{
+  background-color: white;
+}
