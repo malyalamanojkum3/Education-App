@@ -8,7 +8,7 @@ module.exports = cds.service.impl(function(){
     }
     this.on('submitLoanApplication', async req => {
         const data = req.data;
-        Id = customIdGenerator();
+        const Id = customIdGenerator();
         // Insert into DB
         await INSERT.into(customer).entries({
           Id,
@@ -22,9 +22,37 @@ module.exports = cds.service.impl(function(){
           loanAmount: data.loanAmount,
           loanRepaymentMonths: data.loanRepaymentMonths,
           loanStatus: "Pending",
-          //document: data.doucument
+          //document: data.document
         });
     
         return { Id };
       });
+
+      this.on("approveLoan", async(req) => {
+        const { Id } = req.data;
+
+        const result = await UPDATE(customer)
+          .set({ loanStatus: "Approved" })
+          .where({ Id });
+
+        if (result === 0) {
+          return req.error(404, `Loan application with Id ${Id} not found.`);
+        }
+
+        return { Id, loanStatus: "Approved" };
+      })
+
+      this.on("rejectLoan", async(req) => {
+        const { Id } = req.data;
+
+        const result = await UPDATE(customer)
+          .set({ loanStatus: "Rejected" })
+          .where({ Id });
+
+        if (result === 0) {
+          return req.error(404, `Loan application with Id ${Id} not found.`);
+        }
+
+        return { Id, loanStatus: "Rejected" };
+      })
     })

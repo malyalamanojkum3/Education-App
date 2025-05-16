@@ -194,10 +194,10 @@ class="content"
                     <Label  text="Address:" class="font customLabel1"/>
                     <Text  text="{mainModel>applicantAddress}" class="font customInput1" />
                </HBox>
-               <HBox>
+               <!-- <HBox>
            <Label text="Documents:" class="font customLabel1"/>
      <VBox>
-         <List items="{mainModel>doucument}">
+         <List items="{mainModel>document}">
      <StandardListItem
      title="{mainModel>applicantName}"
      icon="sap-icon://attachment"
@@ -206,7 +206,7 @@ class="content"
      />
  </List>
      </VBox>
-</HBox>
+</HBox> -->
                </HBox>
                 </VBox>
                 

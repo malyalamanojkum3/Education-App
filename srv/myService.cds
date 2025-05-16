@@ -15,5 +15,7 @@ service myService {
         loanRepaymentMonths : String,
         document : String
         ) returns { Id : String; };
+    action approveLoan( Id : String ) returns { Id: String; loanStatus: String; };
+    action rejectLoan( Id : String ) returns { Id: String; loanStatus: String; };
 
 }

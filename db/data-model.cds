@@ -30,6 +30,6 @@ type LoanStatus : String enum{
    applicantSalary:String;
    loanAmount:String;
    loanRepaymentMonths:String;
-   doucument:LargeBinary;
+   document:LargeBinary;
    user: Association to userDetails;
  }

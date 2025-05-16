@@ -9,24 +9,6 @@ sap.ui.define([
     "use strict";
 
     return Controller.extend("loanapp.controller.AdminAppliedLoans", {
-        onInit: function () {
-            // Apply the filter when the view is initialized
-            this._applyPendingLoansFilter();
-
-        },
-        
-        _applyPendingLoansFilter: function () {
-            // Get the table control
-            // Create a filter for loanStatus = "Pending"
-            var oFilter = new sap.ui.model.Filter("loanStatus", sap.ui.model.FilterOperator.EQ, "Pending");
-        
-            var oTable = this.byId("loanList");
-            var oBinding = oTable.getBinding("items");
-            console.log("oBinding",oBinding);
-        
-            // Apply the filter
-           // oBinding.filter([oFilter]);
-        },
 
         onViewDetails: function (oEvent) {
             var oItem = oEvent.getSource().getBindingContext("mainModel");
@@ -45,12 +27,10 @@ sap.ui.define([
             var oModel = this.getView().getModel("mainModel");
             var oData = oContext.getObject();
         
-            oData.loanStatus = "Approved";
-        
             jQuery.ajax({
-                url: "/odata/v4/my/customer('" + oData.Id + "')",
-                method: "PATCH",
-                data: JSON.stringify(oData),
+                url: "/odata/v4/my/approveLoan",
+                method: "POST",
+                data: JSON.stringify({Id: oData.Id}),
                 contentType: "application/json",
                 success: () => {
                     oModel.refresh();
@@ -69,12 +49,10 @@ sap.ui.define([
             var oModel = this.getView().getModel("mainModel");
             var oData = oContext.getObject();
         
-            oData.loanStatus = "Rejected";
-        
             jQuery.ajax({
-                url: "/odata/v4/my/customer('" + oData.Id + "')",
-                method: "PATCH",
-                data: JSON.stringify(oData),
+                url: "/odata/v4/my/rejectLoan",
+                method: "POST",
+                data: JSON.stringify({Id: oData.Id}),
                 contentType: "application/json",
                 success: () => {
                     oModel.refresh();
