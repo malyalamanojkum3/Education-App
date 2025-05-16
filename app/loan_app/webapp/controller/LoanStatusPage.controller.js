@@ -30,7 +30,7 @@ sap.ui.define([
         _isValidCustomerId: function(sCustomerId) {
             var oModel = this.getView().getModel("mainModel");
             return new Promise(function(resolve, reject) {
-                var oBindingContext = oModel.bindContext("/customer('" + sCustomerId + "')");
+                var oBindingContext = oModel.bindContext("/trackLoan('" + sCustomerId + "')");
                 oBindingContext.requestObject().then(function(oData) {
                     resolve(!!oData);
                 }).catch(function() {

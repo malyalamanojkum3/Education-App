@@ -54,5 +54,14 @@ module.exports = cds.service.impl(function(){
         }
 
         return { Id, loanStatus: "Rejected" };
+      }),
+
+      this.on("trackLoan", async(req) => {
+        const Id = req.params[0];
+        const result = cds.tx(req).read(customer).where({Id});
+        if (result === 0) {
+          return req.error(404, `Loan application with Id ${Id} not found.`);
+        }
+        return result;
       })
     })
