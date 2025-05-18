@@ -118,6 +118,13 @@
           ]
         },
         {
+          "name": "main",
+          "pattern": "main",
+          "target": [
+            "Targetmain"
+          ]
+        },
+        {
           "name": "dashboard",
           "pattern": "dashboard",
           "target": [
