@@ -24,7 +24,7 @@ module.exports = cds.service.impl(function(){
           loanAmount: data.loanAmount,
           loanRepaymentMonths: data.loanRepaymentMonths,
           loanStatus: "Pending",
-          document: data.document
+          // document: data.document
         });
     
         return { Id };
@@ -32,7 +32,7 @@ module.exports = cds.service.impl(function(){
 
       this.on("approveLoan", async(req) => {
         const { Id } = req.data;
-        const result = cds.tx(req).update(customer).with({ loanStatus: "Approved" }).where({ Id });
+        const result = await cds.tx(req).update(customer).with({ loanStatus: "Approved" }).where({ Id });
 
         if (result === 0) {
           return req.error(404, `Loan application with Id ${Id} not found.`);
@@ -44,7 +44,7 @@ module.exports = cds.service.impl(function(){
       this.on("rejectLoan", async(req) => {
         const { Id } = req.data;
 
-        const result = cds.tx(req).update(customer).with({ loanStatus: "Rejected" }).where({ Id });
+        const result = await cds.tx(req).update(customer).with({ loanStatus: "Rejected" }).where({ Id });
         if (result === 0) {
           return req.error(404, `Loan application with Id ${Id} not found.`);
         }
