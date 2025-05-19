@@ -90,6 +90,8 @@
         </f:Form>
       </VBox>
     </content>
+
+
     <VBox>
       <!-- Tracking Status Bar -->
       <Title text="Loan Application Status" level="H2" textAlign="Center" class="sapUiSmallMargin"/>
@@ -100,6 +102,52 @@
           percentValue="{progressModel>/percentValue}"
           showValue="true"
           state="{progressModel>/state}" />
+
+
+          <HBox justifyContent="Center" alignItems="Center" class="workflowBox" width="700%">
+ 
+  <!-- Submitted -->
+  <VBox alignItems="Center">
+    <core:Icon
+      src="sap-icon://upload"
+      size="{= ${mainModel>loanStatus} === 'Submitted' ? '2.5rem' : '3rem'}"
+      color="{= ${mainModel>loanStatus} === 'Submitted' ? '#0b74da' : '#cccccc'}"/>
+    <Text text="Submitted"/>
+  </VBox>
+ 
+   <core:Icon src="sap-icon://arrow-right" class="sapUiTinyMarginBegin sapUiTinyMarginEnd"
+  size="60px"
+  width="105px"
+  color="gray"></core:Icon>
+ 
+  <!-- In Progress -->
+  <VBox alignItems="Center">
+    <core:Icon
+      src="sap-icon://pending"
+      size="{= ${mainModel>loanStatus} === 'Pending' ? '2.5rem' : '3rem'}"
+      color="{= ${mainModel>loanStatus} === 'Pending' ? 'orange' : '#cccccc'}"/>
+    <Text text="In Progress"/>
+  </VBox>
+ 
+  <core:Icon src="sap-icon://arrow-right" class="sapUiTinyMarginBegin sapUiTinyMarginEnd"
+  size="70px"
+  width="105px"
+  color="gray"></core:Icon>
+ 
+ 
+<VBox alignItems="Center">
+ 
+<core:Icon src="{= ${mainModel>loanStatus} === 'Approved' ? 'sap-icon://verified' :  ${mainModel>loanStatus} === 'Rejected' ? 'sap-icon://notification' : ''}"
+size="{= ${mainModel>loanStatus} === 'Approved' ? '3rem' : ${mainModel>loanStatus} === 'Rejected' ? '3rem': ''}"
+color="{= ${mainModel>loanStatus} === 'Approved' ? 'green' : ${mainModel>loanStatus} === 'Rejected' ? 'red' : ''}"/>
+<Text
+        text="{= ${mainModel>loanStatus} === 'Approved' ? 'Loan Approved' : ${mainModel>loanStatus} === 'Rejected' ? 'Loan Rejected' : ''}"
+    />
+</VBox>
+</HBox>
+ 
+
+
       </VBox>
     </VBox>
   </Page>

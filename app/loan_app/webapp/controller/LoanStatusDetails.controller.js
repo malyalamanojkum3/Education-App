@@ -53,24 +53,24 @@ sap.ui.define([
             var oProgressModel = this.getView().getModel("progressModel");
             switch (sLoanStatus) {
                 case "Submitted":
-                    oProgressModel.setProperty("/displayValue", "Submitted");
+                    oProgressModel.setProperty("/displayValue", "");
                     oProgressModel.setProperty("/percentValue", 33);
                     oProgressModel.setProperty("/state", "None");
                     break;
                 case "Pending":
-                    oProgressModel.setProperty("/displayValue", "Pending");
+                    oProgressModel.setProperty("/displayValue", "");
                     oProgressModel.setProperty("/percentValue", 66);
                     oProgressModel.setProperty("/state", "Warning"); // Typically renders as yellow/orange.
                     break;
                 case "Approved":
-                    oProgressModel.setProperty("/displayValue", "Approved");
+                    oProgressModel.setProperty("/displayValue", "");
                     oProgressModel.setProperty("/percentValue", 100);
                     oProgressModel.setProperty("/state", "Success"); // Green bar.
                     break;
                 case "Rejected":
-                    oProgressModel.setProperty("/displayValue", "Rejected");
+                    oProgressModel.setProperty("/displayValue", "");
                     oProgressModel.setProperty("/percentValue", 100);
-                    oProgressModel.setProperty("/state", "Rejected"); // Green bar.
+                    oProgressModel.setProperty("/state", "Error"); // Red bar.
                     break;
                 default:
                     // Fallback for any other status values.
