@@ -24,7 +24,7 @@ module.exports = cds.service.impl(function(){
           loanAmount: data.loanAmount,
           loanRepaymentMonths: data.loanRepaymentMonths,
           loanStatus: "Pending",
-          document: data.document
+          //document: data.document
         });
     
         return { Id };

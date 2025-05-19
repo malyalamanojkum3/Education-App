@@ -93,7 +93,7 @@ sap.ui.define([
             applicantSalary: ApplicantSalary,
             loanAmount: ApplicantLoanAmount,
             loanRepaymentMonths: ApplicantRepaymentMonths,
-            document: this.filebase64String,
+            //document: this.filebase64String,
           };
           //posting data
           $.ajax({
