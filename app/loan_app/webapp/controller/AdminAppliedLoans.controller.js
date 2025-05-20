@@ -5,23 +5,28 @@ sap.ui.define([
     "sap/ui/model/FilterOperator",
     "sap/ui/model/odata/v4/ODataModel",
     
+    
 ], function (Controller, MessageToast, Filter,FilterOperator,ODataModel) {
     "use strict";
+    
 
     return Controller.extend("loanapp.controller.AdminAppliedLoans", {
-
+        
+       
         onViewDetails: function (oEvent) {
+            sap.ui.core.BusyIndicator.show(0);
             var oItem = oEvent.getSource().getBindingContext("mainModel");
             var oDialog = this.byId("customerDetailsDialog");
             oDialog.setBindingContext(oItem,"mainModel");
-            oDialog.open();
+            oDialog.open(sap.ui.core.BusyIndicator.hide());
         },
 
-     onCloseDialog: function () {
+        onCloseDialog: function () {
             this.byId("customerDetailsDialog").close();
         },
 
         onApproveLoan: function () {
+            sap.ui.core.BusyIndicator.show(0);
             var oDialog = this.byId("customerDetailsDialog");
             var oContext = oDialog.getBindingContext("mainModel");
             var oModel = this.getView().getModel("mainModel");
@@ -33,9 +38,11 @@ sap.ui.define([
                 data: JSON.stringify({Id: oData.Id}),
                 contentType: "application/json",
                 success: () => {
+                    
                     oModel.refresh();
                     MessageToast.show("Loan Approved");
-                    oDialog.close();
+                    oDialog.close(sap.ui.core.BusyIndicator.hide());
+                   
                 },
                 error: () => {
                     MessageToast.show("Error Approving Loan");
@@ -44,6 +51,7 @@ sap.ui.define([
         },        
 
         onRejectLoan: function () {
+            sap.ui.core.BusyIndicator.show(0);
             var oDialog = this.byId("customerDetailsDialog");
             var oContext = oDialog.getBindingContext("mainModel");
             var oModel = this.getView().getModel("mainModel");
@@ -57,7 +65,7 @@ sap.ui.define([
                 success: () => {
                     oModel.refresh();
                     MessageToast.show("Loan Rejected");
-                    oDialog.close();
+                    oDialog.close(sap.ui.core.BusyIndicator.hide());
                 },
                 error: () => {
                     MessageToast.show("Error Rejecting Loan");

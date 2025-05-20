@@ -12,11 +12,44 @@ sap.ui.define([
         // Initialize the model
         var oModel = new JSONModel("odata/v4/my/customer");
         this.getView().setModel(oModel);
-
+        
+        
       
     },
-    
+    onAfterRendering: function () {
+      const aInputs = [
+          "enterApplicantName",
+          "enterApplicantAddress",
+          "enterApplicantMobileNo",
+          "enterEmailId",
+          "enterAadhaarNo",
+          "enterPanNo",
+          "enterSalary",
+          "enterloanamount",
+          "enterloanrepaymentmonths"
+      ];
+  
+      aInputs.forEach((sId, index) => {
+          const oInput = this.byId(sId);
+          if (oInput) {
+              oInput.attachBrowserEvent("keydown", (oEvent) => {
+                  if (oEvent.key === "Enter") {
+                      oEvent.preventDefault();
+                      const nextInputId = aInputs[index + 1];
+                      if (nextInputId) {
+                          const oNextInput = this.byId(nextInputId);
+                          if (oNextInput) {
+                              oNextInput.focus();
+                          }
+                      }
+                  }
+              });
+          }
+      });
+  },  
+  
         onSubmit() {
+          sap.ui.core.BusyIndicator.show(0);
           //capturing the data in var
           var ApplicantName = this.getView().byId("enterApplicantName").getValue();
           var ApplicantAddress = this.getView().byId("enterApplicantAddress").getValue();
@@ -62,7 +95,11 @@ sap.ui.define([
           if(!ApplicantRepaymentMonths.match(repayFormat)) formatErrors.push("Applicant Repaymonths (upto 2 digits)");
 
           if(formatErrors.length > 0){
-            sap.m.MessageBox.error("Please correct the following fields:\n" + formatErrors.join("\n"));
+            sap.m.MessageBox.error("Please correct the following fields:\n" + formatErrors.join("\n"),{
+              onClose: () => {
+                sap.ui.core.BusyIndicator.hide(0);
+              }
+            });
             return;
           }
 
@@ -79,8 +116,13 @@ sap.ui.define([
           if(!ApplicantRepaymentMonths) missingFields.push("Loan Repayment Months");
 
           if(missingFields.length>0){
-            sap.m.MessageBox.error("Please fill the required fields:\n" + missingFields.join("\n"));
+            sap.m.MessageBox.error("Please fill the required fields:\n" + missingFields.join("\n") ,{
+              onClose: () => {
+                sap.ui.core.BusyIndicator.hide(0);
+              }
+            });
             return;
+            
           }
           //creating new object
           var NewUser = {
@@ -102,6 +144,7 @@ sap.ui.define([
             contentType: "application/json",
             data: JSON.stringify(NewUser),
             success: (data) => {
+              sap.ui.core.BusyIndicator.hide(0);
               
               MessageBox.success("You have applied for loan successfully\nYour loan id:"+ data.Id, {
 
@@ -115,6 +158,7 @@ sap.ui.define([
             this.byId("enterSalary").setValue("");
             this.byId("enterloanamount").setValue("");
             this.byId("enterloanrepaymentmonths").setValue("");
+            
 
             //navigate
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
@@ -143,6 +187,7 @@ sap.ui.define([
 
             }.bind(this);
             oFileUploader.click();
+            
 
                 },
         // onUpload: function () {

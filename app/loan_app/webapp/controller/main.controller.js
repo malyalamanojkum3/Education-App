@@ -5,9 +5,12 @@ sap.ui.define([
 
     return Controller.extend("loanapp.controller.main", {
         onInit() {
+            sap.ui.core.BusyIndicator.show(0);
             // var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             // oRouter.navTo("dashboard");
+            sap.ui.core.BusyIndicator.hide();
         },
+        
         onSignup: function () {
             var oSignupBox = this.byId("signUpFields");
             var oLoginBox = this.byId("loginfields");

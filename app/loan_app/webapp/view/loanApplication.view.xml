@@ -48,7 +48,7 @@
                 <VBox class="customMargin">
                 <HBox  alignItems="Center">
                     <Label id="LAlabel1" text="Enter Applicant Name" required="true"  class="customLabel"/>
-                    <Input id="enterApplicantName"   placeholder="Enter Applicant Name"  liveChange=".nameValidation" class="customInput" />
+                    <Input id="enterApplicantName"   placeholder="Enter Applicant Name" liveChange=".nameValidation" class="customInput" />
                 </HBox>
                 </VBox>
 

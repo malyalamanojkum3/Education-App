@@ -6,8 +6,11 @@
     <Page id="LoginPage" showHeader="false" class="sapUiContentPadding"  enableScrolling="false">
         <content>
             <HBox width="100%" height="100%" >
+            
+
                 <!-- image -->
-                    <VBox width="60%" alignItems="Center" justifyContent="Center">
+                    <VBox width="60%" class="imageContainer" alignItems="Center" justifyContent="Center">
+                   
                         <Image src="images/Tiny students sitting near books getting university degree.jpg" width="100%" densityAware="false"/>  
                              
                     </VBox>
