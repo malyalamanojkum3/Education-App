@@ -137,11 +137,11 @@
  
 <VBox alignItems="Center">
  
-<core:Icon src="{= ${mainModel>loanStatus} === 'Approved' ? 'sap-icon://verified' :  ${mainModel>loanStatus} === 'Rejected' ? 'sap-icon://notification' : ''}"
-size="{= ${mainModel>loanStatus} === 'Approved' ? '3rem' : ${mainModel>loanStatus} === 'Rejected' ? '3rem': ''}"
-color="{= ${mainModel>loanStatus} === 'Approved' ? 'green' : ${mainModel>loanStatus} === 'Rejected' ? 'red' : ''}"/>
+<core:Icon src="{= ${mainModel>loanStatus} === 'Approved' ? 'sap-icon://verified' :  ${mainModel>loanStatus} === 'Rejected' ? 'sap-icon://notification' : 'sap-icon://question-mark'}"
+size="{= ${mainModel>loanStatus} === 'Approved' ? '3rem' : ${mainModel>loanStatus} === 'Rejected' ? '3rem': '3rem'}"
+color="{= ${mainModel>loanStatus} === 'Approved' ? 'green' : ${mainModel>loanStatus} === 'Rejected' ? 'red' : 'grey'}"/>
 <Text
-        text="{= ${mainModel>loanStatus} === 'Approved' ? 'Loan Approved' : ${mainModel>loanStatus} === 'Rejected' ? 'Loan Rejected' : ''}"
+        text="{= ${mainModel>loanStatus} === 'Approved' ? 'Loan Approved' : ${mainModel>loanStatus} === 'Rejected' ? 'Loan Rejected' : 'Pending'}"
     />
 </VBox>
 </HBox>
