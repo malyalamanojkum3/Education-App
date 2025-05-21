@@ -4,8 +4,11 @@
     displayBlock="true"
     xmlns="sap.m"
     xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:unified="sap.ui.unified"
     xmlns:f="sap.ui.layout.form"
     >
+    
     <Page id="LApage" showHeader="true" enableScrolling="true" class="customPage">
      <customHeader>
       <Bar design="Header" class="box">
@@ -31,6 +34,7 @@
     
      
         <content>
+        
 
             <f:SimpleForm class="center">
             <FlexBox
@@ -44,7 +48,7 @@
                 <VBox class="customMargin">
                 <HBox  alignItems="Center">
                     <Label id="LAlabel1" text="Enter Applicant Name" required="true"  class="customLabel"/>
-                    <Input id="enterApplicantName" placeholder="Enter Applicant Name"  liveChange=".nameValidation" class="customInput" />
+                    <Input id="enterApplicantName"   placeholder="Enter Applicant Name" liveChange=".nameValidation" class="customInput" />
                 </HBox>
                 </VBox>
 
@@ -54,31 +58,24 @@
                     <Input id="enterApplicantAddress" placeholder="Enter Applicant Address"  class="customInput" />
                 </HBox>
                 </VBox>
-
-
                 <VBox class="customMargin">
                 <HBox alignItems="Center">
                     <Label id="LAlabel3" text="Enter Applicant Mobile No"  required="true" class="customLabel"/>
                     <Input id="enterApplicantMobileNo" placeholder="Enter Applicant Mobile No" liveChange="numValidation" class="customInput"/>
                 </HBox>
                 </VBox>
-
                 <VBox class="customMargin">
                 <HBox alignItems="Center">
                     <Label id="LAlabel4" text="Enter Applicant Email Id" required="true" class="customLabel"/>
-                    <Input id="enterEmailId" placeholder="Enter Applicant Email Id" liveChange="emailValidation" class="customInput"/>
+                    <Input id="enterEmailId" placeholder="Enter Applicant Email Id" liveChange="emailValidation"  class="customInput"/>
                     </HBox>
                 </VBox>
-
                 <VBox class="customMargin">
                 <HBox alignItems="Center">
                     <Label id="LAlabel5" text="Enter Aadhaar No" required="true" class="customLabel" />
                     <Input id="enterAadhaarNo" placeholder="Enter Aadhaar No" liveChange="aadhaarValidation"  class="customInput" />
                 </HBox>
                 </VBox>
-
-
-
                 <VBox class="customMargin" id="LAbox3">
                 <VBox class="customMargin">
                 <HBox alignItems="Center">
@@ -97,7 +94,11 @@
                     
                     <VBox >
                     <Button id="chooseFileButton" text="Choose a file..." width="100%" class="customButton" press=".onChooseFile"/>
-                    <Button id="uploadDocumentsButton" text="Upload Documents" type="Accept" width="100%" class="customButton" press=".onUpload"/>
+                    <Input id="filePath" visible="true" editable="false" />
+                    
+                    <Button id="uploadDocumentsButton" text="Upload Documents" type="Accept"  width="100%" class="customButton" press=".onUpload"/>
+                    <Input id="loanId" visible="false" /> 
+
                     </VBox>
                 </HBox>
                 </VBox>
@@ -132,6 +133,9 @@
                     <Input id="enterloanrepaymentmonths" placeholder="Enter Loan Repayment Months" liveChange="repayValidation"  class="customInput"/>
                 </HBox>
                 </VBox>
+
+
+
                 
                 </VBox>
 

@@ -62,7 +62,8 @@
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
-        "sap.f":{}
+        "sap.f":{},
+        "sap.suite.ui.commons": {}
       }
     },
     "contentDensities": {
@@ -117,6 +118,13 @@
           ]
         },
         {
+          "name": "main",
+          "pattern": "main",
+          "target": [
+            "Targetmain"
+          ]
+        },
+        {
           "name": "dashboard",
           "pattern": "dashboard",
           "target": [
@@ -139,7 +147,7 @@
         },
         {
           "name": "LoanStatusDetails",
-          "pattern": "LoanStatusDetails",
+          "pattern": "LoanStatusDetails/{customerId}",
           "target": [
             "TargetLoanStatusDetails"
           ]
@@ -157,14 +165,8 @@
           "target": [
             "TargetProfile"
           ]
-        },
-        {
-          "name": "LoanDetails",
-          "pattern": "LoanDetails",
-          "target":[
-            "TargetLoanDetails"
-          ]
         }
+       
       ],
       "targets": {
         "Targetmain": {
@@ -187,10 +189,7 @@
           "id": "loanApplication",
           "name": "loanApplication"
         },
-        "TargetLoanDetails":{
-          "id": "LoanDetails",
-          "name": "LoanDetails"
-        },
+        
         "TargetAdminAppliedLoans": {
           "id":"AdminAppliedLoans",
           "name":"AdminAppliedLoans"
