@@ -36,12 +36,12 @@
                                     <Text text="Create your Education Loan account" class="htextreg" /> 
                                     <Text text="Join thousands of students achieving their academic dreams with the right financial support" class="htextregsmall"/>
 
-                                    <Input placeholder="Enter your username" type="Text" class="inputn" />
-                                    <Input placeholder="Enter Mobile No." type="Number" class="inputn1"/>
-                                    <Input placeholder="Enter your email" type="Email" class="inputn1"/>
+                                    <Input id="regusername" placeholder="Enter your username *" type="Text" class="inputn" />
+                                    <Input id="regmobile" placeholder="Enter Mobile No. *" type="Number" class="inputn1"/>
+                                    <Input id="regemail" placeholder="Enter your email *" type="Email" class="inputn1"/>
     
-                                    <Input id="regpass" placeholder="Create a password" type="Password" class="inputn1" showValueHelp="true" valueHelpIconSrc="sap-icon://show" valueHelpRequest="onTogglePasswordVisibilityreg" />
-                                    <Input placeholder="Re-enter password" class="inputn1"/>
+                                    <Input id="regpass" placeholder="Create a password *" type="Password" class="inputn1" showValueHelp="true" valueHelpIconSrc="sap-icon://show" valueHelpRequest="onTogglePasswordVisibilityreg" />
+                                    <Input id="regpass1" placeholder="Re-enter password *" class="inputn1"/>
                                     <Button text="Register" type="Emphasized" press="onRegister"/>
                                     <HBox height="1px" class="linebar"></HBox>
                                         <HBox justifyContent="End">
